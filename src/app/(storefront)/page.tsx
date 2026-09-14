@@ -201,7 +201,6 @@ export default function StorefrontHomePage() {
 
       <SectionTitle
         orientation="vertical"
-        align="center"
         content="split"
         ariaLabel="Explore GamePieceLabs"
       >
@@ -214,7 +213,7 @@ export default function StorefrontHomePage() {
         align="center"
         content="split"
       >
-        <UpcomingProductsSection hideTitle />
+        <UpcomingProductsSection />
       </SectionTitle>
     </main>
   );
