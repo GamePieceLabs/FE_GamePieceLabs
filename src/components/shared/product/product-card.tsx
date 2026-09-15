@@ -80,13 +80,13 @@ export function ProductCard({
       </div>
 
       <CardContent className="flex h-[196px] shrink-0 flex-col p-4 sm:h-[212px] sm:p-6">
-        <div className="flex h-14 shrink-0 items-start justify-between gap-3">
+        <div className="flex items-center h-14 shrink-0 justify-between gap-3">
           <h3 className="min-w-0 flex-1 text-lg leading-7 text-neutral-950">
             <Link
               href={productHref}
               className="block transition-colors hover:text-blue-700"
             >
-              <span className="line-clamp-2 text-wrap max-sm:text-xl">
+              <span className="line-clamp-2 text-wrap max-sm:text-base">
                 {name}
               </span>
             </Link>

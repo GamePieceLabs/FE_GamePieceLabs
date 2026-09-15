@@ -1,5 +1,5 @@
 import type { CSSProperties, ReactNode } from "react";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ChevronRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -69,7 +69,7 @@ export function CardImageTitleGrid({
   return (
     <div
       className={cn(
-        "grid grid-cols-2 gap-3 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3 xl:grid-cols-5",
+        "grid grid-cols-6 max-sm:grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 sm:gap-5",
         className,
       )}
     >
@@ -113,30 +113,30 @@ export function CardImageTitle({
 
       <div
         aria-hidden="true"
-        className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/10 to-black/5 transition-colors duration-300 group-hover:from-black/90"
+        className="absolute z-10 inset-0 bg-gradient-to-t from-black/85 via-black/10 to-black/5 transition-colors duration-300 group-hover:from-black/90"
       />
 
       {title || isArrow ? (
         <CardContent
           className={cn(
-            "absolute inset-0 flex items-end gap-2 p-4 sm:gap-3 sm:p-5",
-            title ? "justify-between" : "justify-end",
+            "gap-2 w-full flex justify-between items-center sm:gap-3 p-0 absolute bottom-4 px-2 z-10",
+            title ? "max-sm:justify-center" : "justify-end",
           )}
         >
           {title ? (
-            <span
+            <div
               className={cn(
-                "max-w-[18ch] text-balance text-base font-bold leading-snug text-white drop-shadow-sm sm:text-lg xl:text-xl m-1 max-sm:text-2xl",
+                "max-mobile:text-center text-base font-bold m-1 line-clamp-2 leading-snug text-white drop-shadow-sm max-sm:text-lg sm:text-md md:text-md xl:text-base",
                 titleClassName,
               )}
             >
               {title}
-            </span>
+            </div>
           ) : null}
 
           {isArrow && isClicked ? (
-            <span className="hidden size-6 shrink-0 translate-x-2 items-center justify-center rounded-full bg-white text-neutral-950 opacity-0 shadow-sm transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100 group-focus-visible:translate-x-0 group-focus-visible:opacity-100 sm:flex sm:size-8">
-              <ArrowRight className="size-3 sm:size-4" aria-hidden="true" />
+            <span className="hidden size-4 sm:size-7 shrink-0 translate-x-2 items-center justify-center rounded-full bg-white text-neutral-950 opacity-0 shadow-sm transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100 group-focus-visible:translate-x-0 group-focus-visible:opacity-100 sm:flex">
+              <ChevronRight className="size-3 sm:size-3" aria-hidden="true" />
             </span>
           ) : null}
         </CardContent>

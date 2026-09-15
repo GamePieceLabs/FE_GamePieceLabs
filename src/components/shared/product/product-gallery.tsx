@@ -51,6 +51,7 @@ export function ProductGallery(props: ProductGalleryProps) {
   const [carouselApi, setCarouselApi] = useState<CarouselApi>();
   const [isMobileDetail, setIsMobileDetail] = useState(false);
   const detailImages = props.type === "detail" ? props.images : null;
+  const totalImages = props.images.length || 0;
   const detailOnImageSelect =
     props.type === "detail" ? props.onImageSelect : undefined;
 
@@ -115,15 +116,19 @@ export function ProductGallery(props: ProductGalleryProps) {
           {props.images.map((product) => (
             <CarouselItem
               key={`${product.slug}-${product.gui}`}
-              className="basis-[88%] pl-2 sm:basis-1/2 lg:basis-1/3 xl:basis-1/4"
+              className={`${totalImages > 1 ? "" : "max-sm:mx-auto"} basis-[80%] pl-2 sm:basis-1/2 lg:basis-1/3 xl:basis-1/4`}
             >
               <ProductCard {...product} />
             </CarouselItem>
           ))}
         </CarouselContent>
 
-        <CarouselPrevious className="left-3 z-20 size-12 border-0 bg-white text-neutral-950 shadow-lg hover:bg-neutral-100 disabled:hidden" />
-        <CarouselNext className="right-3 z-20 size-12 border-0 bg-white text-neutral-950 shadow-lg hover:bg-neutral-100 disabled:hidden" />
+        {props.images.length > 1 && (
+          <>
+            <CarouselPrevious className="left-3 z-20 size-12 border-0 bg-white text-neutral-950 shadow-lg hover:bg-neutral-100" />
+            <CarouselNext className="right-3 z-20 size-12 border-0 bg-white text-neutral-950 shadow-lg hover:bg-neutral-100" />
+          </>
+        )}
       </Carousel>
     );
   }

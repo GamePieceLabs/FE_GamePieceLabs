@@ -20,7 +20,7 @@ export function CardGridSection({
   return (
     <section
       aria-labelledby={titleId}
-      className="mx-auto w-full sm:max-w-[620px] lg:max-w-[940px] xl:max-w-[1580px]"
+      className="mx-auto w-full xl:max-w-[1580px]"
     >
       <SectionHeading
         title={title}

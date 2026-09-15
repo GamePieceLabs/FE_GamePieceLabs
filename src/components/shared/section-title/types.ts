@@ -99,6 +99,4 @@ export type SectionTitleSplitProps =
   | SectionTitleVerticalSplitProps;
 
 /** API public của `SectionTitle`; `content` và `orientation` quyết định biến thể render. */
-export type SectionTitleProps =
-  | SectionTitleMoreProps
-  | SectionTitleSplitProps;
+export type SectionTitleProps = SectionTitleMoreProps | SectionTitleSplitProps;

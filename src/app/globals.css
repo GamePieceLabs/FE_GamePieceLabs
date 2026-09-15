@@ -47,6 +47,7 @@
   --radius-4xl: calc(var(--radius) * 2.6);
   --breakpoint-pc: 1920px;
   --breakpoint-laptop: 1440px;
+  --breakpoint-mobile: 380px;
 }
 
 :root {
