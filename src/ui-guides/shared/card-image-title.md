@@ -59,6 +59,7 @@ import {
 
 | Prop | Type | Required | Default | Description |
 | ---- | ---- | -------- | ------- | ----------- |
+| `isScroll` | `boolean` | No | `false` | Renders the child cards in a horizontal, draggable carousel while preserving each card's title and arrow UI |
 | `children` | `ReactNode` | Yes | — | Danh sách các thẻ `CardImageTitle` được render trong lưới |
 | `className` | `string` | No | — | Lớp CSS tùy biến cho lưới container |
 
@@ -84,6 +85,7 @@ import {
   - Laptop (`lg: 1024px - 1279px`): 3 cột.
   - Desktop (`xl: >= 1280px`): 5 cột.
 - Icon mũi tên ẩn hoàn toàn trên màn hình nhỏ và chỉ xuất hiện từ breakpoint `sm:` trở lên khi hover.
+- Pass `isScroll` to render the cards as a horizontal carousel. The carousel only controls scrolling; each `CardImageTitle` continues to render its own title and arrow.
 
 ## Basic Usage
 

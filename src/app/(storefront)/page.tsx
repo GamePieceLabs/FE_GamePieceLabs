@@ -11,14 +11,12 @@ import {
   playerReviewContentList,
   playerReviewImageList,
 } from "@/features/home/data/player-reviews";
-import { VideoFrame } from "@/components/shared/video-frame";
 import { PlayerReviewsSection } from "@/components/shared/player-reviews-section";
 import { CompanyLinksSection } from "@/features/home/components/company-links-section";
 import { UpcomingProductsSection } from "@/features/home/components/upcoming-products-section";
 import { OrderInstruction } from "@/features/home/components/order-instruction";
 import {
   SectionTitle,
-  SectionTitleGroupProps,
 } from "@/components/shared/section-title";
 import {
   ImageSlider,
@@ -74,6 +72,7 @@ export default function StorefrontHomePage() {
 
       <SectionTitle
         title="Choose Your Gear"
+        isScroll
         more={{
           label: "Browse all categories",
           href: "/products",
@@ -181,6 +180,7 @@ export default function StorefrontHomePage() {
 
       <SectionTitle
         title="Browse By Game"
+        isScroll
         more={{
           label: "View all games",
           href: "/products",

@@ -1,9 +1,16 @@
-import type { CSSProperties, ReactNode } from "react";
+import React, { Children, type CSSProperties, type ReactNode } from "react";
 import { ArrowRight, ChevronRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
 import { Card, CardContent } from "@/components/ui/card";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 import { cn } from "@/utils/cn";
 
 /** Tỉ lệ visual dựng sẵn cho category/collection card. */
@@ -45,6 +52,8 @@ export type CardImageTitleGridProps = {
   children: ReactNode;
   /** Class để thay đổi số cột hoặc khoảng cách grid. */
   className?: string;
+  /** Hiển thị danh sách card bên trong carousel ngang thay vì lưới. Mặc định `false`. */
+  isScroll?: boolean;
 };
 
 const aspectRatioClasses: Record<CardImageTitleAspectRatio, string> = {
@@ -65,17 +74,53 @@ function getPrefixedHref(href: string, prefix?: string): string {
 export function CardImageTitleGrid({
   children,
   className,
+  isScroll = false,
 }: CardImageTitleGridProps) {
-  return (
-    <div
-      className={cn(
-        "grid grid-cols-6 max-sm:grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 sm:gap-5",
-        className,
-      )}
-    >
-      {children}
-    </div>
-  );
+  switch (isScroll) {
+    case true:
+      return (
+        <div className="flex relative">
+          <Carousel
+            opts={{
+              align: "start",
+              containScroll: "trimSnaps",
+              dragFree: true,
+            }}
+            aria-label="Danh sách thẻ hình ảnh"
+            className={cn("w-full flex", className)}
+          >
+            <div className="flex-10">
+              <CarouselContent className="-ml-3 sm:-ml-5">
+                {Children.map(children, (child) => (
+                  <CarouselItem className="basis-[75%] pl-3 sm:basis-1/2 sm:pl-5 lg:basis-1/3 xl:basis-1/5">
+                    {child}
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+            </div>
+            <div className="flex justify-center absolute top-1/2 -translate-y-1/2 w-full px-4">
+              <div className="mr-auto">
+                <CarouselPrevious className="static z-20 size-8 shrink-0 translate-x-0 border-0 bg-white text-neutral-950 shadow-lg hover:bg-neutral-100" />
+              </div>
+              <div className="ml-auto">
+                <CarouselNext className="static z-20 size-8 shrink-0 translate-x-0 border-0 bg-white text-neutral-950 shadow-lg hover:bg-neutral-100" />
+              </div>
+            </div>
+          </Carousel>
+        </div>
+      );
+    default:
+      return (
+        <div
+          className={cn(
+            "grid grid-cols-6 max-sm:grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 sm:gap-5",
+            className,
+          )}
+        >
+          {children}
+        </div>
+      );
+  }
 }
 
 export function CardImageTitle({
@@ -120,7 +165,7 @@ export function CardImageTitle({
         <CardContent
           className={cn(
             "gap-2 w-full flex justify-between items-center sm:gap-3 p-0 absolute bottom-4 px-2 z-10",
-            title ? "max-sm:justify-center" : "justify-end",
+            title ? "justify-between" : "justify-end",
           )}
         >
           {title ? (

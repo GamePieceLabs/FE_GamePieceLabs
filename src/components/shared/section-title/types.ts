@@ -34,6 +34,8 @@ export interface SectionTitleMoreProps {
   wrapperClassName?: string;
   /** Chọn layout content text hoặc image grid. */
   content?: "text" | "imageList";
+  /** Hiển thị danh sách `CardImageTitle` dưới dạng carousel ngang. Mặc định `false`. */
+  isScroll?: boolean;
 }
 
 export interface SectionTitleHorizonSplitProps {

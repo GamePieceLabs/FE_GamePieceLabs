@@ -65,6 +65,7 @@ import {
 
 | Prop | Type | Required | Default | Description |
 | ---- | ---- | -------- | ------- | ----------- |
+| `isScroll` | `boolean` | No | `false` | Renders image-list children as a horizontal carousel instead of a grid |
 | `title` | `string` | Yes | — | Tiêu đề của section |
 | `children` | `ReactNode` | Yes | — | Nội dung bên dưới tiêu đề (các thẻ `CardImageTitle` hoặc đoạn văn bản) |
 | `content` | `"imageList"` \| `"text"` | No | `"imageList"` | Loại layout nội dung |

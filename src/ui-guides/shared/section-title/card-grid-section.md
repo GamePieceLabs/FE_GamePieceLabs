@@ -35,6 +35,7 @@ Nhận các thuộc tính từ interface `SectionTitleMoreProps`:
 
 | Prop | Type | Required | Default | Description |
 | ---- | ---- | -------- | ------- | ----------- |
+| `isScroll` | `boolean` | No | `false` | Renders the child cards in a horizontal carousel instead of the default grid |
 | `title` | `string` | Yes | — | Tiêu đề của section |
 | `children` | `ReactNode` | Yes | — | Danh sách các thẻ `CardImageTitle` |
 | `more` | `SectionTitleMore` (`{ label?: string; href?: string }`) | No | — | Cấu hình liên kết xem thêm |

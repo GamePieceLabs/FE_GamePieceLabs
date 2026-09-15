@@ -11,16 +11,14 @@ const upcomingProductSizes =
 export function UpcomingProductsSection() {
   return (
     <div className="mx-auto max-w-[1350px]">
-      <CardImageTitleGrid className="grid-cols-1 justify-items-center gap-10 px-15 sm:grid-cols-2 sm:gap-10 sm:px-15 lg:grid-cols-3 xl:grid-cols-3 xl:gap-y-15">
+      <CardImageTitleGrid isScroll>
         {upcomingProducts.map(({ id, ...product }) => (
           <CardImageTitle
             key={id}
             {...product}
             aspectRatio="square"
-            isArrow={false}
             sizes={upcomingProductSizes}
-            className="sm:max-w-[400px]"
-            isClicked={false}
+            isClicked
           />
         ))}
       </CardImageTitleGrid>

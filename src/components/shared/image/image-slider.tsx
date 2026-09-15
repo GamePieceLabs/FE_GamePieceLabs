@@ -103,7 +103,7 @@ export function ImageSlider({
                 className="absolute inset-0 bg-gradient-to-r from-black/65 via-black/35 to-transparent"
               />
               <div className="relative z-10 flex min-h-[280px] max-w-3xl flex-col items-start justify-center p-5 pb-12 text-white sm:min-h-[340px] sm:p-8 sm:pb-14 md:min-h-[400px] md:p-10 md:pb-16 lg:min-h-[460px] lg:p-12 xl:min-h-[500px]">
-                <h2 className="max-sm:text-center max-sm:text-3xl font-heading text-[clamp(1.375rem,1.1rem+1.35vw,1.75rem)] leading-[1.08] font-bold tracking-[-0.025em] md:max-w-[19ch] md:text-[clamp(2rem,1.43rem+1.19vw,2.5rem)] md:leading-[1.06] lg:max-w-[18ch] lg:text-[clamp(2.5rem,1.5rem+1.56vw,3rem)] lg:leading-[1.04]">
+                <h2 className="max-sm:text-center max-sm:text-2xl font-heading text-[clamp(1.375rem,1.1rem+1.35vw,1.75rem)] leading-[1.08] font-bold tracking-[-0.025em] md:max-w-[19ch] md:text-[clamp(2rem,1.43rem+1.19vw,2.5rem)] md:leading-[1.06] lg:max-w-[18ch] lg:text-[clamp(2.5rem,1.5rem+1.56vw,3rem)] lg:leading-[1.04]">
                   {slide.title}
                 </h2>
                 <p className="mt-2 max-w-[58ch] text-pretty text-base leading-[1.5] text-white/90 line-clamp-2 sm:mt-3 sm:line-clamp-none md:text-[1.0625rem] md:leading-[1.55] lg:text-lg lg:leading-[1.6]">
@@ -111,7 +111,7 @@ export function ImageSlider({
                 </p>
                 <Link
                   href={slide.ctaHref}
-                  className="max-sm:absolute max-sm:bottom-10 max-sm:left-1/2 max-sm:-translate-x-1/2 mt-3 inline-flex min-h-11 items-center rounded-full bg-white px-4 py-4 text-md leading-[1.35] font-bold text-neutral-950 shadow-md transition-all hover:bg-neutral-100 hover:shadow-lg active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black/50 sm:mt-5 sm:px-5 sm:py-5 md:text-base lg:min-h-12 lg:px-6 lg:text-lg"
+                  className="max-sm:absolute max-sm:bottom-10 max-sm:left-1/2 max-sm:-translate-x-1/2 mt-3 inline-flex min-h-10 items-center rounded-full bg-white px-4 py-4 text-sm leading-[1.35] font-bold text-neutral-950 shadow-md transition-all hover:bg-neutral-100 hover:shadow-lg active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black/50 sm:mt-5 sm:px-5 sm:py-5 md:text-base lg:min-h-12 lg:px-6 lg:text-lg"
                 >
                   {slide.ctaLabel}
                 </Link>

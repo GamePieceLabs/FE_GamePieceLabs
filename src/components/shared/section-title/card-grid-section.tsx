@@ -14,6 +14,7 @@ export function CardGridSection({
   orientation,
   children,
   className,
+  isScroll,
 }: SectionTitleMoreProps): ReactElement {
   const titleId = createSectionTitleId(title);
 
@@ -32,7 +33,7 @@ export function CardGridSection({
         className="mb-6 sm:mb-10"
       />
 
-      <CardImageTitleGrid>{children}</CardImageTitleGrid>
+      <CardImageTitleGrid isScroll={isScroll}>{children}</CardImageTitleGrid>
     </section>
   );
 }
