@@ -25,7 +25,7 @@ export function AboutHero({ content }: AboutHeroProps) {
 
           <div className="relative h-full inset-0 z-10 flex items-center justify-center text-center text-white">
             <div className="max-w-[58rem]  py-[50px]">
-              <p className="tracking-[2.14px] uppercase font-bold leading-[1.4]
+              <p className="uppercase font-bold leading-[1.4]
                       max-pc:text-[16px] 
                       max-mobile:text-[12px] 
                       mx-auto mb-[32px] max-w-[36rem] text-white/90 drop-shadow-sm sm:mb-10">

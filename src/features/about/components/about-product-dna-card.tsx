@@ -7,7 +7,12 @@ type AboutProductDnaCardProps = {
 
 export function AboutProductDnaCard({ value }: AboutProductDnaCardProps) {
   return (
-    <article className="text-center">
+    <article className="mx-auto w-full max-w-[414px] text-center 
+                        max-mobile:mx-0 
+                        max-mobile:w-[78vw]
+                        max-mobile:max-w-none
+                        max-mobile:shrink-0
+                        max-mobile:snap-start">
       <div className="relative aspect-[414/477] overflow-hidden rounded-lg bg-neutral-100">
         <Image
           src={value.imageSrc}
@@ -17,10 +22,13 @@ export function AboutProductDnaCard({ value }: AboutProductDnaCardProps) {
           className="object-cover"
         />
       </div>
-      <h3 className="mt-7 text-[28px] font-bold leading-tight tracking-normal text-neutral-950">
+      <h3 className="mt-7 text-[40px] font-bold leading-tight tracking-normal text-neutral-950 
+                    max-mobile:text-[22px]">
         {value.title}
       </h3>
-      <p className="mx-auto mt-5 max-w-[38ch] text-[16px] font-medium leading-[1.7] text-neutral-800">
+      <p className="mx-auto mt-5 max-w-[38ch] text-[24px] font-medium leading-[1.6] text-neutral-800 
+                    max-mobile:text-[14px] 
+                    ">
         {value.description}
       </p>
     </article>

@@ -11,17 +11,24 @@ export function AboutValues({ content }: AboutValuesProps) {
       <div>
         <div className="mx-auto max-w-[760px] text-center">
           <h2
-            className="text-4xl font-bold leading-[1.1] tracking-normal text-neutral-950 sm:text-5xl lg:text-[48px]"
+            className="text-[40px] font-bold leading-[1.1] tracking-normal text-neutral-950 max-mobile:text-[32px]"
             style={{ textWrap: "wrap" }}
           >
             {content.title}
           </h2>
-          <p className="mx-auto mt-8 max-w-[720px] text-center text-[16px] font-medium leading-[1.8] text-neutral-800">
+          <p className="mx-auto mt-8 max-w-[720px] text-center text-[24px] font-medium leading-[1.6] text-neutral-800 max-mobile:text-[14px] max-mobile:leading-[1.7]">
             {content.description}
           </p>
         </div>
 
-        <div className="mt-14 grid gap-14 md:grid-cols-3 xl:gap-28">
+        <div className="mt-14 grid grid-cols-3 gap-28 
+                        max-pc:gap-14 
+                        max-mobile:flex 
+                        max-mobile:gap-4 
+                        max-mobile:overflow-x-auto 
+                        max-mobile:snap-x 
+                        max-mobile:pb-4">
+
           {content.values.map((value) => (
             <AboutProductDnaCard key={value.title} value={value} />
           ))}

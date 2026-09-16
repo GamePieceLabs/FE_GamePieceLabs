@@ -22,13 +22,13 @@ export function AboutCraftsmanship({ content }: AboutCraftsmanshipProps) {
             <div className="flex items-center justify-center border-t border-neutral-200/70 px-6 py-10 sm:px-10 lg:border-t-0 lg:border-l lg:px-10 xl:px-12">
               <div className="mx-auto w-full max-w-[660px] text-center">
                 <h2
-                  className="mx-auto max-w-[573px] text-4xl font-bold leading-[1.1] tracking-normal text-neutral-950 sm:text-5xl lg:text-[48px]"
+                  className="mx-auto max-w-[573px] text-[40px] font-bold leading-[1.1] tracking-normal text-neutral-950 max-mobile:text-[32px]"
                   style={{ textWrap: "wrap" }}
                 >
                   {content.title}
                 </h2>
 
-                <p className="mx-auto mt-8 max-w-[640px] text-center text-[16px] font-medium leading-[1.95] text-neutral-800">
+                <p className="mx-auto mt-8 max-w-[640px] text-center text-[24px] font-medium leading-[1.6] text-neutral-800 max-mobile:text-[14px] max-mobile:leading-[1.7]">
                   {content.description}
                 </p>
               </div>

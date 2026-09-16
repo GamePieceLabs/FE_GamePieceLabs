@@ -11,7 +11,7 @@ const storefrontFont = localFont({
     {
       path: "../../font/barlow_n5.a193a1990790eba0cc5cca569d23799830e90f07.woff2",
       weight: "500",
-      style: "normal",
+      style: "normal", 
     },
     {
       path: "../../font/barlow_n7.691d1d11f150e857dcbc1c10ef03d825bc378d81.woff2",
@@ -35,7 +35,7 @@ export default function ClientLayout({
 }) {
   return (
     <div
-      className={`${storefrontFont.variable} storefront-typography flex min-h-screen flex-col bg-white text-neutral-900 antialiased selection:bg-blue-500/10`}
+      className={`${storefrontFont.variable} ${storefrontFont.className} storefront-typography flex min-h-screen flex-col bg-white text-neutral-900 antialiased selection:bg-blue-500/10`}
     >
       <SiteHeader />
       <div className="flex-1">{children}</div>

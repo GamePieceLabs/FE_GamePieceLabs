@@ -179,7 +179,7 @@ export default function StorefrontHomePage() {
         isScroll
         more={{
           label: "View all games",
-          href: "/products",
+          href: "/browsebygame",
         }}
         align="left"
       >
