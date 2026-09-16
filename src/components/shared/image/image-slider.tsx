@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import Fade from "embla-carousel-fade";
 
 import {
   type CarouselApi,
@@ -24,6 +25,10 @@ export type ImageSliderSlide = {
   subtitle?: string;
   /** URL/path ảnh nền slide. */
   imageSrc: string;
+  /** Chiều rộng ảnh gốc (px), lớn hơn 0. */
+  imageWidth: number;
+  /** Chiều cao ảnh gốc (px), lớn hơn 0. */
+  imageHeight: number;
   /** Alt text mô tả ảnh. */
   imageAlt: string;
   /** Nhãn CTA dẫn tới `ctaHref`. */
@@ -36,7 +41,7 @@ export type ImageSliderSlide = {
 export type ImageSliderProps = {
   /** Danh sách slide, ít nhất một phần tử để hiển thị nội dung. */
   slides: readonly ImageSliderSlide[];
-  /** Tự chuyển slide. Mặc định `true`. */
+  /** Tự chuyển slide. Mặc định `false`. */
   autoplay?: boolean;
   /** Thời gian giữa các lần tự chuyển, tính bằng ms. */
   autoplayInterval?: number;
@@ -58,6 +63,7 @@ export function ImageSlider({
 }: ImageSliderProps) {
   const [api, setApi] = useState<CarouselApi>();
   const [selectedSlideIndex, setSelectedSlideIndex] = useState(0);
+  const [plugins] = useState(() => [Fade()]);
 
   useEffect(() => {
     if (!api || !autoplay || slides.length < 2) {
@@ -95,31 +101,53 @@ export function ImageSlider({
   }
 
   const hasMultipleSlides = slides.length > 1;
+  const activeSlide = slides[selectedSlideIndex] ?? slides[0];
 
   return (
     <Carousel
       setApi={setApi}
-      opts={{ loop: hasMultipleSlides }}
+      opts={{
+        loop: hasMultipleSlides,
+        duration: 12,
+        breakpoints: {
+          "(prefers-reduced-motion: reduce)": { duration: 0 },
+        },
+      }}
+      plugins={plugins}
       aria-label={ariaLabel}
       className={cn(
-        "mx-auto overflow-hidden rounded-xl shadow-[0_18px_60px_rgba(15,23,42,0.16)]",
+        "mx-auto shadow-[0_18px_60px_rgba(15,23,42,0.16)]",
         className,
       )}
     >
-      <CarouselContent className="ml-0">
+      <CarouselContent
+        className={cn(
+          "ml-0 min-h-0 items-start",
+          "max-tablet:h-[clamp(346.36px,40.7803vw,417.59px)] w-full",
+          styles.content,
+        )}
+        style={{
+          aspectRatio: `${activeSlide.imageWidth} / ${activeSlide.imageHeight}`,
+        }}
+      >
         {slides.map((slide, index) => (
-          <CarouselItem key={slide.id} className="pl-0">
+          <CarouselItem
+            key={slide.id}
+            className="h-full pl-0"
+            aria-hidden={slide !== activeSlide}
+            inert={slide !== activeSlide}
+          >
             <div
-              className="relative 
-                         w-[1580px] h-[677px] 
-                         max-pc:w-full max-pc:h-[35.2604vw]
-                         max-tablet:h-[39vw]
-                        "
+              className="relative w-full h-full overflow-hidden rounded-xl border"
+              style={{
+                aspectRatio: `${slide.imageWidth} / ${slide.imageHeight}`,
+              }}
             >
               <Image
                 src={slide.imageSrc}
                 alt={slide.imageAlt}
                 preload={index === 0}
+                loading={index === 0 ? undefined : "eager"}
                 fill
                 sizes="100vw"
                 className="object-cover"
@@ -130,35 +158,35 @@ export function ImageSlider({
               />
               <div
                 className="absolute z-10 flex flex-col items-start justify-center text-white 
-                           w-[700px] ml-[100px] gap-[20px] bottom-[160px] 
-                           max-pc:w[36.4583vw] max-pc:gap-[1.0417vw] max-pc:bottom-[8.3333vw] 
-                           max-tablet:bottom-[5vw] max-tablet:ml-[4.8828vw] max-tablet:w-[41vw]
+                           w-[700px] ml-[100px] gap-[32px] bottom-[160px] 
+                           max-pc:w[36.4583vw]  max-pc:bottom-[8.3333vw] max-pc:ml-[5.2083vw]
+                           max-laptop:w-[clamp(600px,36.4583vw,700px)]
+                           max-tablet:bottom-[5vw] max-tablet:ml-[4.8828vw] max-tablet:w-[clamp(540px,58.5938vw,600px)]
                           "
               >
                 <h2
-                  key={`title-${slide.id}-${selectedSlideIndex === index ? selectedSlideIndex : "idle"}`}
+                  key={`title-${slide.id}-${slide === activeSlide ? "active" : "idle"}`}
                   className={cn(
                     "font-heading font-bold ",
-                    "text-[60px] !leading-[80px]",
-                    "max-pc:text-[3.1250vw]",
-                    "max-tablet:text-[3.4180vw]",
-                    selectedSlideIndex === index && styles.revealTitle,
+                    "text-[60px] !leading-[70px]",
+                    "max-laptop:text-[clamp(48px,4.1667vw,60px)]",
+                    "max-tablet:!leading-[50px]",
+                    slide === activeSlide && styles.revealTitle,
                   )}
                 >
                   {slide.title}
                 </h2>
                 <Link
-                  key={`cta-${slide.id}-${selectedSlideIndex === index ? selectedSlideIndex : "idle"}`}
+                  key={`cta-${slide.id}-${slide === activeSlide ? "active" : "idle"}`}
                   href={slide.ctaHref}
                   className={cn(
-                    "inline-flex items-center rounded-full bg-white font-bold text-neutral-950 shadow-md",
+                    "inline-flex items-center rounded-full bg-white text-neutral-950 shadow-md",
                     "leading-[1.35] transition-all hover:bg-neutral-100 hover:shadow-lg active:scale-95",
                     "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black/50",
-                    "h-max px-[60px] py-[20px] text-[16px]",
-                    "max-pc:px-[3.1250vw] max-pc:py-[1.0417vw] max-pc:text-[0.8333vw]",
-                    "max-laptop:text-[1.1111vw]",
-                    "max-tablet:px-[3.9063vw] max-tablet:py-[0.9766vw] max-tablet:text-[1.1719vw]",
-                    selectedSlideIndex === index && styles.revealCta,
+                    "h-max px-[40px] py-[17.2px] text-[20px] font-bold ",
+                    "max-laptop:text-[clamp(16px,1.0417vw,20px)]",
+                    "max-tablet:px-[3.9063vw] max-tablet:py-[0.9766vw]",
+                    slide === activeSlide && styles.revealCta,
                   )}
                 >
                   {slide.ctaLabel}

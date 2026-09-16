@@ -16,41 +16,12 @@ import { CompanyLinksSection } from "@/features/home/components/company-links-se
 import { UpcomingProductsSection } from "@/features/home/components/upcoming-products-section";
 import { OrderInstruction } from "@/features/home/components/order-instruction";
 import { SectionTitle } from "@/components/shared/section-title";
-import {
-  ImageSlider,
-  ImageSliderSlide,
-} from "@/components/shared/image/image-slider";
+import { ImageSlider } from "@/components/shared/image/image-slider";
+import { imageSliderSlides } from "@/features/home/data/image-slider-slides";
 import { ImageComparison } from "@/components/shared/image/image-comparision";
 import { ProductGallery } from "@/components/shared/product/product-gallery";
 import { Button } from "@/components/ui/button";
 import { ProductDemo } from "@/features/home/components/product-demo";
-
-const imageSliderSlides = [
-  {
-    id: "new-arrivals",
-    title: " Let's get organized!",
-    ctaLabel: "Xem bộ sưu tập",
-    ctaHref: "/",
-    imageSrc: "/images/legacy/banner1.jpg",
-    imageAlt: "Banner bộ sưu tập mới",
-  },
-  {
-    id: "preorders",
-    title: "Đặt trước những mẫu figure nổi bật trước khi cháy hàng",
-    ctaLabel: "Đặt trước ngay",
-    ctaHref: "/",
-    imageSrc: "/images/legacy/banner2.jpg",
-    imageAlt: "Banner sản phẩm đặt trước",
-  },
-  {
-    id: "featured-display",
-    title: "Góc trưng bày dành cho người sưu tầm thật sự",
-    ctaLabel: "Xem sản phẩm nổi bật",
-    ctaHref: "/",
-    imageSrc: "/images/legacy/banner3.jpg",
-    imageAlt: "Banner sản phẩm nổi bật",
-  },
-] as const satisfies readonly ImageSliderSlide[];
 
 export default function StorefrontHomePage() {
   return (
