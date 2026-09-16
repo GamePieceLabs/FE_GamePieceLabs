@@ -7,8 +7,8 @@ type AboutCraftsmanshipProps = {
 
 export function AboutCraftsmanship({ content }: AboutCraftsmanshipProps) {
   return (
-    <section className="bg-white py-10 sm:py-12 lg:py-16">
-      <div className="mx-auto w-[calc(100%-2rem)] max-w-[1580px] sm:w-[calc(100%-3rem)] xl:w-[calc(100%-100px)]">
+    <section className="bg-white px-5 py-10 sm:px-[var(--section-padding-x)] sm:py-[80px]">
+      <div>
         <div className="overflow-hidden rounded-xl border border-neutral-200/80 bg-white">
           <div className="grid items-stretch lg:grid-cols-[minmax(0,1.03fr)_minmax(520px,0.97fr)]">
             <div className="h-full">

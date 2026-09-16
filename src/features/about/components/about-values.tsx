@@ -7,8 +7,8 @@ type AboutValuesProps = {
 
 export function AboutValues({ content }: AboutValuesProps) {
   return (
-    <section className="bg-white py-12 sm:py-14 lg:py-20">
-      <div className="mx-auto w-[calc(100%-2rem)] max-w-[1580px] sm:w-[calc(100%-3rem)] xl:w-[calc(100%-100px)]">
+    <section className="bg-white px-5 py-10 sm:px-[var(--section-padding-x)] sm:py-[80px]">
+      <div>
         <div className="mx-auto max-w-[760px] text-center">
           <h2
             className="text-4xl font-bold leading-[1.1] tracking-normal text-neutral-950 sm:text-5xl lg:text-[48px]"
