@@ -1,6 +1,6 @@
 # ImageSlider
 
-`ImageSlider` là component trình chiếu banner hình ảnh chính (Hero Image Carousel/Slider) chất lượng cao, hỗ trợ tự động chuyển slide (`autoplay`), hiệu ứng nút điều hướng kính mờ thủy tinh (liquid glassmorphism) và nút kêu gọi hành động (Call To Action).
+`ImageSlider` là component trình chiếu banner hình ảnh chính (Hero Image Carousel/Slider) chuyển cảnh fade, hỗ trợ tự động chuyển slide (`autoplay`), hiệu ứng nút điều hướng kính mờ thủy tinh (liquid glassmorphism) và nút kêu gọi hành động (Call To Action).
 
 ## Purpose
 
@@ -50,6 +50,8 @@ export interface ImageSliderSlide {
   title: string;       // Tiêu đề lớn của slide
   subtitle?: string;   // Phụ đề mô tả ngắn
   imageSrc: string;    // Đường dẫn URL ảnh nền
+  imageWidth: number;  // Chiều rộng ảnh gốc (px), bắt buộc > 0
+  imageHeight: number; // Chiều cao ảnh gốc (px), bắt buộc > 0
   imageAlt: string;    // Văn bản mô tả ảnh cho accessibility
   ctaLabel: string;    // Nhãn trên nút bấm kêu gọi hành động
   ctaHref: string;     // Đường dẫn đích của nút CTA
@@ -60,19 +62,19 @@ export interface ImageSliderSlide {
 
 - **Autoplay Loop**: Khi `autoplay=true` và có từ 2 slide trở lên, đồng hồ đếm `setInterval` sẽ tự động chuyển slide tiếp theo sau mỗi `autoplayInterval` mili-giây. Tự động dọn dẹp interval khi unmount.
 - **Single Slide vs Multi Slide**: Nếu chỉ có 1 slide, vô hiệu hóa tính năng loop và ẩn nút điều hướng. Nếu mảng rỗng `slides.length === 0`, component trả về `null`.
-- **Sequential Content Reveal**: Khi slide được chọn, tiêu đề, phụ đề và CTA lần lượt xuất hiện từ dưới lên bằng CSS Module scoped animation trong `image-slider.module.css`.
+- **Crossfade**: Plugin `embla-carousel-fade` làm slide hiện tại mờ đi và slide kế tiếp hiện lên tại cùng vị trí, thay cho chuyển ngang. Ảnh chuyển bằng fade; tiêu đề và CTA vẫn chạy keyframe `image-slider-rise` khi slide được chọn, thông qua key active/idle. Nút điều hướng, kéo/vuốt, bàn phím và autoplay vẫn dùng Embla.
+- **Motion**: Embla dùng `duration: 12` (tham số vật lý của Embla, không phải mili-giây). Khi bật `prefers-reduced-motion: reduce`, chuyển bằng `duration: 0` và tắt transition tỷ lệ khung cùng keyframe chữ.
 
 ## Responsive Behavior
 
-- **Chiều cao khung hình thích ứng theo breakpoint**:
-  - Mobile: `min-h-[280px]`
-  - sm: `sm:min-h-[340px]`
-  - md: `md:min-h-[400px]`
-  - lg: `lg:min-h-[460px]`
-  - xl: `xl:min-h-[570px]`
-- **Vị trí nút CTA**:
-  - Trên mobile (`< 640px`): nút CTA căn giữa tuyệt đối ở đáy slide (`max-sm:absolute max-sm:bottom-10 max-sm:left-1/2 max-sm:-translate-x-1/2`).
-  - Từ màn hình `sm:` trở lên: nút CTA nằm theo luồng văn bản góc dưới bên trái.
+- Mỗi item rộng `100%` khung carousel; desktop dùng tỷ lệ ảnh, tablet ép chiều cao hero bằng `max-tablet:h-[clamp(346.36px,40.7803vw,417.59px)]`.
+- Khung ảnh dùng `aspect-ratio: imageWidth / imageHeight`. Chiều cao hiển thị bằng chiều rộng item × `imageHeight / imageWidth`.
+- `imageWidth` và `imageHeight` là kích thước gốc, không phải kích thước hiển thị cố định. Khai báo đúng tỷ lệ để ảnh `fill` với `object-cover` không bị cắt.
+- Các item căn trên (`items-start`) và kế thừa chiều cao của viewport carousel. Hàng carousel dùng tỷ lệ của slide active cùng `min-h-0` và transition `aspect-ratio` 250ms ease-in-out; riêng tablet có height clamp để hero không bị quá thấp. Phần vượt khung của các slide khác được viewport cắt đi.
+- Khi chọn slide (nút điều hướng, kéo, bàn phím hoặc autoplay), tỷ lệ khung cập nhật theo `selectedSlideIndex`. Khi resize, CSS tự tính lại chiều cao theo chiều rộng mới, không cần đo DOM. Render ban đầu dùng tỷ lệ slide đầu tiên; danh sách rỗng không render carousel.
+- Ví dụ: item rộng 1000px với ảnh 2000 × 800 sẽ cao 400px; ảnh 2000 × 1200 sẽ cao 600px.
+- Overlay và nội dung vẫn định vị tuyệt đối bên trong khung ảnh.
+- Mock data trang chủ đặt tại `src/features/home/data/image-slider-slides.ts`.
 - Nút điều hướng Liquid Glass (Next/Prev) ẩn trên mobile và chỉ hiển thị ở góc phải dưới từ `sm:` trở lên.
 
 ## Basic Usage
@@ -86,6 +88,8 @@ const heroSlides: ImageSliderSlide[] = [
     title: "Nemesis: Khởi Đầu Hành Trình Sinh Tồn",
     subtitle: "Trọn bộ insert tối ưu không gian cho Nemesis và bản mở rộng Lockdown.",
     imageSrc: "/images/hero/nemesis-slide.jpg",
+    imageWidth: 2000,
+    imageHeight: 800,
     imageAlt: "Nemesis boardgame insert",
     ctaLabel: "Khám Phá Ngay",
     ctaHref: "/collections/nemesis",
@@ -95,6 +99,8 @@ const heroSlides: ImageSliderSlide[] = [
     title: "Catan: Nâng Tầm Đảo Trù Phú",
     subtitle: "Khay đựng tài nguyên và thẻ bài thông minh giúp setup ván đấu tức thì.",
     imageSrc: "/images/hero/catan-slide.jpg",
+    imageWidth: 2000,
+    imageHeight: 1200,
     imageAlt: "Catan boardgame insert",
     ctaLabel: "Xem Chi Tiết",
     ctaHref: "/collections/catan",
@@ -132,18 +138,20 @@ export function FastHeroSlider() {
 
 - `Carousel`, `CarouselContent`, `CarouselItem`, `CarouselNext`, `CarouselPrevious`, `CarouselApi` từ `@/components/ui/carousel`
 - `cn` từ `@/utils/cn`
-- `image-slider.module.css` cho animation scoped trong component
+- `image-slider.module.css` cho transition tỷ lệ khung và reduced motion
 
 ### External
 
 - `next/image`
 - `next/link`
+- `embla-carousel-fade@8.6.0` (cùng phiên bản với Embla React); [tài liệu Fade](https://www.embla-carousel.com/docs/v8/plugins/fade).
 
 ## Accessibility
 
 - Container carousel có thuộc tính `aria-label={ariaLabel}`.
 - Slide đầu tiên được cấu hình `preload={index === 0}` giúp trình duyệt tải sớm ảnh đại diện quan trọng nhất.
 - Hỗ trợ đầy đủ tương tác phím mũi tên và focus ring trắng tương phản trên nền tối.
+- Slide không active có `aria-hidden` và `inert`, nên CTA ẩn không nhận focus hoặc click.
 
 ## Styling
 
@@ -153,4 +161,6 @@ export function FastHeroSlider() {
   - Viền phát sáng: `border border-white/45 bg-white/15`
   - Đổ bóng phản quang: `shadow-[inset_0_1px_0_rgba(255,255,255,0.7),...]`
 - Nút CTA màu trắng nổi bật với bo tròn pill `rounded-full bg-white text-neutral-950 font-bold`.
-- Nội dung slide dùng animation scoped trong CSS Module: tiêu đề, phụ đề và CTA đều chạy `300ms`; tiêu đề trễ `800ms`, phụ đề trễ `1000ms`, CTA trễ `1100ms`.
+- Opacity của slide do plugin Fade quản lý. CSS Module chuyển tỷ lệ khung trong 250ms và giữ keyframe `image-slider-rise` gốc (opacity 0 → 1, translateY 36px → 0).
+- Keyframe chạy 300ms linear: tiêu đề bắt đầu ngay, subtitle có delay 100ms (class được giữ sẵn), CTA có delay 150ms.
+- Ảnh đầu dùng preload; ảnh còn lại tải eager để giảm việc chờ tải khi chuyển slide lần đầu (đổi lại tải trước toàn bộ ảnh slider).

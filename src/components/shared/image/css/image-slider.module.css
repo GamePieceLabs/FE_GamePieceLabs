@@ -1,16 +1,24 @@
+.content {
+  transition: aspect-ratio 250ms ease-in-out;
+}
+
 .revealTitle {
-  animation: image-slider-rise 300ms linear 800ms both;
+  animation: image-slider-rise 300ms linear 0ms both;
 }
 
 .revealSubtitle {
-  animation: image-slider-rise 300ms linear 1000ms both;
+  animation: image-slider-rise 300ms linear 150ms both;
 }
 
 .revealCta {
-  animation: image-slider-rise 300ms linear 1100ms both;
+  animation: image-slider-rise 300ms linear 300ms both;
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .content {
+    transition: none;
+  }
+
   .revealTitle,
   .revealSubtitle,
   .revealCta {
