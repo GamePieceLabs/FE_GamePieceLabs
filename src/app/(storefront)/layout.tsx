@@ -1,15 +1,24 @@
 import type { Metadata } from "next";
-import { Barlow } from "next/font/google";
+import localFont  from "next/font/local";
 import { SiteFooter } from "@/components/layouts/footer/site-footer";
 import { SiteHeader } from "@/components/layouts/header/site-header";
 import { SocialMediaRail } from "@/components/shared/social-media";
 import { footerContent } from "@/features/navigation/data/footer-navigation";
 import { socialMediaItems } from "@/features/navigation/data/social-media";
 
-const storefrontFont = Barlow({
-  weight: ["400", "500", "600", "700"],
-  style: "normal",
-  subsets: ["latin", "vietnamese"],
+const storefrontFont = localFont({
+  src: [
+    {
+      path: "../../font/barlow_n5.a193a1990790eba0cc5cca569d23799830e90f07.woff2",
+      weight: "500",
+      style: "normal",
+    },
+    {
+      path: "../../font/barlow_n7.691d1d11f150e857dcbc1c10ef03d825bc378d81.woff2",
+      weight: "700",
+      style: "normal",
+    },
+  ],
   display: "swap",
   variable: "--font-barlow",
 });
