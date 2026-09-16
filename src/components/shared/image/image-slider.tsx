@@ -102,7 +102,7 @@ export function ImageSlider({
       opts={{ loop: hasMultipleSlides }}
       aria-label={ariaLabel}
       className={cn(
-        "pc:w-[clamp(1580px,83.333vw,1580px)] mx-auto overflow-hidden rounded-xl shadow-[0_18px_60px_rgba(15,23,42,0.16)]",
+        "mx-auto overflow-hidden rounded-xl shadow-[0_18px_60px_rgba(15,23,42,0.16)]",
         className,
       )}
     >
@@ -111,17 +111,16 @@ export function ImageSlider({
           <CarouselItem key={slide.id} className="pl-0">
             <div
               className="relative 
-                            min-h-[280px] 
-                            sm:min-h-[340px] 
-                            md:min-h-[400px] 
-                            lg:min-h-[460px] 
-                            xl:min-h-[604px]"
+                         w-[1580px] h-[677px] 
+                         max-pc:w-full max-pc:h-[35.2604vw]
+                         max-tablet:h-[39vw]
+                        "
             >
               <Image
                 src={slide.imageSrc}
                 alt={slide.imageAlt}
-                fill
                 preload={index === 0}
+                fill
                 sizes="100vw"
                 className="object-cover"
               />
@@ -130,42 +129,35 @@ export function ImageSlider({
                 className="absolute inset-0 bg-gradient-to-r from-black/65 via-black/35 to-transparent"
               />
               <div
-                className="absolute z-10 flex flex-col items-start justify-center text-white top-1/2 -translate-y-1/2 
-                           w-[800px] ml-[40px]
-                           laptop:w-[clamp(700px,41.6667vw,800px)]
+                className="absolute z-10 flex flex-col items-start justify-center text-white 
+                           w-[700px] ml-[100px] gap-[20px] bottom-[160px] 
+                           max-pc:w[36.4583vw] max-pc:gap-[1.0417vw] max-pc:bottom-[8.3333vw] 
+                           max-tablet:bottom-[5vw] max-tablet:ml-[4.8828vw] max-tablet:w-[41vw]
                           "
-                // lg:w-[clamp(50vw,50vw,600px)]
-                // max-sm:w-[clamp(50vw,50vw,600px)] max-sm:top-1/3 max-sm:translate-y-1/3 max-sm:ml-[clamp(30px,30px,40px)]
               >
                 <h2
                   key={`title-${slide.id}-${selectedSlideIndex === index ? selectedSlideIndex : "idle"}`}
                   className={cn(
-                    "font-heading font-bold",
-                    "text-[60px]",
-                    "max-lg:text-[48px]",
-                    "max-sm:text-[40px]",
+                    "font-heading font-bold ",
+                    "text-[60px] !leading-[80px]",
+                    "max-pc:text-[3.1250vw]",
+                    "max-tablet:text-[3.4180vw]",
                     selectedSlideIndex === index && styles.revealTitle,
                   )}
                 >
                   {slide.title}
                 </h2>
-                <p
-                  key={`subtitle-${slide.id}-${selectedSlideIndex === index ? selectedSlideIndex : "idle"}`}
-                  className={cn(
-                    "mt-2 max-w-[58ch] text-pretty text-base leading-[1.5] text-white/90 line-clamp-2 sm:mt-3",
-                    "sm:line-clamp-none md:text-[1.0625rem] md:leading-[1.55] lg:text-lg lg:leading-[1.6]",
-                    selectedSlideIndex === index && styles.revealSubtitle,
-                  )}
-                >
-                  {slide.subtitle}
-                </p>
                 <Link
                   key={`cta-${slide.id}-${selectedSlideIndex === index ? selectedSlideIndex : "idle"}`}
                   href={slide.ctaHref}
                   className={cn(
-                    "mt-3 inline-flex min-h-10 items-center rounded-full bg-white px-4 py-4 text-sm leading-[1.35] font-bold text-neutral-950 shadow-md transition-all hover:bg-neutral-100 hover:shadow-lg active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black/50",
-                    "sm:mt-5 sm:px-5 sm:py-5 md:text-base lg:min-h-12 lg:px-6 lg:text-lg",
-                    //"max-sm:absolute max-sm:bottom-10 max-sm:left-1/2 max-sm:-translate-x-1/2",
+                    "inline-flex items-center rounded-full bg-white font-bold text-neutral-950 shadow-md",
+                    "leading-[1.35] transition-all hover:bg-neutral-100 hover:shadow-lg active:scale-95",
+                    "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black/50",
+                    "h-max px-[60px] py-[20px] text-[16px]",
+                    "max-pc:px-[3.1250vw] max-pc:py-[1.0417vw] max-pc:text-[0.8333vw]",
+                    "max-laptop:text-[1.1111vw]",
+                    "max-tablet:px-[3.9063vw] max-tablet:py-[0.9766vw] max-tablet:text-[1.1719vw]",
                     selectedSlideIndex === index && styles.revealCta,
                   )}
                 >

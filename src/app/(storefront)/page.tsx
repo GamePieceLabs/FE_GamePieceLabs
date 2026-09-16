@@ -28,7 +28,7 @@ import { ProductDemo } from "@/features/home/components/product-demo";
 const imageSliderSlides = [
   {
     id: "new-arrivals",
-    title: "Organize thôi nào !",
+    title: " Let's get organized!",
     ctaLabel: "Xem bộ sưu tập",
     ctaHref: "/",
     imageSrc: "/images/legacy/banner1.jpg",

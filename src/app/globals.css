@@ -3,6 +3,12 @@
 @import "shadcn/tailwind.css";
 @custom-variant dark (&:where(.dark, .dark *));
 
+/* Inclusive desktop-first breakpoints, ordered widest to narrowest. */
+@custom-variant max-pc (@media (width <= theme(--breakpoint-pc)));
+@custom-variant max-laptop (@media (width <= theme(--breakpoint-laptop)));
+@custom-variant max-tablet (@media (width <= theme(--breakpoint-lg)));
+@custom-variant max-mobile (@media (width <= theme(--breakpoint-sm)));
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -47,7 +53,6 @@
   --radius-4xl: calc(var(--radius) * 2.6);
   --breakpoint-pc: 1920px;
   --breakpoint-laptop: 1440px;
-  --breakpoint-mobile: 480px;
 }
 
 :root {
