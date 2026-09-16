@@ -47,7 +47,7 @@
   --radius-4xl: calc(var(--radius) * 2.6);
   --breakpoint-pc: 1920px;
   --breakpoint-laptop: 1440px;
-  --breakpoint-mobile: 380px;
+  --breakpoint-mobile: 480px;
 }
 
 :root {
@@ -165,7 +165,7 @@
   font-family: var(--font-barlow), sans-serif;
   font-weight: 700;
   letter-spacing: -0.025em;
-  text-wrap: balance;
+  /* text-wrap: balance; */
 }
 
 .storefront-typography

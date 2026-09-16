@@ -37,7 +37,7 @@ import {
 | Prop | Type | Required | Default | Description |
 | ---- | ---- | -------- | ------- | ----------- |
 | `slides` | `readonly ImageSliderSlide[]` | Yes | — | Danh sách các slide trình chiếu |
-| `autoplay` | `boolean` | No | `true` | Bật/tắt chế độ tự động chuyển slide |
+| `autoplay` | `boolean` | No | `false` | Bật/tắt chế độ tự động chuyển slide |
 | `autoplayInterval` | `number` | No | `10000` | Chu kỳ tự động chuyển slide tính bằng mili-giây (10 giây) |
 | `ariaLabel` | `string` | No | `"Featured collections"` | Nhãn trợ năng cho carousel |
 | `className` | `string` | No | — | Lớp CSS tùy biến cho container bao ngoài |
@@ -60,6 +60,7 @@ export interface ImageSliderSlide {
 
 - **Autoplay Loop**: Khi `autoplay=true` và có từ 2 slide trở lên, đồng hồ đếm `setInterval` sẽ tự động chuyển slide tiếp theo sau mỗi `autoplayInterval` mili-giây. Tự động dọn dẹp interval khi unmount.
 - **Single Slide vs Multi Slide**: Nếu chỉ có 1 slide, vô hiệu hóa tính năng loop và ẩn nút điều hướng. Nếu mảng rỗng `slides.length === 0`, component trả về `null`.
+- **Sequential Content Reveal**: Khi slide được chọn, tiêu đề, phụ đề và CTA lần lượt xuất hiện từ dưới lên bằng CSS Module scoped animation trong `image-slider.module.css`.
 
 ## Responsive Behavior
 
@@ -129,9 +130,9 @@ export function FastHeroSlider() {
 
 ### Internal
 
-- `Button` từ `@/components/ui/button`
 - `Carousel`, `CarouselContent`, `CarouselItem`, `CarouselNext`, `CarouselPrevious`, `CarouselApi` từ `@/components/ui/carousel`
 - `cn` từ `@/utils/cn`
+- `image-slider.module.css` cho animation scoped trong component
 
 ### External
 
@@ -152,3 +153,4 @@ export function FastHeroSlider() {
   - Viền phát sáng: `border border-white/45 bg-white/15`
   - Đổ bóng phản quang: `shadow-[inset_0_1px_0_rgba(255,255,255,0.7),...]`
 - Nút CTA màu trắng nổi bật với bo tròn pill `rounded-full bg-white text-neutral-950 font-bold`.
+- Nội dung slide dùng animation scoped trong CSS Module: tiêu đề, phụ đề và CTA đều chạy `300ms`; tiêu đề trễ `800ms`, phụ đề trễ `1000ms`, CTA trễ `1100ms`.

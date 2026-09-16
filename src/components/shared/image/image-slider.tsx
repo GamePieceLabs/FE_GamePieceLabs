@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-import { Button } from "@/components/ui/button";
 import {
   type CarouselApi,
   Carousel,
@@ -14,6 +13,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { cn } from "@/utils/cn";
+import styles from "./css/image-slider.module.css";
 
 export type ImageSliderSlide = {
   /** ID ổn định dùng làm React key. */
@@ -51,12 +51,13 @@ const liquidGlassNavigationButton =
 
 export function ImageSlider({
   slides,
-  autoplay = true,
+  autoplay = false,
   autoplayInterval = 10000,
   ariaLabel = "Featured collections",
   className,
 }: ImageSliderProps) {
   const [api, setApi] = useState<CarouselApi>();
+  const [selectedSlideIndex, setSelectedSlideIndex] = useState(0);
 
   useEffect(() => {
     if (!api || !autoplay || slides.length < 2) {
@@ -69,6 +70,25 @@ export function ImageSlider({
 
     return () => window.clearInterval(intervalId);
   }, [api, autoplay, autoplayInterval, slides.length]);
+
+  useEffect(() => {
+    if (!api) {
+      return;
+    }
+
+    const syncSelectedSlide = () => {
+      setSelectedSlideIndex(api.selectedScrollSnap());
+    };
+
+    syncSelectedSlide();
+    api.on("select", syncSelectedSlide);
+    api.on("reInit", syncSelectedSlide);
+
+    return () => {
+      api.off("select", syncSelectedSlide);
+      api.off("reInit", syncSelectedSlide);
+    };
+  }, [api]);
 
   if (slides.length === 0) {
     return null;
@@ -89,7 +109,14 @@ export function ImageSlider({
       <CarouselContent className="ml-0">
         {slides.map((slide, index) => (
           <CarouselItem key={slide.id} className="pl-0">
-            <div className="relative min-h-[280px] sm:min-h-[340px] md:min-h-[400px] lg:min-h-[460px] xl:min-h-[570px]">
+            <div
+              className="relative 
+                            min-h-[280px] 
+                            sm:min-h-[340px] 
+                            md:min-h-[400px] 
+                            lg:min-h-[460px] 
+                            xl:min-h-[604px]"
+            >
               <Image
                 src={slide.imageSrc}
                 alt={slide.imageAlt}
@@ -102,16 +129,45 @@ export function ImageSlider({
                 aria-hidden="true"
                 className="absolute inset-0 bg-gradient-to-r from-black/65 via-black/35 to-transparent"
               />
-              <div className="relative z-10 flex min-h-[280px] max-w-3xl flex-col items-start justify-center p-5 pb-12 text-white sm:min-h-[340px] sm:p-8 sm:pb-14 md:min-h-[400px] md:p-10 md:pb-16 lg:min-h-[460px] lg:p-12 xl:min-h-[500px]">
-                <h2 className="max-sm:text-center max-sm:text-2xl font-heading text-[clamp(1.375rem,1.1rem+1.35vw,1.75rem)] leading-[1.08] font-bold tracking-[-0.025em] md:max-w-[19ch] md:text-[clamp(2rem,1.43rem+1.19vw,2.5rem)] md:leading-[1.06] lg:max-w-[18ch] lg:text-[clamp(2.5rem,1.5rem+1.56vw,3rem)] lg:leading-[1.04]">
+              <div
+                className="absolute z-10 flex flex-col items-start justify-center text-white top-1/2 -translate-y-1/2 
+                           w-[800px] ml-[40px]
+                           laptop:w-[clamp(700px,41.6667vw,800px)]
+                          "
+                // lg:w-[clamp(50vw,50vw,600px)]
+                // max-sm:w-[clamp(50vw,50vw,600px)] max-sm:top-1/3 max-sm:translate-y-1/3 max-sm:ml-[clamp(30px,30px,40px)]
+              >
+                <h2
+                  key={`title-${slide.id}-${selectedSlideIndex === index ? selectedSlideIndex : "idle"}`}
+                  className={cn(
+                    "font-heading font-bold",
+                    "text-[60px]",
+                    "max-lg:text-[48px]",
+                    "max-sm:text-[40px]",
+                    selectedSlideIndex === index && styles.revealTitle,
+                  )}
+                >
                   {slide.title}
                 </h2>
-                <p className="mt-2 max-w-[58ch] text-pretty text-base leading-[1.5] text-white/90 line-clamp-2 sm:mt-3 sm:line-clamp-none md:text-[1.0625rem] md:leading-[1.55] lg:text-lg lg:leading-[1.6]">
+                <p
+                  key={`subtitle-${slide.id}-${selectedSlideIndex === index ? selectedSlideIndex : "idle"}`}
+                  className={cn(
+                    "mt-2 max-w-[58ch] text-pretty text-base leading-[1.5] text-white/90 line-clamp-2 sm:mt-3",
+                    "sm:line-clamp-none md:text-[1.0625rem] md:leading-[1.55] lg:text-lg lg:leading-[1.6]",
+                    selectedSlideIndex === index && styles.revealSubtitle,
+                  )}
+                >
                   {slide.subtitle}
                 </p>
                 <Link
+                  key={`cta-${slide.id}-${selectedSlideIndex === index ? selectedSlideIndex : "idle"}`}
                   href={slide.ctaHref}
-                  className="max-sm:absolute max-sm:bottom-10 max-sm:left-1/2 max-sm:-translate-x-1/2 mt-3 inline-flex min-h-10 items-center rounded-full bg-white px-4 py-4 text-sm leading-[1.35] font-bold text-neutral-950 shadow-md transition-all hover:bg-neutral-100 hover:shadow-lg active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black/50 sm:mt-5 sm:px-5 sm:py-5 md:text-base lg:min-h-12 lg:px-6 lg:text-lg"
+                  className={cn(
+                    "mt-3 inline-flex min-h-10 items-center rounded-full bg-white px-4 py-4 text-sm leading-[1.35] font-bold text-neutral-950 shadow-md transition-all hover:bg-neutral-100 hover:shadow-lg active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black/50",
+                    "sm:mt-5 sm:px-5 sm:py-5 md:text-base lg:min-h-12 lg:px-6 lg:text-lg",
+                    //"max-sm:absolute max-sm:bottom-10 max-sm:left-1/2 max-sm:-translate-x-1/2",
+                    selectedSlideIndex === index && styles.revealCta,
+                  )}
                 >
                   {slide.ctaLabel}
                 </Link>

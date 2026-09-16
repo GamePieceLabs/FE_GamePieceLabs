@@ -15,9 +15,7 @@ import { PlayerReviewsSection } from "@/components/shared/player-reviews-section
 import { CompanyLinksSection } from "@/features/home/components/company-links-section";
 import { UpcomingProductsSection } from "@/features/home/components/upcoming-products-section";
 import { OrderInstruction } from "@/features/home/components/order-instruction";
-import {
-  SectionTitle,
-} from "@/components/shared/section-title";
+import { SectionTitle } from "@/components/shared/section-title";
 import {
   ImageSlider,
   ImageSliderSlide,
@@ -30,7 +28,7 @@ import { ProductDemo } from "@/features/home/components/product-demo";
 const imageSliderSlides = [
   {
     id: "new-arrivals",
-    title: "Bộ sưu tập mô hình mới đang mở bán",
+    title: "Organize thôi nào !",
     ctaLabel: "Xem bộ sưu tập",
     ctaHref: "/",
     imageSrc: "/images/legacy/banner1.jpg",
@@ -64,8 +62,6 @@ export default function StorefrontHomePage() {
       >
         <ImageSlider
           slides={imageSliderSlides}
-          autoplay
-          autoplayInterval={10000}
           ariaLabel="Bộ sưu tập nổi bật"
         />
       </SectionTitle>
