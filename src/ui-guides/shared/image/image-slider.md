@@ -67,13 +67,14 @@ export interface ImageSliderSlide {
 
 ## Responsive Behavior
 
-- Mỗi item rộng `100%` khung carousel; desktop dùng tỷ lệ ảnh, tablet ép chiều cao hero bằng `max-tablet:h-[clamp(346.36px,40.7803vw,417.59px)]`.
+- Mỗi item rộng `100%` khung carousel; desktop dùng tỷ lệ ảnh, tablet ép chiều cao hero bằng `max-tablet:h-[clamp(346.36px,40.7803vw,417.59px)]`, mobile ép lại bằng `max-mobile:h-[clamp(320px,88vw,380px)]`.
 - Khung ảnh dùng `aspect-ratio: imageWidth / imageHeight`. Chiều cao hiển thị bằng chiều rộng item × `imageHeight / imageWidth`.
 - `imageWidth` và `imageHeight` là kích thước gốc, không phải kích thước hiển thị cố định. Khai báo đúng tỷ lệ để ảnh `fill` với `object-cover` không bị cắt.
 - Các item căn trên (`items-start`) và kế thừa chiều cao của viewport carousel. Hàng carousel dùng tỷ lệ của slide active cùng `min-h-0` và transition `aspect-ratio` 250ms ease-in-out; riêng tablet có height clamp để hero không bị quá thấp. Phần vượt khung của các slide khác được viewport cắt đi.
 - Khi chọn slide (nút điều hướng, kéo, bàn phím hoặc autoplay), tỷ lệ khung cập nhật theo `selectedSlideIndex`. Khi resize, CSS tự tính lại chiều cao theo chiều rộng mới, không cần đo DOM. Render ban đầu dùng tỷ lệ slide đầu tiên; danh sách rỗng không render carousel.
 - Ví dụ: item rộng 1000px với ảnh 2000 × 800 sẽ cao 400px; ảnh 2000 × 1200 sẽ cao 600px.
 - Overlay và nội dung vẫn định vị tuyệt đối bên trong khung ảnh.
+- Mobile overlay không dùng full width; content được siết về `max-mobile:w-[min(368px,82vw)]` và căn giữa để heading gọn như block `prose` của Laserox.
 - Mock data trang chủ đặt tại `src/features/home/data/image-slider-slides.ts`.
 - Nút điều hướng Liquid Glass (Next/Prev) ẩn trên mobile và chỉ hiển thị ở góc phải dưới từ `sm:` trở lên.
 
