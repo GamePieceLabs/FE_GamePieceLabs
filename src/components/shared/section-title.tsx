@@ -37,10 +37,10 @@ export function SectionTitle(props: SectionTitleProps): ReactElement {
   return (
     <div
       className={cn(
-        "px-5 py-10 sm:px-[var(--section-padding-x)] sm:py-[80px]",
-        "ariaLabel" in props &&
-          props.ariaLabel === "ImageSlider" &&
-          "sm:pb-[80px] sm:pt-[10px]",
+        "ariaLabel" in props && props.ariaLabel === "ImageSlider" && "!pt-0",
+        "px-[max(48px,calc((100vw-1580px)/2))] py-20",
+        "max-tablet:px-8 max-tablet:py-14",
+        "max-mobile:px-5 max-mobile:py-10",
       )}
     >
       {getComponents(props)}

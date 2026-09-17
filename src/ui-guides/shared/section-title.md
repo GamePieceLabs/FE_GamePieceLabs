@@ -14,13 +14,15 @@ Tên class của CSS Module dùng camelCase để có thể truy cập bằng do
 
 ### Responsive horizontal padding
 
-Wrapper của `SectionTitle` theo hướng mobile-first: mặc định `px-5` (`20px`) dưới breakpoint `sm` (`640px`); từ `sm` trở lên dùng Tailwind arbitrary value:
+Wrapper ngoài cùng của `SectionTitle` dùng cùng một gutter cho toàn bộ section, không chỉ riêng từng child:
 
 ```tsx
-px-5 sm:px-[var(--section-padding-x)]
+px-[max(24px,calc((100vw-1580px)/2))] py-[80px]
 ```
 
-`--section-padding-x` là CSS variable runtime dùng để điều chỉnh padding ngang toàn bộ section. Các layout dạng lưới (`content` mặc định hoặc `imageList`) đặt `mb-6 sm:mb-10` trên `SectionHeading` để tạo khoảng cách giữa tiêu đề và grid children.
+Công thức này giữ nội dung section rộng tối đa khoảng `1580px` ở desktop và chỉ co lại khi viewport nhỏ hơn container. Khi viewport nhỏ, gutter tối thiểu là `24px`. Cách này tránh việc dùng `vw` thuần làm padding ngang quá lớn ở laptop/desktop hẹp, khiến banner hoặc grid bị ép nhỏ dù màn hình vẫn đủ chỗ hiển thị.
+
+Các layout dạng lưới (`content` mặc định hoặc `imageList`) đặt `mb-6 sm:mb-10` trên `SectionHeading` để tạo khoảng cách giữa tiêu đề và grid children.
 
 ## Use Cases
 
