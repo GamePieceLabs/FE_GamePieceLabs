@@ -4,6 +4,7 @@ import { ImageFrame } from "@/components/shared/image/image-frame";
 import { MarqueeText } from "@/components/shared/marquee-text";
 import { ProductList } from "@/components/shared/product/product-list";
 import { SectionTitle } from "@/components/shared/section-title/section-title";
+import { SliderGallery } from "@/components/shared/slider-gallery";
 import Wrapper from "@/components/shared/wrapper";
 import type { ByGameNamePageData } from "@/features/collections/by-game-name/types/by-game-name";
 
@@ -50,7 +51,7 @@ export function ByGameName({ data }: ByGameNameProps) {
   };
 
   return (
-    <>
+    <div className="bg-neutral-100">
       <Wrapper>
         <h1 className="type-h1 pb-8 text-center text-neutral-950">{title}</h1>
 
@@ -99,16 +100,27 @@ export function ByGameName({ data }: ByGameNameProps) {
         fontSize="text-8xl"
       />
 
-      <SectionTitle className="pb-10">
-        <ImageFrame
-          src={editorial.emblemSrc}
-          alt={editorial.emblemAlt}
-          aspectRatio="aspect-[78/83]"
-          objectFit="contain"
-          sizes="52px"
-          containerClassName="w-[52px] max-w-none sm:w-[52px] xl:w-[52px]"
-          className="rounded-none border-0 bg-transparent shadow-none sm:rounded-none"
-        />
+      <SectionTitle>
+        <div className="grid max-mobile:grid-cols-1 max-tablet:grid-cols-1 grid-cols-2 bg-white rounded-lg">
+          <ImageFrame
+            src={editorial.imageSrc}
+            alt={editorial.imageAlt}
+            aspectRatio="aspect-square"
+            objectFit="contain"
+            className="max-mobile:rounded-t-lg mobile:rounded-tl-lg mobile:rounded-bl-lg rounded-none border-0 bg-transparent shadow-none"
+          />
+
+          <div className="flex flex-col justify-center items-center text-center max-tablet:my-15 max-mobile:my-10">
+            <ImageFrame
+              src={editorial.emblemSrc}
+              alt={editorial.emblemAlt}
+              aspectRatio="aspect-square"
+              objectFit="cover"
+              containerClassName="w-9 sm:w-12.5"
+              className="max-tablet:text-[clamp(34px,5.3125vw,34px)] max-laptop:laptop:w-[clamp(52px,2.7083vw,52px)] rounded-none border-0 bg-transparent shadow-none sm:rounded-none"
+            />
+          </div>
+        </div>
       </SectionTitle>
 
       <SectionTitle
@@ -116,14 +128,16 @@ export function ByGameName({ data }: ByGameNameProps) {
         more={{ label: "view all categories", href: "/collections" }}
         className="pb-16 sm:pb-20"
       >
-        {otherCategories.map((category) => (
-          <CardImageTitle
-            key={category.href}
-            {...category}
-            prefix="/collections"
-          />
-        ))}
+        <SliderGallery>
+          {otherCategories.map((category) => (
+            <CardImageTitle
+              key={category.href}
+              {...category}
+              prefix="/collections"
+            />
+          ))}
+        </SliderGallery>
       </SectionTitle>
-    </>
+    </div>
   );
 }

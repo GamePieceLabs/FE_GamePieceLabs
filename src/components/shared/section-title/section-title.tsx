@@ -2,16 +2,10 @@ import type { ReactElement } from "react";
 
 import { cn } from "@/utils/cn";
 
-import {
-  createSectionTitleId,
-  SectionHeading,
-} from "./section-heading";
+import { createSectionTitleId, SectionHeading } from "./section-heading";
 import type { SectionTitleProps } from "./types";
 
-export {
-  createSectionTitleId,
-  SectionHeading,
-} from "./section-heading";
+export { createSectionTitleId, SectionHeading } from "./section-heading";
 export type {
   SectionTitleAlign,
   SectionTitleHeadingLevel,
