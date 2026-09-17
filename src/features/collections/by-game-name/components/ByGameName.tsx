@@ -3,7 +3,7 @@ import Filter, { FilterMobileGroup } from "@/components/shared/filter";
 import { ImageFrame } from "@/components/shared/image/image-frame";
 import { MarqueeText } from "@/components/shared/marquee-text";
 import { ProductList } from "@/components/shared/product/product-list";
-import { SectionTitle } from "@/components/shared/section-title";
+import { SectionTitle } from "@/components/shared/section-title/section-title";
 import Wrapper from "@/components/shared/wrapper";
 import type { ByGameNamePageData } from "@/features/collections/by-game-name/types/by-game-name";
 
@@ -26,18 +26,33 @@ const sortOptions = [
 export function ByGameName({ data }: ByGameNameProps) {
   const { title, editorial, products, otherCategories } = data;
   const filters = {
-    availability: <Filter variant="switch" label="In stock only" activeLabel="In Stock" defaultChecked={false} labelPosition="left" showActiveBadge />,
-    type: <Filter items={[{ id: "insert", label: "Insert", count: 1 }]} title="Product" variant="type" />,
-    price: <Filter variant="price" min={0} max={283500} step={5000} currency="VND" />,
+    availability: (
+      <Filter
+        variant="switch"
+        label="In stock only"
+        activeLabel="In Stock"
+        defaultChecked={false}
+        labelPosition="left"
+        showActiveBadge
+      />
+    ),
+    type: (
+      <Filter
+        items={[{ id: "insert", label: "Insert", count: 1 }]}
+        title="Product"
+        variant="type"
+      />
+    ),
+    price: (
+      <Filter variant="price" min={0} max={283500} step={5000} currency="VND" />
+    ),
     sort: <Filter variant="sort" items={sortOptions} />,
   };
 
   return (
     <>
       <Wrapper>
-        <h1 className="type-h1 pb-8 text-center text-neutral-950">
-          {title}
-        </h1>
+        <h1 className="type-h1 pb-8 text-center text-neutral-950">{title}</h1>
 
         <div className="grid w-full grid-cols-2 items-center gap-x-2 gap-y-4 border-y border-neutral-200 py-4 max-sm:hidden sm:flex sm:justify-between sm:gap-x-5">
           {filters.availability}
@@ -84,15 +99,7 @@ export function ByGameName({ data }: ByGameNameProps) {
         fontSize="text-8xl"
       />
 
-      <SectionTitle
-        content="split"
-        image={{
-          src: editorial.imageSrc,
-          alt: editorial.imageAlt,
-          aspectRatio: "aspect-[784/600]",
-        }}
-        className="pb-10"
-      >
+      <SectionTitle className="pb-10">
         <ImageFrame
           src={editorial.emblemSrc}
           alt={editorial.emblemAlt}

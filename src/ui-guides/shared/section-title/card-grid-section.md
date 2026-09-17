@@ -19,6 +19,8 @@ Cung cấp layout hoàn chỉnh cho các phần trưng bày danh mục, bộ sư
 
 ## When NOT to Use
 
+- Cần carousel ngang; dùng `SectionTitle` với `content="slider"`.
+
 - Section chỉ có nội dung văn bản đơn thuần (dùng `TextContentSection`).
 - Section chia đôi màn hình giữa ảnh và chữ (dùng `SplitContentSection`).
 
@@ -35,7 +37,6 @@ Nhận các thuộc tính từ interface `SectionTitleMoreProps`:
 
 | Prop | Type | Required | Default | Description |
 | ---- | ---- | -------- | ------- | ----------- |
-| `isScroll` | `boolean` | No | `false` | Renders the child cards in a horizontal carousel instead of the default grid |
 | `title` | `string` | Yes | — | Tiêu đề của section |
 | `children` | `ReactNode` | Yes | — | Danh sách các thẻ `CardImageTitle` |
 | `more` | `SectionTitleMore` (`{ label?: string; href?: string }`) | No | — | Cấu hình liên kết xem thêm |

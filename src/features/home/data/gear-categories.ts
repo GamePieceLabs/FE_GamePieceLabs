@@ -3,7 +3,40 @@ import type { CardImageTitleProps } from "@/components/shared/card-image-title";
 export const gearCategories = [
   {
     title: "Board Game Inserts",
-    imageSrc: "/images/contact/contact-hero.png",
+    imageSrc:
+      "https://laserox.net/cdn/shop/files/MW08SportGR_Angle_Right_800x800_8a72d3f1-7771-4cb1-8ceb-3106713e47d6_800x800_2_jpg.png?v=1714732680&width=300",
+    imageAlt: "Board game inserts, tokens, cards, and accessories on a table",
+    href: "board-game-inserts",
+    imagePosition: "22% center",
+  },
+  {
+    title: "Board Game Inserts",
+    imageSrc:
+      "https://laserox.net/cdn/shop/files/MW08SportGR_Angle_Right_800x800_8a72d3f1-7771-4cb1-8ceb-3106713e47d6_800x800_2_jpg.png?v=1714732680&width=300",
+    imageAlt: "Board game inserts, tokens, cards, and accessories on a table",
+    href: "board-game-inserts",
+    imagePosition: "22% center",
+  },
+  {
+    title: "Board Game Inserts",
+    imageSrc:
+      "https://laserox.net/cdn/shop/files/MW08SportGR_Angle_Right_800x800_8a72d3f1-7771-4cb1-8ceb-3106713e47d6_800x800_2_jpg.png?v=1714732680&width=300",
+    imageAlt: "Board game inserts, tokens, cards, and accessories on a table",
+    href: "board-game-inserts",
+    imagePosition: "22% center",
+  },
+  {
+    title: "Board Game Inserts",
+    imageSrc:
+      "https://laserox.net/cdn/shop/files/MW08SportGR_Angle_Right_800x800_8a72d3f1-7771-4cb1-8ceb-3106713e47d6_800x800_2_jpg.png?v=1714732680&width=300",
+    imageAlt: "Board game inserts, tokens, cards, and accessories on a table",
+    href: "board-game-inserts",
+    imagePosition: "22% center",
+  },
+  {
+    title: "Board Game Inserts",
+    imageSrc:
+      "https://laserox.net/cdn/shop/files/MW08SportGR_Angle_Right_800x800_8a72d3f1-7771-4cb1-8ceb-3106713e47d6_800x800_2_jpg.png?v=1714732680&width=300",
     imageAlt: "Board game inserts, tokens, cards, and accessories on a table",
     href: "board-game-inserts",
     imagePosition: "22% center",

@@ -1,11 +1,11 @@
 import { CardImageTitle } from "@/components/shared/card-image-title";
 import Filter, { FilterMobileGroup } from "@/components/shared/filter";
-import { SectionTitle } from "@/components/shared/section-title";
 import Wrapper from "@/components/shared/wrapper";
 import { CollectionsPageData } from "../types/ox-product-family";
 import { MarqueeText } from "@/components/shared/marquee-text";
 import { ImageFrame } from "@/components/shared/image/image-frame";
 import { ProductList } from "@/components/shared/product/product-list";
+import { SectionTitle } from "@/components/shared/section-title/section-title";
 
 interface OXProductFamilyProps {
   data: CollectionsPageData;
@@ -88,8 +88,6 @@ export function OXProductFamily({ data }: OXProductFamilyProps) {
       />
 
       <SectionTitle
-        content="split"
-        image={{ src: editorial.imageSrc, alt: editorial.imageAlt }}
         className="pb-10"
       >
         <div className="flex max-w-xl flex-col items-center text-center">

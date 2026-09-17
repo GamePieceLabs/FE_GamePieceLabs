@@ -1,11 +1,11 @@
 import { CardImageTitle } from "@/components/shared/card-image-title";
 import Filter, { FilterMobileGroup } from "@/components/shared/filter";
-import { SectionTitle } from "@/components/shared/section-title";
 import Wrapper from "@/components/shared/wrapper";
 import { CollectionsPageData } from "../types/tokens";
 import { MarqueeText } from "@/components/shared/marquee-text";
 import { ImageFrame } from "@/components/shared/image/image-frame";
 import { ProductList } from "@/components/shared/product/product-list";
+import { SectionTitle } from "@/components/shared/section-title/section-title";
 
 interface TokensProps {
   data: CollectionsPageData;
@@ -14,10 +14,40 @@ interface TokensProps {
 export function Tokens({ data }: TokensProps) {
   const { hero, editorial, products, otherCategories } = data;
   const filters = {
-    availability: <Filter variant="switch" label="In stock only" activeLabel="In Stock" defaultChecked={false} labelPosition="left" showActiveBadge />,
-    type: <Filter items={[{ id: "accessories", label: "Accessories", count: 4 }]} title="Product" variant="type" />,
+    availability: (
+      <Filter
+        variant="switch"
+        label="In stock only"
+        activeLabel="In Stock"
+        defaultChecked={false}
+        labelPosition="left"
+        showActiveBadge
+      />
+    ),
+    type: (
+      <Filter
+        items={[{ id: "accessories", label: "Accessories", count: 4 }]}
+        title="Product"
+        variant="type"
+      />
+    ),
     price: <Filter variant="price" min={0} max={274} step={1} currency="USD" />,
-    sort: <Filter variant="sort" items={["featured", "most relevant", "best selling", "alphabetically, a-z", "alphabetically, z-a", "price, low to high", "price, high to low", "date, old to new", "date, new to old"]} />,
+    sort: (
+      <Filter
+        variant="sort"
+        items={[
+          "featured",
+          "most relevant",
+          "best selling",
+          "alphabetically, a-z",
+          "alphabetically, z-a",
+          "price, low to high",
+          "price, high to low",
+          "date, old to new",
+          "date, new to old",
+        ]}
+      />
+    ),
   };
 
   return (
@@ -48,9 +78,7 @@ export function Tokens({ data }: TokensProps) {
             {filters.price}
           </div>
 
-          <div className="min-w-0 text-right sm:flex-1">
-            {filters.sort}
-          </div>
+          <div className="min-w-0 text-right sm:flex-1">{filters.sort}</div>
         </div>
 
         <section className="pt-8" aria-labelledby="collection-products-heading">
@@ -86,11 +114,7 @@ export function Tokens({ data }: TokensProps) {
         fontSize="text-8xl"
       />
 
-      <SectionTitle
-        content="split"
-        image={{ src: editorial.imageSrc, alt: editorial.imageAlt }}
-        className="pb-10"
-      >
+      <SectionTitle className="pb-10">
         <div className="flex max-w-xl flex-col items-center text-center">
           <ImageFrame
             src={editorial.emblemSrc}

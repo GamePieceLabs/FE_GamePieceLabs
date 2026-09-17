@@ -2,7 +2,10 @@
 
 import Link from "next/link";
 
-import { CardImageTitle } from "@/components/shared/card-image-title";
+import {
+  CardImageTitle,
+  CardImageTitleGrid,
+} from "@/components/shared/card-image-title";
 import { MarqueeText } from "@/components/shared/marquee-text";
 import { featuredProducts } from "@/features/home/data/featured-products";
 import { gameCategories } from "@/features/home/data/game-categories";
@@ -15,22 +18,19 @@ import { PlayerReviewsSection } from "@/components/shared/player-reviews-section
 import { CompanyLinksSection } from "@/features/home/components/company-links-section";
 import { UpcomingProductsSection } from "@/features/home/components/upcoming-products-section";
 import { OrderInstruction } from "@/features/home/components/order-instruction";
-import { SectionTitle } from "@/components/shared/section-title";
 import { ImageSlider } from "@/components/shared/image/image-slider";
 import { imageSliderSlides } from "@/features/home/data/image-slider-slides";
 import { ImageComparison } from "@/components/shared/image/image-comparision";
 import { ProductGallery } from "@/components/shared/product/product-gallery";
 import { Button } from "@/components/ui/button";
 import { ProductDemo } from "@/features/home/components/product-demo";
+import { SliderGallery } from "@/components/shared/slider-gallery";
+import { SectionTitle } from "@/components/shared/section-title/section-title";
 
 export default function StorefrontHomePage() {
   return (
     <main className="bg-neutral-50/60">
-      <SectionTitle
-        content="split"
-        orientation="vertical"
-        ariaLabel="ImageSlider"
-      >
+      <SectionTitle ariaLabel="ImageSlider">
         <ImageSlider
           slides={imageSliderSlides}
           ariaLabel="Bộ sưu tập nổi bật"
@@ -39,20 +39,21 @@ export default function StorefrontHomePage() {
 
       <SectionTitle
         title="Choose Your Gear"
-        isScroll
         more={{
           label: "Browse all categories",
           href: "/products",
         }}
       >
-        {gearCategories.map((category) => (
-          <CardImageTitle
-            key={category.title}
-            {...category}
-            prefix="/collections"
-            isClicked={true}
-          />
-        ))}
+        <SliderGallery>
+          {gearCategories.map((category) => (
+            <CardImageTitle
+              key={category.title}
+              {...category}
+              prefix="/collections"
+              isClicked={true}
+            />
+          ))}
+        </SliderGallery>
       </SectionTitle>
 
       <MarqueeText
@@ -61,7 +62,7 @@ export default function StorefrontHomePage() {
         fontSize="text-8xl"
       />
 
-      <SectionTitle orientation="vertical" align="center" content="split">
+      <SectionTitle>
         <div className="mb-8 space-y-3 text-center sm:mb-10 sm:space-y-4 -mt-5">
           <p
             className={`
@@ -98,13 +99,7 @@ export default function StorefrontHomePage() {
         </div>
       </SectionTitle>
 
-      <SectionTitle
-        orientation="vertical"
-        align="center"
-        content="split"
-        ariaLabel="The Game Piece Labs philosophy"
-        className="overflow-hidden"
-      >
+      <SectionTitle align="center" className="overflow-hidden">
         <div className="flex flex-col items-center text-center">
           <h2 className="bg-gradient-to-b from-neutral-300 to-white bg-clip-text mobile:text-[40px] sm:text-[clamp(40px,10vw,192px)] inline-block transform mobile:scale-y-[1.2] sm:scale-100 font-black tracking-[-0.065em] whitespace-nowrap text-transparent text-nowrap">
             GAME PIECE LABS
@@ -135,7 +130,7 @@ export default function StorefrontHomePage() {
         </div>
       </SectionTitle>
 
-      <SectionTitle orientation="vertical" align="center" content="split">
+      <SectionTitle align="center">
         <ProductDemo />
       </SectionTitle>
 
@@ -147,19 +142,20 @@ export default function StorefrontHomePage() {
 
       <SectionTitle
         title="Browse By Game"
-        isScroll
         more={{
           label: "View all games",
           href: "/products",
         }}
         align="left"
       >
-        {gameCategories.map((game) => (
-          <CardImageTitle key={game.title} {...game} prefix="/collections" />
-        ))}
+        <CardImageTitleGrid>
+          {gameCategories.map((game) => (
+            <CardImageTitle key={game.title} {...game} prefix="/collections" />
+          ))}
+        </CardImageTitleGrid>
       </SectionTitle>
 
-      <SectionTitle orientation="vertical" align="left" content="split">
+      <SectionTitle align="left">
         <PlayerReviewsSection
           variant="image"
           imageList={playerReviewImageList}
@@ -167,24 +163,15 @@ export default function StorefrontHomePage() {
         />
       </SectionTitle>
 
-      <SectionTitle orientation="vertical" align="center" content="split">
+      <SectionTitle align="center">
         <OrderInstruction />
       </SectionTitle>
 
-      <SectionTitle
-        orientation="vertical"
-        content="split"
-        ariaLabel="Explore GamePieceLabs"
-      >
+      <SectionTitle>
         <CompanyLinksSection />
       </SectionTitle>
 
-      <SectionTitle
-        title="Upcoming Products"
-        orientation="vertical"
-        align="center"
-        content="split"
-      >
+      <SectionTitle title="Upcoming Products" align="center">
         <UpcomingProductsSection />
       </SectionTitle>
     </main>

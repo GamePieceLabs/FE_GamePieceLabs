@@ -12,8 +12,8 @@ import type {
 } from "./types";
 
 interface SectionHeadingProps {
-  title: string;
-  titleId: string;
+  title?: string;
+  titleId?: string;
   headingLevel?: SectionTitleHeadingLevel;
   more?: SectionTitleMore;
   align?: SectionTitleAlign;
@@ -42,8 +42,8 @@ const headingSizeClasses: Record<SectionTitleHeadingLevel, string> = {
   h6: "text-lg",
 };
 
-export function createSectionTitleId(title: string): string {
-  const slug = title.toLowerCase().replace(/[^a-z0-9]+/g, "-");
+export function createSectionTitleId(title?: string): string {
+  const slug = title?.toLowerCase().replace(/[^a-z0-9]+/g, "-");
 
   return `${slug || "section"}-title`;
 }

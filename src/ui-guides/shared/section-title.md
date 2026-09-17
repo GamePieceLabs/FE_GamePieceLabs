@@ -1,10 +1,10 @@
 # SectionTitle
 
-`SectionTitle` là component điều phối cấp cao (dispatcher component) cho các khối section có tiêu đề trong storefront, tự động lựa chọn layout phù hợp dựa vào thuộc tính `content`: dạng lưới thẻ (`card-grid-section`), dạng khối chữ (`text-content-section`), hoặc dạng chia đôi màn hình (`split-content`).
+`SectionTitle` là wrapper ngữ nghĩa cho các khối section trong storefront. Component không tự chọn layout grid, slider hay split; người viết màn hình chủ động ghép heading và layout cần thiết bên trong `children`.
 
 ## Purpose
 
-Cung cấp một interface duy nhất để xây dựng các section trang web hoàn chỉnh có tiêu đề, liên kết xem thêm ("more"), và bố cục nội dung phong phú mà không cần nhớ từng sub-component riêng lẻ.
+Cung cấp một thẻ `<section>` dùng chung với gutter, chiều rộng và accessibility nhất quán, trong khi vẫn để từng màn hình tự quyết định bố cục bên trong.
 
 ## Styling
 
@@ -32,11 +32,8 @@ Các layout dạng lưới (`content` mặc định hoặc `imageList`) đặt `
 
 ## When to Use
 
-- Cần dựng một section chuẩn có tiêu đề `<h2>` kết nối accessibility (`aria-labelledby`).
-- Cần linh hoạt chuyển đổi giữa 3 layout:
-  - `content="imageList"` (hoặc không truyền): Tiêu đề phía trên, bên dưới là lưới thẻ ảnh (`CardImageTitleGrid`).
-  - `content="text"`: Tiêu đề phía trên, bên dưới là nội dung bài viết/khối chữ.
-  - `content="split"`: Bố cục chia đôi hai cột (một bên ảnh `ImageFrame`, một bên là text/children).
+- Cần một section chuẩn có tiêu đề kết nối accessibility qua `aria-labelledby`.
+- Cần tự ghép layout bên trong section, chẳng hạn `SectionHeading` + `CardImageTitleGrid`, slider, hoặc một layout split riêng.
 
 ## When NOT to Use
 
@@ -61,13 +58,12 @@ import {
 
 ## Props
 
-`SectionTitleProps` là một Discriminated Union giữa `SectionTitleMoreProps` và `SectionTitleSplitProps`:
+`SectionTitleProps` vẫn tương thích với các props layout cũ, nhưng `SectionTitle` không đọc `content`, `orientation` hay `contentPosition` để quyết định giao diện. Các props này chỉ nên dùng ở component layout mà màn hình đặt trong `children`.
 
 ### 1. Khi `content?: "imageList" | "text"` (`SectionTitleMoreProps`)
 
 | Prop | Type | Required | Default | Description |
 | ---- | ---- | -------- | ------- | ----------- |
-| `isScroll` | `boolean` | No | `false` | Renders image-list children as a horizontal carousel instead of a grid |
 | `title` | `string` | Yes | — | Tiêu đề của section |
 | `children` | `ReactNode` | Yes | — | Nội dung bên dưới tiêu đề (các thẻ `CardImageTitle` hoặc đoạn văn bản) |
 | `content` | `"imageList"` \| `"text"` | No | `"imageList"` | Loại layout nội dung |
@@ -107,34 +103,62 @@ Chia làm 2 biến thể theo `orientation`:
 | `className` | `string` | No | — | Lớp CSS tùy biến |
 | `wrapperClassName` | `string` | No | — | Lớp CSS tùy biến cho wrapper ngoài cùng của `SectionTitle` |
 
-## Basic Usage
-
-### Layout Danh mục thẻ (Mặc định)
+## Composing a layout
 
 ```tsx
-import { SectionTitle } from "@/components/shared/section-title";
-import { CardImageTitle } from "@/components/shared/card-image-title";
+<SectionTitle title="Browse By Game">
+  <SectionHeading title="Browse By Game" titleId="browse-by-game-title" />
+  <SliderGallery>
+    <CardImageTitle {...game} />
+  </SliderGallery>
+</SectionTitle>
+```
+
+## Basic Usage
+
+### Layout danh mục thẻ
+
+```tsx
+import {
+  createSectionTitleId,
+  SectionHeading,
+  SectionTitle,
+} from "@/components/shared/section-title";
+import {
+  CardImageTitle,
+  CardImageTitleGrid,
+} from "@/components/shared/card-image-title";
 
 export function CategoriesDemo() {
+  const title = "Khám phá theo danh mục";
+  const titleId = createSectionTitleId(title);
+
   return (
     <SectionTitle
-      title="Khám phá theo danh mục"
-      more={{ label: "Xem tất cả", href: "/collections" }}
+      title={title}
     >
-      <CardImageTitle
-        title="Board Game Inserts"
-        imageSrc="/images/insert-cat.jpg"
-        imageAlt="Inserts"
-        href="/collections/inserts"
-        isClicked
+      <SectionHeading
+        title={title}
+        titleId={titleId}
+        more={{ label: "Xem tất cả", href: "/collections" }}
+        className="mb-6 sm:mb-10"
       />
-      <CardImageTitle
-        title="Token Nâng Cấp"
-        imageSrc="/images/token-cat.jpg"
-        imageAlt="Tokens"
-        href="/collections/tokens"
-        isClicked
-      />
+      <CardImageTitleGrid>
+        <CardImageTitle
+          title="Board Game Inserts"
+          imageSrc="/images/insert-cat.jpg"
+          imageAlt="Inserts"
+          href="/collections/inserts"
+          isClicked
+        />
+        <CardImageTitle
+          title="Token Nâng Cấp"
+          imageSrc="/images/token-cat.jpg"
+          imageAlt="Tokens"
+          href="/collections/tokens"
+          isClicked
+        />
+      </CardImageTitleGrid>
     </SectionTitle>
   );
 }
@@ -142,22 +166,14 @@ export function CategoriesDemo() {
 
 ## Advanced Usage
 
-### Layout Chia đôi Horizon Split (Ảnh và Văn bản)
+### Layout split (ảnh và văn bản)
 
 ```tsx
 import { SectionTitle } from "@/components/shared/section-title";
 
 export function StorySection() {
   return (
-    <SectionTitle
-      content="split"
-      contentPosition="left"
-      image={{
-        src: "/images/workshop.jpg",
-        alt: "Góc chế tác 3D",
-        aspectRatio: "aspect-square",
-      }}
-    >
+    <SectionTitle ariaLabel="Workshop story">
       <div className="space-y-4">
         <h3 className="type-h3">Công nghệ in 3D chính xác cao</h3>
         <p className="type-prose text-neutral-600">
@@ -190,18 +206,10 @@ Use `"h1"` only for the page's single primary title and use lower levels in docu
 </SectionTitle>
 ```
 
-## Dependencies
-
-### Internal
-
-- `CardGridSection` từ `@/components/shared/section-title/card-grid-section`
-- `SplitContentSection` từ `@/components/shared/section-title/split-content`
-- `TextContentSection` từ `@/components/shared/section-title/text-content-section`
-
 ## Accessibility
 
-- Tự động sinh `id` cho tiêu đề và liên kết với thẻ `<section aria-labelledby={titleId}>`.
+- Khi có `title`, component tự động sinh `id` và dùng `<section aria-labelledby={titleId}>`. Khi không có title, truyền `ariaLabel` để gắn nhãn cho section.
 
 ## Implementation Notes
 
-- Component hoạt động như một router switch ở tầng UI component: căn cứ vào `props.content` để chuyển tiếp props chính xác sang sub-component tương ứng.
+- Component chỉ render một `<section>`; toàn bộ layout nội dung thuộc về `children`.

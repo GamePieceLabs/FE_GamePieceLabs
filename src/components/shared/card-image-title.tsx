@@ -1,16 +1,9 @@
-import React, { Children, type CSSProperties, type ReactNode } from "react";
-import { ArrowRight, ChevronRight } from "lucide-react";
+import React, { type CSSProperties, type ReactNode } from "react";
+import { ChevronRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
 import { Card, CardContent } from "@/components/ui/card";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
 import { cn } from "@/utils/cn";
 
 /** Tỉ lệ visual dựng sẵn cho category/collection card. */
@@ -52,8 +45,6 @@ export type CardImageTitleGridProps = {
   children: ReactNode;
   /** Class để thay đổi số cột hoặc khoảng cách grid. */
   className?: string;
-  /** Hiển thị danh sách card bên trong carousel ngang thay vì lưới. Mặc định `false`. */
-  isScroll?: boolean;
 };
 
 const aspectRatioClasses: Record<CardImageTitleAspectRatio, string> = {
@@ -71,56 +62,23 @@ function getPrefixedHref(href: string, prefix?: string): string {
   return `${prefix.replace(/\/+$/, "")}/${href.replace(/^\/+/, "")}`;
 }
 
+//*  basis-[316px] */
+//*  max-pc:basis-[clamp(241.6px,16.4583vw,316px)]*/
+
 export function CardImageTitleGrid({
   children,
   className,
-  isScroll = false,
 }: CardImageTitleGridProps) {
-  switch (isScroll) {
-    case true:
-      return (
-        <div className="flex relative">
-          <Carousel
-            opts={{
-              align: "start",
-              containScroll: "trimSnaps",
-              dragFree: true,
-            }}
-            aria-label="Danh sách thẻ hình ảnh"
-            className={cn("w-full flex", className)}
-          >
-            <div className="flex-10">
-              <CarouselContent className="-ml-3 sm:-ml-5">
-                {Children.map(children, (child) => (
-                  <CarouselItem className="basis-[75%] pl-3 sm:basis-1/2 sm:pl-5 lg:basis-1/3 xl:basis-1/5">
-                    {child}
-                  </CarouselItem>
-                ))}
-              </CarouselContent>
-            </div>
-            <div className="flex justify-center absolute top-1/2 -translate-y-1/2 w-full px-4">
-              <div className="mr-auto">
-                <CarouselPrevious className="static z-20 size-8 shrink-0 translate-x-0 border-0 bg-white text-neutral-950 shadow-lg hover:bg-neutral-100" />
-              </div>
-              <div className="ml-auto">
-                <CarouselNext className="static z-20 size-8 shrink-0 translate-x-0 border-0 bg-white text-neutral-950 shadow-lg hover:bg-neutral-100" />
-              </div>
-            </div>
-          </Carousel>
-        </div>
-      );
-    default:
-      return (
-        <div
-          className={cn(
-            "grid grid-cols-6 max-sm:grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 sm:gap-5",
-            className,
-          )}
-        >
-          {children}
-        </div>
-      );
-  }
+  return (
+    <div
+      className={cn(
+        "grid grid-cols-6 max-sm:grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 sm:gap-5",
+        className,
+      )}
+    >
+      {children}
+    </div>
+  );
 }
 
 export function CardImageTitle({
@@ -140,8 +98,8 @@ export function CardImageTitle({
   const card = (
     <Card
       className={cn(
-        "relative overflow-hidden rounded-xl border-0 bg-neutral-950 p-0 shadow-none",
-        aspectRatioClasses[aspectRatio],
+        "relative w-full overflow-hidden rounded-xl border-0 bg-neutral-950 p-0 shadow-none",
+        "aspect-[300/286]",
       )}
     >
       <Image
@@ -164,14 +122,14 @@ export function CardImageTitle({
       {title || isArrow ? (
         <CardContent
           className={cn(
-            "gap-2 w-full flex justify-between items-center sm:gap-3 p-0 absolute bottom-4 px-2 z-10",
+            `w-full flex justify-between items-center absolute bottom-0 z-10 max-laptop:p-[clamp(15px,1.0417vw,10px)]`,
             title ? "justify-between" : "justify-end",
           )}
         >
           {title ? (
             <div
               className={cn(
-                "max-mobile:text-center text-base font-bold m-1 line-clamp-2 leading-snug text-white drop-shadow-sm max-sm:text-lg sm:text-md md:text-md xl:text-base",
+                "max-mobile:mx-auto max-tablet:text-[clamp(12px,1.5625vw,16px)] max-mobile:text-[14px] text-[16px] font-bold line-clamp-2 leading-snug text-white drop-shadow-sm",
                 titleClassName,
               )}
             >
@@ -180,7 +138,7 @@ export function CardImageTitle({
           ) : null}
 
           {isArrow && isClicked ? (
-            <span className="hidden size-4 sm:size-7 shrink-0 translate-x-2 items-center justify-center rounded-full bg-white text-neutral-950 opacity-0 shadow-sm transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100 group-focus-visible:translate-x-0 group-focus-visible:opacity-100 sm:flex">
+            <span className="max-mobile:hidden flex size-4 sm:size-7 shrink-0 translate-x-2 items-center justify-center rounded-full bg-white text-neutral-950 opacity-0 shadow-sm transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100 group-focus-visible:translate-x-0 group-focus-visible:opacity-100">
               <ChevronRight className="size-3 sm:size-3" aria-hidden="true" />
             </span>
           ) : null}

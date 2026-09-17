@@ -1,7 +1,5 @@
-import {
-  CardImageTitle,
-  CardImageTitleGrid,
-} from "@/components/shared/card-image-title";
+import { CardImageTitle } from "@/components/shared/card-image-title";
+import { SliderGallery } from "@/components/shared/slider-gallery";
 import { upcomingProducts } from "@/features/home/data/upcoming-products";
 
 const upcomingProductSizes =
@@ -11,7 +9,7 @@ const upcomingProductSizes =
 export function UpcomingProductsSection() {
   return (
     <div className="mx-auto max-w-[1350px]">
-      <CardImageTitleGrid isScroll>
+      <SliderGallery>
         {upcomingProducts.map(({ id, ...product }) => (
           <CardImageTitle
             key={id}
@@ -21,7 +19,7 @@ export function UpcomingProductsSection() {
             isClicked
           />
         ))}
-      </CardImageTitleGrid>
+      </SliderGallery>
     </div>
   );
 }
