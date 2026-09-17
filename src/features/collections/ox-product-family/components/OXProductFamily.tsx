@@ -123,7 +123,7 @@ export function OXProductFamily({ data }: OXProductFamilyProps) {
             alt={editorial.imageAlt}
             aspectRatio="aspect-square"
             objectFit="contain"
-            className="max-mobile:rounded-t-lg mobile:rounded-tl-lg mobile:rounded-bl-lg border-0 bg-transparent shadow-none"
+            className="max-tablet:rounded-t-lg tablet:rounded-tl-lg tablet:rounded-bl-lg border-0 bg-transparent shadow-none"
           />
 
           <div className="flex flex-col justify-center items-center text-center max-tablet:my-15 max-mobile:my-10">
