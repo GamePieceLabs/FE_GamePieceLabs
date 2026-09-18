@@ -19,7 +19,7 @@ export function AboutStory({ content }: AboutStoryProps) {
           height={96}
           className="mx-auto size-16 object-contain sm:size-20"
         />
-        <p className="mx-auto mt-12 max-w-[82ch] text-[24px] font-semibold leading-[1.6] text-neutral-900 max-mobile:text-[14px] max-mobile:leading-[1.7]">
+        <p className="mx-auto mt-12 max-w-[82ch] text-[24px] leading-[1.6] text-neutral-900 max-mobile:text-[14px] max-mobile:leading-[1.7]">
           {storyText}
         </p>
       </div>

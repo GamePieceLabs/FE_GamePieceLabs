@@ -99,7 +99,7 @@ export function CardImageTitle({
     <Card
       className={cn(
         "relative w-full overflow-hidden rounded-xl border-0 bg-neutral-950 p-0 shadow-none",
-        "aspect-[300/286]",
+        "aspect-[300/300]",
       )}
     >
       <Image

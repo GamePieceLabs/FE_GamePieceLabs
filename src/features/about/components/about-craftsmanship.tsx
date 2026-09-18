@@ -1,5 +1,6 @@
 import type { AboutCraftsmanshipSection } from "@/features/about/types/about-content";
 import { VideoFrame } from "@/components/shared/video-frame";
+import { SectionTitle } from "@/components/shared/section-title/section-title";
 
 type AboutCraftsmanshipProps = {
   content: AboutCraftsmanshipSection;
@@ -7,7 +8,7 @@ type AboutCraftsmanshipProps = {
 
 export function AboutCraftsmanship({ content }: AboutCraftsmanshipProps) {
   return (
-    <section className="bg-white px-5 py-10 sm:px-[var(--section-padding-x)] sm:py-[80px]">
+    <SectionTitle>
       <div>
         <div className="overflow-hidden rounded-xl border border-neutral-200/80 bg-white">
           <div className="grid items-stretch lg:grid-cols-[minmax(0,1.03fr)_minmax(520px,0.97fr)]">
@@ -36,6 +37,6 @@ export function AboutCraftsmanship({ content }: AboutCraftsmanshipProps) {
           </div>
         </div>
       </div>
-    </section>
+    </SectionTitle>
   );
 }

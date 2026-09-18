@@ -21,7 +21,7 @@ export function SliderGallery({ children, className }: SliderGalleryProps): Reac
       aria-label="Danh sách thẻ hình ảnh"
       className={cn("w-full", className)}
     >
-      <CarouselContent className="w-full">
+      <CarouselContent className="w-full h-full">
         {Children.map(children, (child, index) => (
           <CarouselItem key={index}
             className="

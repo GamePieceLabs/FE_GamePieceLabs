@@ -34,12 +34,12 @@ export function BrowseByGameList({ title, searchPlaceholder, games }: BrowseByGa
   return (
     <>
       <SectionTitle>
-        <div className="flex items-center justify-between gap-5 max-mobile:flex-col max-mobile:items-stretch">
-          <h2 className="text-[48px] font-bold leading-[1.1] text-neutral-950 max-tablet:text-[40px] max-mobile:text-center max-mobile:text-[32px]">
+        <div className="flex items-center justify-between gap-5 max-[700px]:flex-col max-[700px]:items-stretch">
+          <h2 className="text-[48px] font-bold leading-[1.1] text-neutral-950 max-tablet:text-[40px] max-[700px]:text-center max-[700px]:text-[32px]">
             {title}
           </h2>
 
-          <div className="flex items-center gap-5 max-mobile:w-full max-mobile:justify-center">
+          <div className="flex items-center gap-5 max-[700px]:w-full max-[700px]:justify-center">
             <label htmlFor="browse-game-search" className="sr-only">
               Search games
             </label>
@@ -50,7 +50,7 @@ export function BrowseByGameList({ title, searchPlaceholder, games }: BrowseByGa
               value={query}
               onChange={(event) => setQuery(event.target.value)}
               placeholder={searchPlaceholder}
-              className="h-9 w-[280px] rounded-full border-2 border-neutral-950 bg-white px-3 text-[16px] font-medium text-neutral-950 outline-none transition focus:border-neutral-600 max-mobile:w-[163px] max-mobile:text-[14px]"
+              className="h-9 w-[280px] rounded-full border-2 border-neutral-950 bg-white px-3 text-[16px] font-medium text-neutral-950 outline-none transition focus:border-neutral-600 max-[600px]:w-[163px] max-[600px]:text-[14px]"
             />
 
             <Search aria-hidden="true" className="size-7 shrink-0 text-neutral-950" />
@@ -58,9 +58,9 @@ export function BrowseByGameList({ title, searchPlaceholder, games }: BrowseByGa
         </div>
       </SectionTitle>
 
-      <section className="mt-[24px] px-[var(--section-padding-x)] max-[600px]:mt-[64px] max-[600px]:px-5">
+      <SectionTitle className="pt-0">
         {filteredGames.length > 0 ? (
-          <div className="grid w-full grid-cols-[repeat(5,250px)] justify-between gap-y-7 max-[1399px]:grid-cols-[repeat(4,250px)] max-[1160px]:grid-cols-[repeat(3,250px)] max-[869px]:grid-cols-[repeat(2,250px)] max-[600px]:grid-cols-[250px] max-[600px]:justify-center max-[600px]:gap-y-5">
+          <div className="grid w-full grid-cols-5 gap-y-7 max-[1400px]:grid-cols-4 max-[1161px]:grid-cols-3 max-[870px]:grid-cols-2 max-[600px]:grid-cols-1 max-[600px]:gap-y-5">
             {filteredGames.map((game) => {
               const imageSrc = browseByGameImages[game];
 
@@ -68,17 +68,17 @@ export function BrowseByGameList({ title, searchPlaceholder, games }: BrowseByGa
                 <Link
                   key={game}
                   href={toGameHref(game)}
-                  className="block w-[250px] text-center text-[18px] font-bold leading-snug text-neutral-950 max-[600px]:text-left max-[600px]:text-[14px]"
+                  className="block w-[250px] justify-self-center text-[18px] font-bold leading-snug text-neutral-950 max-[600px]:text-[14px]"
                 >
                   <Image
                     src={imageSrc.src}
                     alt=""
                     width={250}
                     height={250}
-                    className="mx-auto max-w-[250px] max-[600px]:max-w-full max-[600px]:object-cover"
+                    className="block h-[250px] w-[250px] object-cover"
                   />
 
-                  <span className="block py-4 max-[600px]:pt-1 max-[600px]:pb-0 max-[600px]:leading-[1.1]">
+                  <span className="block w-full pt-1 leading-[1.1]">
                     {game}
                   </span>
                 </Link>
@@ -90,7 +90,7 @@ export function BrowseByGameList({ title, searchPlaceholder, games }: BrowseByGa
             No results found.
           </p>
         )}
-      </section>
+      </SectionTitle>
     </>
   );
 }

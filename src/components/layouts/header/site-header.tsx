@@ -173,16 +173,27 @@ function DesktopHeader() {
                 />
               </NavigationMenuItem>
 
+
+
               <NavigationMenuItem value="about">
-                <NavigationMenuTrigger className="h-11 rounded-md bg-transparent px-4 text-base font-bold hover:bg-transparent focus:bg-transparent data-open:bg-transparent data-popup-open:bg-transparent">
+                <div className="rounded-md bg-transparent px-4 text-base font-bold hover:bg-transparent focus:bg-transparent data-open:bg-transparent data-popup-open:bg-transparent">
+                  <Link href={"/about"}>About us</Link> 
+                </div>
+
+
+                {/* <NavigationMenuTrigger className="h-11 rounded-md bg-transparent px-4 text-base font-bold hover:bg-transparent focus:bg-transparent data-open:bg-transparent data-popup-open:bg-transparent">
                   <Link href={"/about"}>About us</Link>
-                </NavigationMenuTrigger>
-                <MegaMenuPanel
+                </NavigationMenuTrigger> */}
+
+
+                {/* <MegaMenuPanel
                   items={aboutMenuItems}
                   promos={aboutPromoCards}
                   heightClassName="!h-[min(388px,calc(100vh-88px))]"
                   onNavigate={() => setOpenMenu("")}
-                />
+                /> */}
+
+                
               </NavigationMenuItem>
 
               <NavigationMenuItem>

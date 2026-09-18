@@ -9,7 +9,6 @@ export const gameCategories = [
     href: "gloomhaven-buttons-bugs-organizer",
     isClicked: true,
   },
-  /*
   {
     title: "Arkham Horror",
     imageSrc: "/images/games/arkham-horror.jpg",
@@ -40,5 +39,4 @@ export const gameCategories = [
     imageAlt: "Bloodborne: The Board Game cover art",
     href: "/products?game=bloodborne-the-board-game",
   },
-  */
 ] as const satisfies readonly CardImageTitleProps[];
