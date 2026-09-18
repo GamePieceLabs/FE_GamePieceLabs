@@ -62,9 +62,10 @@ export function SectionHeading({
   return (
     <div
       className={cn(
-        "flex w-full flex-col gap-3",
+        "flex w-full",
+        "max-tablet:flex-col max-tablet:gap-3 max-tablet:items-start",
         orientation === "horizon"
-          ? "sm:flex-row sm:items-center sm:justify-between sm:gap-5"
+          ? "flex-row items-center justify-between gap-5"
           : verticalAlignmentClasses[align],
         className,
       )}
@@ -73,6 +74,7 @@ export function SectionHeading({
         id={titleId}
         className={cn(
           "m-0 min-w-0 flex-1 font-bold text-neutral-950",
+          "section-title-text",
           headingSizeClasses[headingLevel],
           titleAlignmentClasses[align],
         )}
@@ -83,7 +85,8 @@ export function SectionHeading({
       {more ? (
         <Link
           href={more.href || "#"}
-          className="group inline-flex w-fit items-center gap-2 rounded-full text-xs font-medium text-neutral-950 outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-4 sm:text-sm"
+          className="group inline-flex w-fit items-center gap-2 rounded-full font-medium text-neutral-950 outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-4 
+                    '!text-[16px]"
         >
           {/* Thẻ span bọc chữ để chạy hiệu ứng line */}
           <span className="relative after:absolute after:bottom-0 after:left-0 after:h-[0.8px] after:w-full after:origin-left after:scale-x-0 after:bg-black after:transition-transform after:duration-500 group-hover:after:scale-x-100">

@@ -50,9 +50,9 @@ import {
 
 ## Responsive Behavior
 
-- Khung ảnh sản phẩm giữ tỉ lệ vuông hoàn hảo `aspect-square`.
+- Khung ảnh sản phẩm trong carousel giữ chiều cao ổn định theo breakpoint (`260px`, desktop rộng `285px`) thay vì scale trực tiếp theo chiều rộng item.
 - Tiêu đề sản phẩm tự động giới hạn tối đa 2 dòng (`line-clamp-2`), chữ lớn hơn trên mobile (`max-sm:text-xl`).
-- Phần nội dung thông tin giữ chiều cao cố định (`h-[196px] sm:h-[212px]`) giúp các thẻ trong cùng một hàng luôn thẳng hàng ngay ngắn dù tên sản phẩm dài ngắn khác nhau.
+- Phần nội dung thông tin giữ `min-height` (`min-h-[160px] sm:min-h-[180px]`) để các thẻ vẫn ổn định nhưng không kéo cao cứng trên mobile.
 
 ## Basic Usage
 

@@ -21,7 +21,12 @@ export const ImageComparison = ({
   });
 
   return (
-    <div className="mx-auto overflow-hidden rounded-xl w-[calc(100%-5px)] sm:w-[calc(100%-3rem)] sm:max-w-[620px] lg:max-w-[940px] xl:w-[calc(70%-50px)] xl:max-w-[1080px]">
+    <div
+      className="mx-auto overflow-hidden rounded-xl 
+                max-w-[1000px] max-h-[600px]
+                aspect-[1000/600]
+                "
+    >
       <Slider.Provider {...sliderProps}>
         <Slider.Root>
           <Slider.Item item="itemOne">

@@ -71,10 +71,11 @@ Component sử dụng Discriminated Union dựa theo trường `type`:
 ## Responsive Behavior
 
 - Trong chế độ `featured`:
-  - Mobile: Mỗi slide chiếm `basis-[88%]`
-  - Tablet: `sm:basis-1/2`
-  - Laptop: `lg:basis-1/3`
-  - Desktop lớn: `xl:basis-1/4`
+  - Mobile: Mỗi slide rộng `min(260px,76vw)`
+  - Từ `700px`: mỗi slide giữ `260px`
+  - Từ `1000px`: mỗi slide giữ `300px`
+  - Từ `1400px`: mỗi slide giữ `380px`
+  - Viewport carousel cho phép `overflow-visible`, nên các item tiếp theo có thể tràn ngang ra ngoài khung section giống dải sản phẩm của Laserox thay vì bị cắt bởi viewport.
 - Trong chế độ `detail`:
   - Tự động lắng nghe `window.matchMedia("(max-width: 639px)")` để chuyển đổi giữa bố cục cuộn ngang và cuộn dọc.
 
