@@ -1,4 +1,5 @@
 import type { AboutHeroContent } from "@/features/about/types/about-content";
+import { SectionTitle } from "@/components/shared/section-title/section-title";
 
 type AboutHeroProps = {
   content: AboutHeroContent;
@@ -6,8 +7,7 @@ type AboutHeroProps = {
 
 export function AboutHero({ content }: AboutHeroProps) {
   return (
-    <section className="bg-white px-5 py-10 sm:px-[var(--section-padding-x)] sm:py-[80px] sm:pb-[80px] sm:pt-[10px]">
-
+    <SectionTitle className="pt-0">
       <div className="relative w-full
                       overflow-hidden rounded-2xl border border-neutral-200/80 
                       bg-neutral-950 shadow-2xl 
@@ -27,7 +27,7 @@ export function AboutHero({ content }: AboutHeroProps) {
             <div className="max-w-[58rem]  py-[50px]">
               <p className="uppercase font-bold leading-[1.4]
                       max-pc:text-[16px] 
-                      max-mobile:text-[12px] 
+                      max-mobile:text-[14px] 
                       mx-auto mb-[32px] max-w-[36rem] text-white/90 drop-shadow-sm sm:mb-10">
                 {content.eyebrow}
               </p>
@@ -38,6 +38,6 @@ export function AboutHero({ content }: AboutHeroProps) {
             </div>
           </div>
       </div>                    
-    </section>
+    </SectionTitle>
   );
 }
