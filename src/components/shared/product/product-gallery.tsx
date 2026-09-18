@@ -110,25 +110,34 @@ export function ProductGallery(props: ProductGalleryProps) {
       <Carousel
         opts={{ align: "start", dragFree: true }}
         aria-label="Sản phẩm nổi bật"
-        className={cn("w-full", props.className)}
+        className={cn(
+          "w-full [&_[data-slot=carousel-content]]:overflow-visible",
+          props.className,
+        )}
       >
-        <CarouselContent className="-ml-2">
+        <CarouselContent className="-ml-4">
           {props.images.map((product) => (
             <CarouselItem
               key={`${product.slug}-${product.gui}`}
-              className={`${totalImages > 1 ? "" : "max-sm:mx-auto"} basis-[80%] pl-2 sm:basis-1/2 lg:basis-1/3 xl:basis-1/4`}
+              className={cn(
+                totalImages > 1 ? "" : "max-mobile:mx-auto",
+                "basis-[400px]",
+                "max-[1750px]:basis-[22.8571vw]",
+                "max-tablet:basis-[36.0000vw]",
+                "max-mobile:basis-[81.2500vw]",
+              )}
             >
               <ProductCard {...product} />
             </CarouselItem>
           ))}
         </CarouselContent>
 
-        {props.images.length > 1 && (
+        {/* {props.images.length > 1 && (
           <>
             <CarouselPrevious className="left-3 z-20 size-12 border-0 bg-white text-neutral-950 shadow-lg hover:bg-neutral-100" />
             <CarouselNext className="right-3 z-20 size-12 border-0 bg-white text-neutral-950 shadow-lg hover:bg-neutral-100" />
           </>
-        )}
+        )} */}
       </Carousel>
     );
   }
