@@ -10,6 +10,7 @@ export function BrowseByGamePage({ content }: BrowseByGamePageProps) {
   return (
     <main>
       <BrowseByGameHero content={content} />
+      
       <BrowseByGameList
         title={content.browseTitle}
         searchPlaceholder={content.searchPlaceholder}

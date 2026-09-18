@@ -36,7 +36,7 @@ export function SectionTitle(props: SectionTitleProps): ReactElement {
       )}
     >
       <section className="mx-auto w-full xl:max-w-[1580px]">
-        {props.ariaLabel !== "ImageSlider" && (
+        {props.ariaLabel !== "ImageSlider" && (title || more) && (
           <SectionHeading
             title={title}
             titleId={titleId}

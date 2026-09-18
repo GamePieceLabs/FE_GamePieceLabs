@@ -1,10 +1,10 @@
 export const browseByGameContent = {
-  heroImageSrc: "/images/about/about-hero.jpg",
+  heroImageSrc: "/images/browse-by-game/Banner.webp",
   heroImageAlt: "Board game organizers and accessories on a workshop table",
   eyebrow: "Browse by game",
   title: "Game-Specific Products",
   description:
-    "Explore our range of game-specific organizers and accessories, designed to support the unique setup needs of each board game.",
+    "Explore our range of game-specific, laser-cut organizers, designed to enhance your board gaming experience based on the unique needs of each title. Pick the perfect gear for your next campaign from our ever-expanding inventory!",
   browseTitle: "Browse by game",
   searchPlaceholder: "Search...",
   games: [
@@ -51,3 +51,60 @@ export const browseByGameContent = {
 } as const;
 
 export type BrowseByGameContent = typeof browseByGameContent;
+
+export const browseByGameImages: Record<
+  (typeof browseByGameContent.games)[number],
+  { src: string; width: number; height: number }
+> = {
+  "7 Wonders": {
+    src: "/images/browse-by-game/7-wonders_medium-product-images.avif",
+    width: 239,
+    height: 240,
+  },
+  "7 Wonders Duel": { src: "/images/browse-by-game/7-wonders-duel.jpg", width: 240, height: 240 },
+  "Aeon's End": { src: "/images/games/aeons-end.jpg", width: 600, height: 600 },
+  "Ankh: Gods of Egypt": {
+    src: "/images/games/ankh-gods-of-egypt.jpg",
+    width: 1521,
+    height: 1525,
+  },
+  "Arkham Horror": { src: "/images/games/arkham-horror.jpg", width: 800, height: 800 },
+  "Ark Nova": { src: "/images/browse-by-game/ark-nova.jpg", width: 240, height: 240 },
+  "Arkham Horror: The Card Game": { src: "/images/browse-by-game/arkham-horror-the-card-game.jpg", width: 240, height: 240 },
+  "Azul": { src: "/images/browse-by-game/azul.jpg", width: 240, height: 240 },
+  "Bloodborne: The Board Game": {
+    src: "/images/games/bloodborne-the-board-game.jpg",
+    width: 1024,
+    height: 1024,
+  },
+  "Brass: Birmingham": { src: "/images/browse-by-game/brass-birmingham.jpg", width: 240, height: 240 },
+  "Cascadia": { src: "/images/browse-by-game/cascadia.jpg", width: 240, height: 240 },
+  "Catan": { src: "/images/browse-by-game/catan.jpg", width: 240, height: 240 },
+  "Clank!": { src: "/images/browse-by-game/clank.jpg", width: 240, height: 240 },
+  "Dune: Imperium": { src: "/images/browse-by-game/dune-imperium.jpg", width: 240, height: 240 },
+  "Eldritch Horror": { src: "/images/browse-by-game/eldritch-horror.jpg", width: 240, height: 238 },
+  "Frosthaven": { src: "/images/browse-by-game/frosthaven.jpg", width: 240, height: 240 },
+  "Gloomhaven": { src: "/images/browse-by-game/gloomhaven.jpg", width: 240, height: 240 },
+  "Gloomhaven: Jaws of the Lion": { src: "/images/browse-by-game/gloomhaven-jaws-of-the-lion.jpg", width: 240, height: 240 },
+  "Great Western Trail": { src: "/images/browse-by-game/great-western-trail.jpg", width: 236, height: 240 },
+  "King of Tokyo": { src: "/images/browse-by-game/king-of-tokyo.jpg", width: 240, height: 239 },
+  "Lost Ruins of Arnak": { src: "/images/browse-by-game/lost-ruins-of-arnak.jpg", width: 240, height: 240 },
+  "Mage Knight Ultimate Edition": { src: "/images/browse-by-game/mage-knight-ultimate-edition.jpg", width: 239, height: 240 },
+  "Mansions of Madness": { src: "/images/browse-by-game/mansions-of-madness.jpg", width: 240, height: 240 },
+  "Marvel Champions: The Card Game": { src: "/images/browse-by-game/marvel-champions-the-card-game.jpg", width: 240, height: 240 },
+  "Nemesis": { src: "/images/browse-by-game/nemesis.jpg", width: 240, height: 238 },
+  "Root": { src: "/images/browse-by-game/root.jpg", width: 240, height: 240 },
+  "Scythe": { src: "/images/browse-by-game/scythe.jpg", width: 240, height: 240 },
+  "Sleeping Gods": { src: "/images/browse-by-game/sleeping-gods.jpg", width: 240, height: 240 },
+  "Spirit Island": { src: "/images/browse-by-game/spirit-island.jpg", width: 240, height: 240 },
+  "Star Wars: Rebellion": { src: "/images/browse-by-game/star-wars-rebellion.jpg", width: 240, height: 240 },
+  "Terraforming Mars": { src: "/images/browse-by-game/terraforming-mars.jpg", width: 240, height: 240 },
+  "The Castles of Burgundy": { src: "/images/browse-by-game/the-castles-of-burgundy.jpg", width: 240, height: 240 },
+  "The Lord of the Rings: Journeys in Middle-earth": { src: "/images/browse-by-game/the-lord-of-the-rings-journeys-in-middle-earth.jpg", width: 238, height: 240 },
+  "The Witcher: Old World": { src: "/images/browse-by-game/the-witcher-old-world.jpg", width: 240, height: 240 },
+  "Twilight Imperium": { src: "/images/browse-by-game/twilight-imperium.jpg", width: 240, height: 240 },
+  "War of the Ring: The Card Game": { src: "/images/browse-by-game/war-of-the-ring-the-card-game.jpg", width: 240, height: 240 },
+  "Wingspan": { src: "/images/browse-by-game/wingspan.jpg", width: 240, height: 239 },
+  "Wyrmspan": { src: "/images/browse-by-game/wyrmspan.jpg", width: 240, height: 240 },
+  "Zombicide: Black Plague": { src: "/images/browse-by-game/zombicide-black-plague.jpg", width: 240, height: 239 },
+};
