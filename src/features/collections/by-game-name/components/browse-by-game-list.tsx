@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import Link from "next/link";
+import { Search } from "lucide-react";
 
 import type { BrowseByGameContent } from "@/features/collections/by-game-name/data/browse-by-game";
 
@@ -37,23 +38,26 @@ export function BrowseByGameList({
 
   return (
     <section className="px-5 py-10 sm:px-[var(--section-padding-x)] sm:py-[80px]">
-      <div className="mx-auto max-w-[1180px]">
-        <h2 className="text-center text-[40px] font-bold leading-[1.1] text-neutral-950 max-mobile:text-[32px]">
-          {title}
-        </h2>
+      <div className="mx-auto max-w-[1500px]">
+        <div className="flex items-center justify-between gap-8 max-mobile:flex-col max-mobile:items-stretch">
+          <h2 className="text-[48px] font-bold leading-[1.1] text-neutral-950 max-mobile:text-center max-mobile:text-[32px]">
+            {title}
+          </h2>
 
-        <div className="mx-auto mt-8 max-w-[520px]">
-          <label htmlFor="browse-game-search" className="sr-only">
-            Search games
-          </label>
-          <input
-            id="browse-game-search"
-            type="search"
-            value={query}
-            onChange={(event) => setQuery(event.target.value)}
-            placeholder={searchPlaceholder}
-            className="h-12 w-full rounded-full border border-neutral-300 bg-white px-5 text-[16px] font-medium text-neutral-950 outline-none transition focus:border-neutral-950 max-mobile:text-[14px]"
-          />
+          <div className="flex items-center gap-5 max-mobile:w-full">
+            <label htmlFor="browse-game-search" className="sr-only">
+              Search games
+            </label>
+            <input
+              id="browse-game-search"
+              type="search"
+              value={query}
+              onChange={(event) => setQuery(event.target.value)}
+              placeholder={searchPlaceholder}
+              className="h-9 w-[280px] rounded-full border-2 border-neutral-950 bg-white px-3 text-[16px] font-medium text-neutral-950 outline-none transition focus:border-neutral-600 max-mobile:w-full max-mobile:text-[14px]"
+            />
+            <Search aria-hidden="true" className="size-7 shrink-0 text-neutral-950" />
+          </div>
         </div>
 
         {filteredGames.length > 0 ? (

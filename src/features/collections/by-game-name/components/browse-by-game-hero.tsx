@@ -11,16 +11,17 @@ type BrowseByGameHeroProps = {
 
 export function BrowseByGameHero({ content }: BrowseByGameHeroProps) {
   return (
-    <section className="px-5 py-10 sm:px-[var(--section-padding-x)] sm:py-[80px] sm:pt-[10px]">
-      <div className="relative h-[475px] w-full overflow-hidden rounded-2xl bg-neutral-950 shadow-2xl 
-                      max-pc:h-[420px]
-                      max-mobile:h-[282px]">
+    <section className="sm:pt-[10px]">
+      <div className="relative h-[555.625px] w-full overflow-hidden bg-neutral-950 shadow-2xl 
+                      max-pc:h-[clamp(29.5288vw,28.9388vw,28.9388vw)]
+                      max-tablet:h-[clamp(33.6206vw,29.5288vw,29.5288vw)]
+                      max-mobile:h-[clamp(303.953px,33.6206vw,33.6206vw)]">
         <Image
           src={content.heroImageSrc}
           alt={content.heroImageAlt}
           fill
           priority
-          sizes="(max-width: 640px) calc(100vw - 2.5rem), calc(100vw - (var(--section-padding-x) * 2))"
+          sizes="100vw"
           className="object-cover"
         />
         <div aria-hidden="true" className="absolute inset-0 bg-black/60" />
@@ -29,13 +30,14 @@ export function BrowseByGameHero({ content }: BrowseByGameHeroProps) {
                         max-laptop:px-10 
                         max-mobile:justify-center max-mobile:px-6 max-mobile:text-center">
           <div className="max-w-[760px]">
-            <p className="font-bold uppercase leading-[1.4] tracking-[0.14em] text-white/90 max-mobile:text-[12px]">
-              {content.eyebrow}
-            </p>
-            <h1 className="mt-6 text-[64px] font-extrabold leading-[1.05] tracking-normal max-mobile:text-[40px]">
+            <h1 className="mt-6 text-[60px] font-extrabold leading-[1.05] tracking-normal 
+                           max-laptop:text-[48px]  
+                           max-tablet:text-[40px]
+                           max-mobile:text-[35px] text-start">
               {content.title}
             </h1>
-            <p className="mt-6 max-w-[760px] text-[20px] font-medium leading-[1.6] text-white/90 max-mobile:text-[14px]">
+            <p className="mt-6 max-w-[760px] text-[16px] font-medium leading-[1.6] text-white/90 
+                          max-mobile:text-[14px]">
               {content.description}
             </p>
           </div>
