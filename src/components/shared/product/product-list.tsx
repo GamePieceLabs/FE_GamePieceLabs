@@ -64,7 +64,7 @@ export function ProductList({
     <div>
       <div
         className={cn(
-          "grid grid-cols-2 gap-x-4 gap-y-10 sm:grid-cols-2 lg:gap-x-6 lg:gap-y-14",
+          "grid max-mobile:grid-cols-2 max-tablet:grid-cols-3 gap-x-4 gap-y-10 sm:grid-cols-2 lg:gap-x-6 lg:gap-y-14",
           columnClassNames[columns],
           className,
         )}
