@@ -122,8 +122,9 @@ export function ImageSlider({
     >
       <CarouselContent
         className={cn(
-          "ml-0 min-h-0 items-start",
-          "max-tablet:h-[clamp(346.36px,40.7803vw,417.59px)] w-full",
+          "ml-0 min-h-0 items-start w-full",
+          "max-tablet:h-[clamp(346.36px,40.7803vw,417.59px)]",
+
           styles.content,
         )}
         style={{
@@ -159,9 +160,10 @@ export function ImageSlider({
               <div
                 className="absolute z-10 flex flex-col items-start justify-center text-white 
                            w-[700px] ml-[100px] gap-[32px] bottom-[160px] 
-                           max-pc:w[36.4583vw]  max-pc:bottom-[8.3333vw] max-pc:ml-[5.2083vw]
-                           max-laptop:w-[clamp(600px,36.4583vw,700px)]
-                           max-tablet:bottom-[5vw] max-tablet:ml-[4.8828vw] max-tablet:w-[clamp(540px,58.5938vw,600px)]
+                           max-pc:w-[36.4583vw]  max-pc:bottom-[8.3333vw] max-pc:ml-[5.2083vw]
+                           max-laptop:w-[clamp(600px,36.4583vw,700px)] max-laptop:bottom-[3.3333vw]
+                           max-tablet:bottom-[5vw] max-tablet:ml-[4.8828vw] max-tablet:w-[clamp(500px,58.5938vw,600px)]
+                           max-mobile:bottom-auto max-mobile:left-1/2 max-mobile:top-1/2 max-mobile:ml-0 max-mobile:w-[min(368px,82vw)] max-mobile:-translate-x-1/2 max-mobile:-translate-y-1/2 max-mobile:items-center max-mobile:gap-[20px] max-mobile:text-center
                           "
               >
                 <h2
@@ -169,8 +171,9 @@ export function ImageSlider({
                   className={cn(
                     "font-heading font-bold ",
                     "text-[60px] !leading-[70px]",
-                    "max-laptop:text-[clamp(48px,4.1667vw,60px)]",
+                    "max-laptop:text-[clamp(48px,48px,60px)]",
                     "max-tablet:!leading-[50px]",
+                    "max-mobile:text-[40px] max-mobile:!leading-[1.08]",
                     slide === activeSlide && styles.revealTitle,
                   )}
                 >
@@ -185,7 +188,7 @@ export function ImageSlider({
                     "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black/50",
                     "h-max px-[40px] py-[17.2px] text-[20px] font-bold ",
                     "max-laptop:text-[clamp(16px,1.0417vw,20px)]",
-                    "max-tablet:px-[3.9063vw] max-tablet:py-[0.9766vw]",
+                    "max-mobile:px-[32px] max-mobile:py-[16px] max-mobile:text-[14px]",
                     slide === activeSlide && styles.revealCta,
                   )}
                 >

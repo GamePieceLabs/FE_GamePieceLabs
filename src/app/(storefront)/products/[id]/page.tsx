@@ -1,7 +1,7 @@
 import BreadCrumbs from "@/components/shared/breadcrumbs";
 import { PlayerReviewsSection } from "@/components/shared/player-reviews-section";
 import { ProductList } from "@/components/shared/product/product-list";
-import { SectionTitle } from "@/components/shared/section-title";
+import { SectionTitle } from "@/components/shared/section-title/section-title";
 import { VideoFrame } from "@/components/shared/video-frame";
 import FeatureList from "@/features/products/components/feature-list";
 import ProductDetailsSummary from "@/features/products/components/product-details-summary";
