@@ -58,9 +58,9 @@ export function BrowseByGameList({ title, searchPlaceholder, games }: BrowseByGa
         </div>
       </SectionTitle>
 
-      <section className="mt-[24px] px-[max(48px,calc((100vw-1600px)/2))] max-mobile:mt-[64px] max-mobile:px-5">
+      <section className="mt-[24px] px-[var(--section-padding-x)] max-[600px]:mt-[64px] max-[600px]:px-5">
         {filteredGames.length > 0 ? (
-          <div className="grid w-full gap-x-8 gap-y-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+          <div className="grid w-full grid-cols-[repeat(5,250px)] justify-between gap-y-7 max-[1399px]:grid-cols-[repeat(4,250px)] max-[1160px]:grid-cols-[repeat(3,250px)] max-[869px]:grid-cols-[repeat(2,250px)] max-[600px]:grid-cols-[250px] max-[600px]:justify-center max-[600px]:gap-y-5">
             {filteredGames.map((game) => {
               const imageSrc = browseByGameImages[game];
 
@@ -68,18 +68,17 @@ export function BrowseByGameList({ title, searchPlaceholder, games }: BrowseByGa
                 <Link
                   key={game}
                   href={toGameHref(game)}
-                  className="block w-full max-w-[304px] text-center text-[18px] font-bold leading-snug text-neutral-950 max-mobile:mx-auto max-mobile:w-[250px] max-mobile:max-w-full max-mobile:text-left max-mobile:text-[14px]"
+                  className="block w-[250px] text-center text-[18px] font-bold leading-snug text-neutral-950 max-[600px]:text-left max-[600px]:text-[14px]"
                 >
                   <Image
                     src={imageSrc.src}
                     alt=""
-                    width={imageSrc.width}
-                    height={imageSrc.height}
-                    sizes="(max-width: 640px) 250px, 250px"
-                    className="mx-auto h-auto max-w-[min(100%,250px)] max-mobile:h-[250px] max-mobile:w-[250px] max-mobile:max-w-full max-mobile:object-cover"
+                    width={250}
+                    height={250}
+                    className="mx-auto max-w-[250px] max-[600px]:max-w-full max-[600px]:object-cover"
                   />
 
-                  <span className="block py-4 max-mobile:pt-1 max-mobile:pb-0 max-mobile:leading-[1.1]">
+                  <span className="block py-4 max-[600px]:pt-1 max-[600px]:pb-0 max-[600px]:leading-[1.1]">
                     {game}
                   </span>
                 </Link>
@@ -87,7 +86,7 @@ export function BrowseByGameList({ title, searchPlaceholder, games }: BrowseByGa
             })}
           </div>
         ) : (
-          <p className="text-center text-[18px] font-medium text-neutral-600 max-mobile:text-[14px]">
+          <p className="text-center text-[18px] font-medium text-neutral-600 max-[600px]:text-[14px]">
             No results found.
           </p>
         )}
