@@ -1,5 +1,6 @@
 import Image from "next/image";
 import type { AboutStorySection } from "@/features/about/types/about-content";
+import { SectionTitle } from "@/components/shared/section-title/section-title";
 
 type AboutStoryProps = {
   content: AboutStorySection;
@@ -9,7 +10,7 @@ export function AboutStory({ content }: AboutStoryProps) {
   const storyText = [content.lead, ...content.paragraphs].join(" ");
 
   return (
-    <section className="bg-white px-5 py-10 sm:px-[var(--section-padding-x)] sm:py-[80px]">
+    <SectionTitle>
       <div className="text-center">
         <Image
           src="/brand/game-piece-labs-mark.png"
@@ -22,6 +23,6 @@ export function AboutStory({ content }: AboutStoryProps) {
           {storyText}
         </p>
       </div>
-    </section>
+    </SectionTitle>
   );
 }

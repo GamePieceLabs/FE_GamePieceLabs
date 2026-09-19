@@ -55,11 +55,14 @@ export function ProductCard({
   return (
     <Card
       className={cn(
-        "group flex h-full flex-col overflow-hidden rounded-xl border border-gray-200 bg-white p-0 shadow-none",
+        "group flex h-full w-full flex-col overflow-hidden rounded-xl border border-gray-200 bg-white p-0 shadow-none",
         className,
       )}
     >
-      <div className="relative aspect-square overflow-hidden bg-neutral-950">
+      <div
+        className="relative overflow-hidden bg-neutral-950 aspect-square w-full
+      "
+      >
         <Link href={productHref} aria-label={`Xem chi tiết ${name}`}>
           <Image
             src={imageSrc}
@@ -79,14 +82,20 @@ export function ProductCard({
         </Button> */}
       </div>
 
-      <CardContent className="flex h-[196px] shrink-0 flex-col p-4 sm:h-[212px] sm:p-6">
-        <div className="flex items-center h-14 shrink-0 justify-between gap-3">
+      <CardContent
+        className="flex shrink-0 flex-col
+                   px-[32px] pb-[32px] pt-[24px]
+                   max-laptop:p-[20px]
+                   max-mobile:p-[16px]
+                   "
+      >
+        <div className="flex items-start shrink-0 justify-between gap-3">
           <h3 className="min-w-0 flex-1 text-lg leading-7 text-neutral-950">
             <Link
               href={productHref}
               className="block transition-colors hover:text-blue-700"
             >
-              <span className="line-clamp-2 text-wrap max-sm:text-base">
+              <span className="line-clamp-2 text-wrap section-sub-text font-bold">
                 {name}
               </span>
             </Link>
@@ -112,7 +121,10 @@ export function ProductCard({
           <Button
             asChild
             aria-label={`${quickAddLabel}: ${name}`}
-            className="h-12 translate-y-0 rounded-full bg-neutral-950 px-6 text-md font-bold leading-snug text-white hover:bg-black"
+            className="
+                        translate-y-0 rounded-full bg-neutral-950 font-bold leading-snug text-white hover:bg-black
+                        h-12 mt-3 px-6 section-sub-text
+                      "
           >
             <Link
               href={

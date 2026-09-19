@@ -60,23 +60,35 @@ export default function StorefrontHomePage() {
         title="Mastery is a never-ending exploration"
         speed={30}
         fontSize="text-8xl"
+        className="pb-20
+                   max-tablet:pb-10
+                  "
       />
 
-      <SectionTitle>
-        <div className="mb-8 space-y-3 text-center sm:mb-10 sm:space-y-4 -mt-5">
+      <SectionTitle ariaLabel="ComparasionImage">
+        <div className="space-y-3 text-center sm:space-y-4">
           <p
             className={`
-            text-sm font-bold capitalize
-            sm:text-base
+            section-subtext font-bold capitalize m-auto
             `}
           >
             Clear Space, Clear Strategy
           </p>
-          <p className="text-[30px] sm:text-[48px] font-bold capitalize">
+          <p
+            className={`section-title-text font-bold capitalize
+                       !mt-[24px] mb-0 tracking-tight
+                       max-pc:!mt-[1.2500vw]
+                      `}
+          >
             Maximize Your Game Time
           </p>
 
-          <p className=" text-[14px] sm:text-[16px] mx-auto max-w-3xl text-pretty text-base font-medium">
+          <p
+            className={`section-subtext mx-auto max-w-3xl text-pretty font-medium
+                        mt-[32px] mb-[48px]
+                        max-pc:mt-[1.6667vw] max-pc:mb-[2.5000vw]
+                      `}
+          >
             We all know the frustration of wasting hours of precious game time
             on game setup and teardown. With Laserox, you can set up in a snap
             and stay organized, no matter how complex the campaign gets.
@@ -90,16 +102,20 @@ export default function StorefrontHomePage() {
       </SectionTitle>
 
       <SectionTitle
+        ariaLabel="FeaturedProducts"
         title="Featured Products"
         more={{ label: "View all", href: "/products" }}
-        className="px-12 py-20"
       >
         <div className="col-span-full">
           <ProductGallery type="featured" images={featuredProducts} />
         </div>
       </SectionTitle>
 
-      <SectionTitle align="center" className="overflow-hidden">
+      <SectionTitle
+        ariaLabel="Brand"
+        align="center"
+        className="overflow-hidden"
+      >
         <div className="flex flex-col items-center text-center">
           <h2 className="bg-gradient-to-b from-neutral-300 to-white bg-clip-text mobile:text-[40px] sm:text-[clamp(40px,10vw,192px)] inline-block transform mobile:scale-y-[1.2] sm:scale-100 font-black tracking-[-0.065em] whitespace-nowrap text-transparent text-nowrap">
             GAME PIECE LABS

@@ -22,15 +22,23 @@ export function SectionTitle(props: SectionTitleProps): ReactElement {
   const more = props.more;
   const headingLevel = props.headingLevel;
   const align = props.align;
+  const shouldRemovePaddingTop =
+    "ariaLabel" in props &&
+    (props.ariaLabel === "ImageSlider" ||
+      props.ariaLabel === "ComparasionImage" ||
+      props.ariaLabel === "CompareSessionImage" ||
+      props.ariaLabel === "FeaturedProducts" ||
+      props.ariaLabel === "Brand");
 
   return (
     <div
       aria-labelledby={titleId}
       className={cn(
-        "ariaLabel" in props && props.ariaLabel === "ImageSlider" && "!pt-0",
+        "overflow-hidden",
         "px-[max(48px,calc((100vw-1580px)/2))] py-20",
         "max-tablet:px-8 max-tablet:py-14",
         "max-mobile:px-5 max-mobile:py-10",
+        shouldRemovePaddingTop && "!pt-0",
         props.wrapperClassName,
         props.className,
       )}

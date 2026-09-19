@@ -1,5 +1,6 @@
 import type { AboutValuesSection } from "@/features/about/types/about-content";
 import { AboutProductDnaCard } from "@/features/about/components/about-product-dna-card";
+import { SectionTitle } from "@/components/shared/section-title/section-title";
 
 type AboutValuesProps = {
   content: AboutValuesSection;
@@ -7,7 +8,7 @@ type AboutValuesProps = {
 
 export function AboutValues({ content }: AboutValuesProps) {
   return (
-    <section className="bg-white px-5 py-10 sm:px-[var(--section-padding-x)] sm:py-[80px]">
+    <SectionTitle>
       <div>
         <div className="mx-auto max-w-[760px] text-center">
           <h2
@@ -34,6 +35,6 @@ export function AboutValues({ content }: AboutValuesProps) {
           ))}
         </div>
       </div>
-    </section>
+    </SectionTitle>
   );
 }
