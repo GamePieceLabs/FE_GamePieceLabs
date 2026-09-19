@@ -112,8 +112,9 @@ export function BoardGameInserts({ data }: BoardGameInsertsProps) {
       />
 
       <Wrapper>
-        <div className="grid w-full grid-cols-2 items-start gap-x-2 gap-y-1 py-3 max-tablet:hidden tablet:flex sm:gap-0">
-          <div className="min-w-0 text-left sm:flex-1">
+        <div className="w-full hidden tablet:flex items-center justify-between py-3">
+          {/* Sát bên trái */}
+          <div>
             <Filter
               label="In stock only"
               variant="switch"
@@ -122,7 +123,8 @@ export function BoardGameInserts({ data }: BoardGameInsertsProps) {
             />
           </div>
 
-          <div className="tablet:flex tablet:flex-1 tablet:items-start tablet:justify-center tablet:gap-2 tablet:text-center">
+          {/* Chính giữa */}
+          <div className="flex items-center gap-2">
             <Filter
               variant="type"
               label="Product"
@@ -145,7 +147,8 @@ export function BoardGameInserts({ data }: BoardGameInsertsProps) {
             />
           </div>
 
-          <div className="min-w-0 text-right tablet:flex-1">
+          {/* Sát bên phải */}
+          <div>
             <Filter
               variant="sort"
               label="Sort by"
@@ -157,7 +160,7 @@ export function BoardGameInserts({ data }: BoardGameInsertsProps) {
         </div>
 
         <section aria-labelledby="collection-products-heading">
-          <div className="block tablet:hidden">
+          <div className="block tablet:hidden sticky top-20 flex justify-center left-1/2 z-20">
             <SheetFilter>
               <Filter
                 label="In stock only"

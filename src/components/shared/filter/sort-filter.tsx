@@ -67,7 +67,6 @@ export function SortFilter({
             {items.map((item) => {
               const isSelected = selectedValue === item.value;
 
-              console.log(selectedValue);
               return (
                 <div
                   key={item.value}
@@ -85,55 +84,32 @@ export function SortFilter({
             })}
           </DropdownMenuContent>
         </DropdownMenu>
-
-        {/* MOBILE UI and STATE  */}
       </div>
+
       {/*  MOBILE UI and STATE */}
       <div className="block tablet:hidden">
-        <DropdownMenu open={open} onOpenChange={setOpen} modal={false}>
-          <DropdownMenuTrigger asChild>
-            <Button className="text-lg font-bold" variant="ghost">
-              {label}
-              <span className="inline-flex size-8 items-center justify-center rounded-full bg-zinc-200">
-                <ChevronDown
-                  aria-hidden="true"
-                  className={cn(
-                    "size-4 transition-transform duration-300",
-                    open && "rotate-180",
-                  )}
-                />
-              </span>
-            </Button>
-          </DropdownMenuTrigger>
+        <div className="flex flex-col gap-3">
+          {items.map((item) => {
+            const isSelected = selectedValue === item.value;
+            const itemId = `mobile-${item.value}`;
 
-          <DropdownMenuContent
-            align="start"
-            className="p-1.5 mr-15 max-h-[500px] w-48"
-          >
-            {items.map((item) => {
-              return (
-                <div
-                  key={item.value}
-                  className="flex items-center gap-2.5 px-2 py-1.5 rounded-sm hover:accent hover:bg-accent hover:text-accent-foreground cursor-pointer select-none"
-                  onClick={(e) => {}}
+            return (
+              <div key={item.value} className="flex items-center gap-2.5">
+                <Checkbox
+                  id={itemId}
+                  checked={isSelected}
+                  onCheckedChange={() => handleSelectChange(item.value)}
+                />
+                <Label
+                  htmlFor={itemId}
+                  className="cursor-pointer text-sm font-medium text-zinc-700"
                 >
-                  <Checkbox
-                    id={item.value}
-                    onCheckedChange={(checked) => {
-                      // Xử lý state
-                    }}
-                  />
-                  <Label
-                    htmlFor={item.value}
-                    className="cursor-pointer text-sm flex-1"
-                  >
-                    {item.name}
-                  </Label>
-                </div>
-              );
-            })}
-          </DropdownMenuContent>
-        </DropdownMenu>
+                  {item.name}
+                </Label>
+              </div>
+            );
+          })}
+        </div>
       </div>
     </>
   );

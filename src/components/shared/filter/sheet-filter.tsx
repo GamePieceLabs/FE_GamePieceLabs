@@ -30,7 +30,7 @@ export function SheetFilter({ children }: SheetFilterProp) {
         <SheetHeader>
           <SheetTitle>Filters</SheetTitle>
         </SheetHeader>
-        <div className="flex gap-6 px-4">
+        <div className="flex h-[50vh] overflow-auto gap-6 px-4">
           <FilterGroup>{children}</FilterGroup>
         </div>
         <SheetFooter>

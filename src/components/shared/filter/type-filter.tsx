@@ -71,7 +71,7 @@ export function TypeFilter({
       </div>
 
       {/* MOBILE UI and STATE  */}
-      <div className="fblock tablet:hidden flex flex-col gap-2">
+      <div className="block tablet:hidden">
         {items.map((item) => (
           <div key={item.value} className="flex items-center gap-2">
             <Checkbox
