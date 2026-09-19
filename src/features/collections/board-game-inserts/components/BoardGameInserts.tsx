@@ -1,5 +1,5 @@
+"use client";
 import { CardImageTitle } from "@/components/shared/card-image-title";
-import Filter, { FilterMobileGroup } from "@/components/shared/filter";
 import Wrapper from "@/components/shared/wrapper";
 import { CollectionsPageData } from "../types/board-game-inserts";
 import { MarqueeText } from "@/components/shared/marquee-text";
@@ -7,52 +7,91 @@ import { ImageFrame } from "@/components/shared/image/image-frame";
 import { ProductList } from "@/components/shared/product/product-list";
 import { SectionTitle } from "@/components/shared/section-title/section-title";
 import { SliderGallery } from "@/components/shared/slider-gallery";
-
+import Filter from "@/components/shared/filter/filter";
+import { useState } from "react";
+import { SheetFilter } from "@/components/shared/filter/sheet-filter";
+import { FilterItem } from "@/components/shared/filter/type";
 interface BoardGameInsertsProps {
   data: CollectionsPageData;
 }
 
+const productTypeItems: FilterItem[] = [
+  { name: "Accessories", value: "accessories", count: 1 },
+  { name: "Divider", value: "divider", count: 4 },
+  { name: "Insert", value: "insert", count: 277 },
+];
+
+const sortFilterItems: FilterItem[] = [
+  { name: "Featured", value: "featured" },
+  { name: "Most relevant", value: "relevant" },
+  { name: "Best selling", value: "best-selling" },
+  { name: "Alphabetically A-Z", value: "name-asc" },
+  { name: "Alphabetically Z-A", value: "name-desc" },
+  { name: "Price, low to high", value: "price-asc" },
+  { name: "Price, high to low", value: "price-desc" },
+  { name: "Date, old to new", value: "date-asc" },
+  { name: "Date, new to old", value: "date-desc" },
+];
+const MINPRICE = 0;
+const MAXPRICE = 5000000;
+
 export function BoardGameInserts({ data }: BoardGameInsertsProps) {
   const { hero, editorial, products, otherCategories } = data;
-  const filters = {
-    availability: (
-      <Filter
-        variant="switch"
-        label="In stock only"
-        activeLabel="In Stock"
-        defaultChecked={false}
-        labelPosition="left"
-        showActiveBadge
-      />
-    ),
-    type: (
-      <Filter
-        items={[
-          { id: "accessories", label: "Accessories", count: 1 },
-          { id: "divider", label: "Divider", count: 4 },
-          { id: "insert", label: "Insert", count: 276 },
-        ]}
-        title="Product"
-        variant="type"
-      />
-    ),
-    price: <Filter variant="price" min={0} max={274} step={1} currency="USD" />,
-    sort: (
-      <Filter
-        variant="sort"
-        items={[
-          "featured",
-          "most relevant",
-          "best selling",
-          "alphabetically, a-z",
-          "alphabetically, z-a",
-          "price, low to high",
-          "price, high to low",
-          "date, old to new",
-          "date, new to old",
-        ]}
-      />
-    ),
+
+  //TODO clear all filter function here
+
+  // state for switch filter
+  const [checked, setChecked] = useState<boolean>(false);
+
+  // state for type filter
+  const [selectedValues, setSelectedValues] = useState<string[]>([]);
+
+  const handleCheckboxChange = (selectedValues: string, checked: boolean) => {
+    // Nhét thêm chọn item vào mảng ban đâu
+    if (checked) {
+      setSelectedValues((prev) => [...prev, selectedValues]);
+      return;
+    }
+    setSelectedValues((prev) => prev.filter((item) => item !== selectedValues));
+  };
+
+  // state for price filter
+  const [sliderPrice, setPrice] = useState<number[]>([MINPRICE, MAXPRICE]);
+  const [, setMinPrice] = useState<number>();
+  const [, setMaxPrice] = useState<number>();
+
+  // cập nhật đồng bộ state slider với input max min
+  const handlerSliderChange = (price: number[]) => {
+    setPrice(price);
+    setMinPrice(price?.[0]);
+    setMaxPrice(price?.[1]);
+  };
+
+  // người dùng cập nhật input, cập nhật lại state slider
+  const handleMinInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setMinPrice(Number(e.target.value));
+    setPrice((prevNumber) =>
+      prevNumber.map((num, index) =>
+        index === 0 ? Number(e.target.value) : num,
+      ),
+    );
+  };
+
+  // người dùng cập nhật input, cập nhật lại state slider
+  const handleMaxInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setMaxPrice(Number(e.target.value));
+    setPrice((prevNumber) =>
+      prevNumber.map((num, index) =>
+        index === 1 ? Number(e.target.value) : num,
+      ),
+    );
+  };
+
+  // state for sort filter
+  const [selectedValue, setSelectedValue] = useState<string>();
+
+  const handleSelectChange = (item: string) => {
+    setSelectedValue(item);
   };
 
   return (
@@ -73,26 +112,90 @@ export function BoardGameInserts({ data }: BoardGameInsertsProps) {
       />
 
       <Wrapper>
-        <div className="grid w-full grid-cols-2 items-start gap-x-2 gap-y-1 py-3 max-sm:hidden sm:flex sm:gap-0">
+        <div className="grid w-full grid-cols-2 items-start gap-x-2 gap-y-1 py-3 max-tablet:hidden tablet:flex sm:gap-0">
           <div className="min-w-0 text-left sm:flex-1">
-            {filters.availability}
+            <Filter
+              label="In stock only"
+              variant="switch"
+              checked={checked}
+              onCheckedChange={setChecked}
+            />
           </div>
 
-          <div className="contents sm:flex sm:flex-1 sm:items-start sm:justify-center sm:gap-2 sm:text-center">
-            {filters.type}
-            {filters.price}
+          <div className="tablet:flex tablet:flex-1 tablet:items-start tablet:justify-center tablet:gap-2 tablet:text-center">
+            <Filter
+              variant="type"
+              label="Product"
+              items={productTypeItems}
+              selectedValues={selectedValues}
+              onValueChange={setSelectedValues}
+              handleCheckboxChange={handleCheckboxChange}
+            />
+
+            <Filter
+              variant="price"
+              label="Price"
+              min={MINPRICE}
+              max={MAXPRICE}
+              step={50000}
+              sliderPrice={sliderPrice}
+              handleMinInput={handleMinInput}
+              handleMaxInput={handleMaxInput}
+              handleSliderChange={handlerSliderChange}
+            />
           </div>
 
-          <div className="min-w-0 text-right sm:flex-1">{filters.sort}</div>
+          <div className="min-w-0 text-right tablet:flex-1">
+            <Filter
+              variant="sort"
+              label="Sort by"
+              items={sortFilterItems}
+              selectedValue={selectedValue}
+              handleSelectChange={handleSelectChange}
+            />
+          </div>
         </div>
 
         <section aria-labelledby="collection-products-heading">
-          <FilterMobileGroup>
-            {filters.availability}
-            {filters.type}
-            {filters.price}
-            {filters.sort}
-          </FilterMobileGroup>
+          <div className="block tablet:hidden">
+            <SheetFilter>
+              <Filter
+                label="In stock only"
+                variant="switch"
+                checked={checked}
+                onCheckedChange={setChecked}
+              />
+
+              <Filter
+                label="Product"
+                variant="type"
+                items={productTypeItems}
+                selectedValues={selectedValues}
+                onValueChange={setSelectedValues}
+                handleCheckboxChange={handleCheckboxChange}
+              />
+
+              <Filter
+                label="Price"
+                variant="price"
+                min={MINPRICE}
+                max={MAXPRICE}
+                step={50000}
+                sliderPrice={sliderPrice}
+                handleMinInput={handleMinInput}
+                handleMaxInput={handleMaxInput}
+                handleSliderChange={handlerSliderChange}
+              />
+
+              <Filter
+                variant="sort"
+                label="Sort by"
+                items={sortFilterItems}
+                selectedValue={selectedValue}
+                handleSelectChange={handleSelectChange}
+              />
+            </SheetFilter>
+          </div>
 
           <div className="mb-7 flex items-center justify-between gap-4">
             <h2 id="collection-products-heading" className="sr-only">
@@ -102,7 +205,6 @@ export function BoardGameInserts({ data }: BoardGameInsertsProps) {
               {products.pagination.totalItems} products
             </p>
           </div>
-
           <ProductList
             products={products.data}
             columns={4}

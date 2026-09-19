@@ -1,5 +1,4 @@
 import { CardImageTitle } from "@/components/shared/card-image-title";
-import Filter, { FilterMobileGroup } from "@/components/shared/filter";
 import { ImageFrame } from "@/components/shared/image/image-frame";
 import { MarqueeText } from "@/components/shared/marquee-text";
 import { ProductList } from "@/components/shared/product/product-list";
@@ -26,47 +25,27 @@ const sortOptions = [
 
 export function ByGameName({ data }: ByGameNameProps) {
   const { title, editorial, products, otherCategories } = data;
-  const filters = {
-    availability: (
-      <Filter
-        variant="switch"
-        label="In stock only"
-        activeLabel="In Stock"
-        defaultChecked={false}
-        labelPosition="left"
-        showActiveBadge
-      />
-    ),
-    type: (
-      <Filter
-        items={[{ id: "insert", label: "Insert", count: 1 }]}
-        title="Product"
-        variant="type"
-      />
-    ),
-    price: (
-      <Filter variant="price" min={0} max={283500} step={5000} currency="VND" />
-    ),
-    sort: <Filter variant="sort" items={sortOptions} />,
-  };
 
   return (
     <div className="bg-neutral-100">
       <Wrapper>
         <h1 className="type-h1 pb-8 text-center text-neutral-950">{title}</h1>
 
-        <div className="grid w-full grid-cols-2 items-center gap-x-2 gap-y-4 border-y border-neutral-200 py-4 max-sm:hidden sm:flex sm:justify-between sm:gap-x-5">
-          {filters.availability}
+        <div className="grid w-full grid-cols-2 items-start gap-x-2 gap-y-1 py-3 max-sm:hidden sm:flex sm:gap-0">
+          <div className="min-w-0 text-left sm:flex-1">fILTER SWITCH</div>
 
-          <div className="contents sm:flex sm:flex-wrap sm:items-center sm:gap-x-2 sm:gap-y-3">
-            {filters.type}
-            {filters.price}
+          <div className="contents sm:flex sm:flex-1 sm:items-start sm:justify-center sm:gap-2 sm:text-center">
+            <span>FILTER TYPE</span>
+            <span>FILTER PRICE</span>
           </div>
 
-          {filters.sort}
+          <div className="min-w-0 text-right sm:flex-1">
+            <span>FILTER SORT</span>
+          </div>
         </div>
 
         <section className="pt-10" aria-labelledby="by-game-products-heading">
+          MOBILE FILTER HERE
           <div className="mb-7 flex items-center justify-between gap-4">
             <h2 id="by-game-products-heading" className="sr-only">
               {title} products
@@ -75,14 +54,6 @@ export function ByGameName({ data }: ByGameNameProps) {
               {products.pagination.totalItems} product
             </p>
           </div>
-
-          <FilterMobileGroup>
-            {filters.availability}
-            {filters.type}
-            {filters.price}
-            {filters.sort}
-          </FilterMobileGroup>
-
           <ProductList
             products={products.data}
             columns={4}

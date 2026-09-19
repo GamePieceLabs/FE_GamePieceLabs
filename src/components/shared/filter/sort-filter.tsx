@@ -1,166 +1,139 @@
 "use client";
 
-import DropdownMenu, {
-  type DropdownMenuEntry,
-} from "@/components/shared/dropdown-menu";
 import { Button } from "@/components/ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuCheckboxItem,
+  DropdownMenuContent,
+  DropdownMenuGroup,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuPortal,
+  DropdownMenuSeparator,
+  DropdownMenuShortcut,
+  DropdownMenuSub,
+  DropdownMenuSubContent,
+  DropdownMenuSubTrigger,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { SortFilterProp } from "./type";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
+import { ChevronDown } from "lucide-react";
+import { cn } from "@/utils/cn";
+import { useState } from "react";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
-import { cn } from "@/utils/cn";
-import { ChevronDown } from "lucide-react";
-import { useId, useState } from "react";
 
-/** Sort selector nội bộ; phù hợp khi trang không cần đồng bộ sort với URL/API. */
-export interface SortFilterProps {
-  /** Các nhãn sort; ưu tiên dùng string human-readable như `best selling`. */
-  items: readonly string[];
-}
-
-interface DesktopSortFilterProps {
-  currentValue: string;
-  dropdownItems: DropdownMenuEntry[];
-  isOpen: boolean;
-  onOpenChange: (open: boolean) => void;
-  triggerId: string;
-}
-
-function DesktopSortFilter({
-  currentValue,
-  dropdownItems,
-  isOpen,
-  onOpenChange,
-  triggerId,
-}: DesktopSortFilterProps) {
-  return (
-    <div className="inline-flex items-center gap-2">
-      <Label
-        htmlFor={triggerId}
-        className="shrink-0 text-base font-bold leading-snug text-foreground"
-      >
-        Sort by:
-      </Label>
-      <DropdownMenu
-        items={dropdownItems}
-        rootProps={{ open: isOpen, onOpenChange }}
-        triggerProps={{ asChild: true }}
-        contentProps={{
-          align: "end",
-          sideOffset: 8,
-          className: "min-w-56 rounded-xl p-1.5",
-        }}
-        trigger={
-          <Button
-            id={triggerId}
-            type="button"
-            variant="ghost"
-            aria-label={`Sort products by ${currentValue || "an option"}`}
-            className="group h-auto gap-2 rounded-full bg-transparent p-0 text-base font-normal leading-snug text-foreground shadow-none hover:bg-transparent active:translate-y-0"
-          >
-            <span className="relative capitalize after:absolute after:bottom-0 after:left-0 after:h-px after:w-full after:origin-left after:scale-x-0 after:bg-current after:transition-transform after:duration-300 group-hover:after:scale-x-100">
-              {currentValue || "Select option"}
-            </span>
-            <span className="inline-flex size-7 items-center justify-center rounded-full bg-muted text-muted-foreground transition-colors duration-300 group-hover:bg-foreground group-hover:text-background">
-              <ChevronDown
-                aria-hidden="true"
-                className={cn(
-                  "size-4 transition-transform duration-300",
-                  isOpen && "rotate-180",
-                )}
-              />
-            </span>
-          </Button>
-        }
-      />
-    </div>
-  );
-}
-
-interface MobileSortFilterProps {
-  currentValue: string;
-  items: readonly string[];
-  onValueChange: (value: string) => void;
-  triggerId: string;
-}
-
-function MobileSortFilter({
-  currentValue,
+export function SortFilter({
+  label,
   items,
-  onValueChange,
-  triggerId,
-}: MobileSortFilterProps) {
-  return (
-    <div className="grid">
-      {items.map((item) => (
-        <label
-          key={item}
-          htmlFor={`${triggerId}-${item}`}
-          className="flex cursor-pointer items-center gap-3 rounded-lg py-1 text-base leading-snug capitalize"
-        >
-          <Checkbox
-            id={`${triggerId}-${item}`}
-            checked={currentValue === item}
-            onCheckedChange={(checked) => {
-              if (checked) onValueChange(item);
-            }}
-          />
-          <span className="font-bold">{item}</span>
-        </label>
-      ))}
-    </div>
-  );
-}
+  selectedValue,
+  handleSelectChange,
+}: SortFilterProp) {
+  const [open, setOpen] = useState<boolean>(false);
 
-export default function SortFilter({
-  items,
-}: SortFilterProps) {
-  const triggerId = useId();
-  const defaultValue = items.includes("best selling")
-    ? "best selling"
-    : (items[0] ?? "");
-  const [selectedValue, setSelectedValue] = useState(defaultValue);
-  const [isOpen, setIsOpen] = useState(false);
-
-  const currentValue = items.includes(selectedValue)
-    ? selectedValue
-    : (items[0] ?? "");
-
-  const dropdownItems: DropdownMenuEntry[] = [
-    {
-      id: "sort-options",
-      type: "radio-group",
-      props: {
-        value: currentValue,
-        onValueChange: setSelectedValue,
-      },
-      items: items.map((item) => ({
-        id: item,
-        label: item,
-        props: {
-          value: item,
-          className: "cursor-pointer rounded-lg px-3 py-2.5 capitalize",
-        },
-      })),
-    },
-  ];
+  const handleOpenChange = (nextChanges: boolean) => {
+    setOpen(nextChanges);
+  };
 
   return (
     <>
-      <div className="max-sm:hidden">
-      <DesktopSortFilter
-        currentValue={currentValue}
-        dropdownItems={dropdownItems}
-        isOpen={isOpen}
-        onOpenChange={setIsOpen}
-        triggerId={triggerId}
-      />
+      {/*  DESKTOP UI and STATE */}
+      <div className="hidden tablet:block">
+        <DropdownMenu open={open} onOpenChange={setOpen} modal={false}>
+          <DropdownMenuTrigger asChild>
+            <Button className="text-lg font-bold" variant="ghost">
+              {label}
+              <span className="inline-flex size-8 items-center justify-center rounded-full bg-zinc-200">
+                <ChevronDown
+                  aria-hidden="true"
+                  className={cn(
+                    "size-4 transition-transform duration-300",
+                    open && "rotate-180",
+                  )}
+                />
+              </span>
+            </Button>
+          </DropdownMenuTrigger>
+
+          <DropdownMenuContent
+            align="start"
+            className="p-1.5 mr-15 max-h-[500px] w-48"
+          >
+            {items.map((item) => {
+              const isSelected = selectedValue === item.value;
+
+              console.log(selectedValue);
+              return (
+                <div
+                  key={item.value}
+                  className="flex items-center gap-2.5 px-2 py-1.5 rounded-sm hover:accent hover:bg-accent hover:text-accent-foreground cursor-pointer select-none"
+                >
+                  <DropdownMenuItem
+                    key={item.value}
+                    onClick={() => handleSelectChange(item.value)}
+                    className={`${isSelected ? "font-bold text-black" : "text-zinc-600 font-normal"}`}
+                  >
+                    {item.name}
+                  </DropdownMenuItem>
+                </div>
+              );
+            })}
+          </DropdownMenuContent>
+        </DropdownMenu>
+
+        {/* MOBILE UI and STATE  */}
       </div>
-      <div className="sm:hidden">
-        <MobileSortFilter
-          currentValue={currentValue}
-          items={items}
-          onValueChange={setSelectedValue}
-          triggerId={triggerId}
-        />
+      {/*  MOBILE UI and STATE */}
+      <div className="block tablet:hidden">
+        <DropdownMenu open={open} onOpenChange={setOpen} modal={false}>
+          <DropdownMenuTrigger asChild>
+            <Button className="text-lg font-bold" variant="ghost">
+              {label}
+              <span className="inline-flex size-8 items-center justify-center rounded-full bg-zinc-200">
+                <ChevronDown
+                  aria-hidden="true"
+                  className={cn(
+                    "size-4 transition-transform duration-300",
+                    open && "rotate-180",
+                  )}
+                />
+              </span>
+            </Button>
+          </DropdownMenuTrigger>
+
+          <DropdownMenuContent
+            align="start"
+            className="p-1.5 mr-15 max-h-[500px] w-48"
+          >
+            {items.map((item) => {
+              return (
+                <div
+                  key={item.value}
+                  className="flex items-center gap-2.5 px-2 py-1.5 rounded-sm hover:accent hover:bg-accent hover:text-accent-foreground cursor-pointer select-none"
+                  onClick={(e) => {}}
+                >
+                  <Checkbox
+                    id={item.value}
+                    onCheckedChange={(checked) => {
+                      // Xử lý state
+                    }}
+                  />
+                  <Label
+                    htmlFor={item.value}
+                    className="cursor-pointer text-sm flex-1"
+                  >
+                    {item.name}
+                  </Label>
+                </div>
+              );
+            })}
+          </DropdownMenuContent>
+        </DropdownMenu>
       </div>
     </>
   );

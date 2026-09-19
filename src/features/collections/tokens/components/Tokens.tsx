@@ -1,5 +1,4 @@
 import { CardImageTitle } from "@/components/shared/card-image-title";
-import Filter, { FilterMobileGroup } from "@/components/shared/filter";
 import Wrapper from "@/components/shared/wrapper";
 import { CollectionsPageData } from "../types/tokens";
 import { MarqueeText } from "@/components/shared/marquee-text";
@@ -14,42 +13,6 @@ interface TokensProps {
 
 export function Tokens({ data }: TokensProps) {
   const { hero, editorial, products, otherCategories } = data;
-  const filters = {
-    availability: (
-      <Filter
-        variant="switch"
-        label="In stock only"
-        activeLabel="In Stock"
-        defaultChecked={false}
-        labelPosition="left"
-        showActiveBadge
-      />
-    ),
-    type: (
-      <Filter
-        items={[{ id: "accessories", label: "Accessories", count: 4 }]}
-        title="Product"
-        variant="type"
-      />
-    ),
-    price: <Filter variant="price" min={0} max={274} step={1} currency="USD" />,
-    sort: (
-      <Filter
-        variant="sort"
-        items={[
-          "featured",
-          "most relevant",
-          "best selling",
-          "alphabetically, a-z",
-          "alphabetically, z-a",
-          "price, low to high",
-          "price, high to low",
-          "date, old to new",
-          "date, new to old",
-        ]}
-      />
-    ),
-  };
 
   return (
     <div className="bg-neutral-100">
@@ -70,26 +33,20 @@ export function Tokens({ data }: TokensProps) {
 
       <Wrapper>
         <div className="grid w-full grid-cols-2 items-start gap-x-2 gap-y-1 py-3 max-sm:hidden sm:flex sm:gap-0">
-          <div className="min-w-0 text-left sm:flex-1">
-            {filters.availability}
-          </div>
+          <div className="min-w-0 text-left sm:flex-1">fILTER SWITCH</div>
 
           <div className="contents sm:flex sm:flex-1 sm:items-start sm:justify-center sm:gap-2 sm:text-center">
-            {filters.type}
-            {filters.price}
+            <span>FILTER TYPE</span>
+            <span>FILTER PRICE</span>
           </div>
 
-          <div className="min-w-0 text-right sm:flex-1">{filters.sort}</div>
+          <div className="min-w-0 text-right sm:flex-1">
+            <span>FILTER SORT</span>
+          </div>
         </div>
 
         <section className="pt-8" aria-labelledby="collection-products-heading">
-          <FilterMobileGroup>
-            {filters.availability}
-            {filters.type}
-            {filters.price}
-            {filters.sort}
-          </FilterMobileGroup>
-
+          MOBILE FILTER HERE
           <div className="mb-7 flex items-center justify-between gap-4">
             <h2 id="collection-products-heading" className="sr-only">
               Board game inserts
@@ -98,7 +55,6 @@ export function Tokens({ data }: TokensProps) {
               {products.pagination.totalItems} products
             </p>
           </div>
-
           <ProductList
             products={products.data}
             columns={4}
