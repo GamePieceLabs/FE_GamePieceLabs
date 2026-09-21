@@ -27,7 +27,10 @@ export function Logo({ className, imageClassName }: LogoProps) {
         width={512}
         height={512}
         loading="eager"
-        className={cn("size-12 object-contain sm:size-14", imageClassName)}
+        className={cn(
+          "size-12 object-contain bg-transparent sm:size-14",
+          imageClassName,
+        )}
       />
       <span className="whitespace-nowrap text-base font-bold leading-none tracking-[0.06em] text-foreground sm:text-lg xl:text-xl">
         GAME PIECE LABS

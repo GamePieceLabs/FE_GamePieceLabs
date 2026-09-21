@@ -5,10 +5,9 @@ import { upcomingProducts } from "@/features/home/data/upcoming-products";
 const upcomingProductSizes =
   "(max-width: 639px) calc(100vw - 2rem), (max-width: 1023px) calc(50vw - 2.5rem), 380px";
 
-
 export function UpcomingProductsSection() {
   return (
-    <div className="mx-auto max-w-[1350px]">
+    <div className="mx-auto max-w-[1580px]">
       <SliderGallery>
         {upcomingProducts.map(({ id, ...product }) => (
           <CardImageTitle

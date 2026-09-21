@@ -67,10 +67,10 @@ export interface ImageSliderSlide {
 
 ## Responsive Behavior
 
-- Mỗi item rộng `100%` khung carousel; desktop dùng tỷ lệ ảnh, tablet ép chiều cao hero bằng `max-tablet:h-[clamp(346.36px,40.7803vw,417.59px)]`, mobile ép lại bằng `max-mobile:h-[clamp(320px,88vw,380px)]`.
+- Mỗi item rộng `100%` khung carousel; desktop dùng tỷ lệ ảnh, tablet ép chiều cao hero bằng `max-tablet:h-[clamp(346.36px,40.7803vw,417.59px)]`. Section bọc `ImageSlider` bỏ padding-bottom để khoảng dưới banner không hiện thành mảng nền riêng.
 - Khung ảnh dùng `aspect-ratio: imageWidth / imageHeight`. Chiều cao hiển thị bằng chiều rộng item × `imageHeight / imageWidth`.
 - `imageWidth` và `imageHeight` là kích thước gốc, không phải kích thước hiển thị cố định. Khai báo đúng tỷ lệ để ảnh `fill` với `object-cover` không bị cắt.
-- Các item căn trên (`items-start`) và kế thừa chiều cao của viewport carousel. Hàng carousel dùng tỷ lệ của slide active cùng `min-h-0` và transition `aspect-ratio` 250ms ease-in-out; riêng tablet có height clamp để hero không bị quá thấp. Phần vượt khung của các slide khác được viewport cắt đi.
+- Các item căn trên (`items-start`) và kế thừa chiều cao của viewport carousel. Hàng carousel dùng tỷ lệ của slide active cùng `min-h-0` và transition `aspect-ratio` 250ms ease-in-out; riêng tablet có height clamp để hero không bị quá thấp. Viewport Embla (`data-slot=carousel-content`) là lớp duy nhất chịu trách nhiệm `overflow-hidden`, `rounded-xl` và shadow để các góc banner được cắt đồng bộ khi dùng fade.
 - Khi chọn slide (nút điều hướng, kéo, bàn phím hoặc autoplay), tỷ lệ khung cập nhật theo `selectedSlideIndex`. Khi resize, CSS tự tính lại chiều cao theo chiều rộng mới, không cần đo DOM. Render ban đầu dùng tỷ lệ slide đầu tiên; danh sách rỗng không render carousel.
 - Ví dụ: item rộng 1000px với ảnh 2000 × 800 sẽ cao 400px; ảnh 2000 × 1200 sẽ cao 600px.
 - Overlay và nội dung vẫn định vị tuyệt đối bên trong khung ảnh.
@@ -162,6 +162,6 @@ export function FastHeroSlider() {
   - Viền phát sáng: `border border-white/45 bg-white/15`
   - Đổ bóng phản quang: `shadow-[inset_0_1px_0_rgba(255,255,255,0.7),...]`
 - Nút CTA màu trắng nổi bật với bo tròn pill `rounded-full bg-white text-neutral-950 font-bold`.
-- Opacity của slide do plugin Fade quản lý. CSS Module chuyển tỷ lệ khung trong 250ms và giữ keyframe `image-slider-rise` gốc (opacity 0 → 1, translateY 36px → 0).
+- Opacity của slide do plugin Fade quản lý. Bo góc và shadow gọn nằm ở viewport carousel thay vì từng slide item để tránh lộ 4 góc trong lúc các slide fade chồng lên nhau và tránh tạo mảng xám lớn dưới banner. CSS Module chuyển tỷ lệ khung trong 250ms và giữ keyframe `image-slider-rise` gốc (opacity 0 → 1, translateY 36px → 0).
 - Keyframe chạy 300ms linear: tiêu đề bắt đầu ngay, subtitle có delay 100ms (class được giữ sẵn), CTA có delay 150ms.
 - Ảnh đầu dùng preload; ảnh còn lại tải eager để giảm việc chờ tải khi chuyển slide lần đầu (đổi lại tải trước toàn bộ ảnh slider).

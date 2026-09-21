@@ -30,18 +30,15 @@ import { Carousel } from "@/components/ui/carousel";
 
 export default function StorefrontHomePage() {
   return (
-    <main className="bg-neutral-50/60">
+    <main className="bg-[var(--storefront-surface)]">
       <SectionTitle ariaLabel="ImageSlider">
-        <ImageSlider
-          slides={imageSliderSlides}
-          ariaLabel="Bộ sưu tập nổi bật"
-        />
+        <ImageSlider slides={imageSliderSlides} />
       </SectionTitle>
 
       <SectionTitle
-        title="Choose Your Gear"
+        title="Chọn phụ kiện của bạn"
         more={{
-          label: "Browse all categories",
+          label: "Xem tất cả danh mục",
           href: "/products",
         }}
       >
@@ -58,7 +55,7 @@ export default function StorefrontHomePage() {
       </SectionTitle>
 
       <MarqueeText
-        title="Mastery is a never-ending exploration"
+        title="Mỗi lần chơi là một lần khám phá"
         speed={30}
         fontSize="text-8xl"
         className="pb-20
@@ -73,7 +70,7 @@ export default function StorefrontHomePage() {
             section-subtext font-bold capitalize m-auto
             `}
           >
-            Clear Space, Clear Strategy
+            Gọn bàn chơi, rõ chiến thuật
           </p>
           <p
             className={`section-title-text font-bold capitalize
@@ -81,7 +78,7 @@ export default function StorefrontHomePage() {
                        max-pc:!mt-[1.2500vw]
                       `}
           >
-            Maximize Your Game Time
+            Tối đa thời gian nhập cuộc
           </p>
 
           <p
@@ -90,9 +87,9 @@ export default function StorefrontHomePage() {
                         max-pc:mt-[1.6667vw] max-pc:mb-[2.5000vw]
                       `}
           >
-            We all know the frustration of wasting hours of precious game time
-            on game setup and teardown. With Laserox, you can set up in a snap
-            and stay organized, no matter how complex the campaign gets.
+            Không ai muốn mất hàng giờ chỉ để sắp xếp và thu dọn bàn chơi.
+            Với Game Piece Labs, mọi thứ vào đúng vị trí nhanh hơn, gọn hơn,
+            để bạn tập trung vào chiến thuật và tận hưởng trọn vẹn từng ván.
           </p>
         </div>
 
@@ -104,7 +101,7 @@ export default function StorefrontHomePage() {
 
       <SectionTitle
         ariaLabel="FeaturedProducts"
-        title="Featured Products"
+        title="Sản phẩm nổi bật"
         more={{ label: "View all", href: "/products" }}
       >
         <div className="col-span-full">
@@ -112,39 +109,51 @@ export default function StorefrontHomePage() {
         </div>
       </SectionTitle>
 
-      <SectionTitle 
+      <SectionTitle
         ariaLabel="Brand"
         align="center"
         className="overflow-hidden"
       >
         <div className="flex flex-col items-center text-center">
-          <h2 className="bg-gradient-to-b from-neutral-300 to-white bg-clip-text 
+          <h2
+            className="bg-gradient-to-b from-neutral-300 to-white bg-clip-text 
                         max-mobile:text-[48px] sm:text-[clamp(48px,12.5000vw,240px)] 
                         inline-block transform mobile:scale-y-[1.2] 
-                        sm:scale-100 font-black tracking-[-0.065em] whitespace-nowrap text-transparent text-nowrap">
+                        sm:scale-100 font-black tracking-[-0.065em] whitespace-nowrap text-transparent text-nowrap"
+          >
             GAME PIECE LABS
           </h2>
 
           <div className="mt-5 flex max-w-3xl flex-col items-center">
-            <h3 className="text-2xl leading-tight font-bold text-balance text-neutral-950 sm:text-3xl lg:text-4xl">
-              From Our Table to Yours:
+            <h3
+              className="leading-tight font-bold text-balance text-neutral-950 
+                           text-2xl 
+                           sm:text-3xl 
+                           lg:text-4xl"
+            >
+              Từ bàn chơi của chúng tôi
               <br />
-              The Game Piece Labs Philosophy
+              đến trải nghiệm của bạn
             </h3>
 
-            <p className="mt-7 max-w-4xl text-sm leading-relaxed font-medium text-pretty text-neutral-700 sm:mt-9 sm:text-lg lg:text-xl">
-              We believe that the best gaming experiences are born from
-              hassle-free setups and crystal-clear organization. We craft our
-              organizers and accessories with precision and passion, using
-              eco-friendly, hand-selected, premium materials. Prepare to
-              transform how you play!
+            <p
+              className=" leading-relaxed font-medium text-pretty text-neutral-700 
+                          text-sm mt-7 max-w-4xl 
+                          sm:text-lg sm:mt-9
+                          lg:text-xl"
+            >
+              Chúng tôi tin rằng một ván chơi hay bắt đầu từ cách sắp xếp gọn
+              gàng và chuẩn bị thật nhẹ nhàng. Game Piece Labs tạo ra organizer
+              và phụ kiện với sự tỉ mỉ, đam mê cùng những chất liệu cao cấp,
+              thân thiện hơn với môi trường. Hãy sẵn sàng nâng tầm cách bạn
+              chơi boardgame.
             </p>
 
             <Button
               asChild
               className="mt-8 h-14 rounded-full bg-neutral-950 px-10 text-base font-bold text-white hover:bg-neutral-800 focus-visible:ring-neutral-950 sm:mt-10 sm:h-16 sm:px-12 sm:text-lg"
             >
-              <Link href="/about">Discover more</Link>
+              <Link href="/about">Khám phá thêm</Link>
             </Button>
           </div>
         </div>
@@ -154,46 +163,53 @@ export default function StorefrontHomePage() {
         <ProductDemo />
       </SectionTitle>
 
-      {/* 
-      <VideoFrame
-        type="youtube"
-        src="https://www.youtube.com/embed/HjsGUuQsQOY?si=ZcxnS0Ln7VPw4BqD"
-      /> */}
-
       <SectionTitle
-        title="Browse By Game"
+        title="Tìm kiếm theo trò chơi"
+        ariaLabel="BrowseByGame"
         more={{
-          label: "View all games",
-          href: "/browsebygame",
+          label: "Xem tất cả trò chơi",
+          href: "/browse-by-game",
         }}
         align="left"
       >
         <SliderGallery>
-            {gameCategories.map((game) => (
-              <CardImageTitle key={game.title} {...game} prefix="/collections" />
-            ))}
+          {gameCategories.map((game) => (
+            <CardImageTitle key={game.title} {...game} prefix="/collections" />
+          ))}
         </SliderGallery>
-      </SectionTitle>
-
-      <SectionTitle align="left">
-        <PlayerReviewsSection
-          variant="image"
-          imageList={playerReviewImageList}
-          contentList={playerReviewContentList}
-        />
       </SectionTitle>
 
       <SectionTitle align="center">
         <OrderInstruction />
       </SectionTitle>
 
-      <SectionTitle>
-        <CompanyLinksSection />
-      </SectionTitle>
-
-      <SectionTitle title="Upcoming Products" align="center">
+      <SectionTitle title="Sản phẩm sắp ra mắt" align="center">
         <UpcomingProductsSection />
       </SectionTitle>
     </main>
   );
+}
+
+{
+  /* <SectionTitle title="What Our Players Said" ariaLabel="WOPS" align="left">
+        <PlayerReviewsSection
+          variant="image"
+          imageList={playerReviewImageList}
+          contentList={playerReviewContentList}
+        />
+      </SectionTitle> */
+}
+
+{
+  /* <SectionTitle>
+        <CompanyLinksSection />
+      </SectionTitle> */
+}
+
+{
+  /* 
+      <VideoFrame
+        type="youtube"
+        src="https://www.youtube.com/embed/HjsGUuQsQOY?si=ZcxnS0Ln7VPw4BqD"
+      /> */
 }

@@ -4,36 +4,36 @@ import type {
 } from "@/features/navigation/types/header-navigation";
 
 export const contactNavigationItem: HeaderNavigationItem = {
-  label: "Contact",
+  label: "Liên hệ",
   href: "/contact",
 };
 
 export const productMenuItems: HeaderNavigationItem[] = [
-  { label: "All products", href: "/products" },
-  { label: "By Game", href: "/browsebygame" },
-  { label: "Board Game Inserts", href: "/collections/board-game-inserts" },
-  { label: "OX Product Family", href: "/collections/ox-product-family" },
-  { label: "Tokens", href: "/collections/tokens" },
+  { label: "Tất cả sản phẩm", href: "/products" },
+  { label: "Theo trò chơi", href: "/browsebygame" },
+  { label: "Khay đựng board game", href: "/collections/board-game-inserts" },
+  { label: "Dòng sản phẩm OX", href: "/collections/ox-product-family" },
+  { label: "Token", href: "/collections/tokens" },
 ];
 
 export const promoCards: HeaderPromoCard[] = [
   {
-    title: "Board Game Inserts",
-    description: "Organize every game night",
+    title: "Khay đựng board game",
+    description: "Sắp xếp gọn gàng cho mọi buổi chơi",
     href: "/products?group=inserts",
     tone: "charcoal",
     icon: "inserts",
   },
   {
-    title: "Hotlist",
-    description: "Most wanted this week",
+    title: "Đang được săn đón",
+    description: "Những lựa chọn nổi bật trong tuần",
     href: "/products?group=hotlist",
     tone: "ocean",
     icon: "hotlist",
   },
   {
-    title: "New in 2026",
-    description: "Fresh arrivals for your table",
+    title: "Mới trong năm 2026",
+    description: "Sản phẩm mới cho bàn chơi của bạn",
     href: "/products?group=new",
     tone: "walnut",
     icon: "new",
@@ -41,30 +41,30 @@ export const promoCards: HeaderPromoCard[] = [
 ];
 
 export const aboutMenuItems: HeaderNavigationItem[] = [
-  { label: "About Game Piece Labs", href: "/about" },
-  { label: "Materials", href: "/about/materials" },
-  { label: "Play Green", href: "/about/sustainability" },
-  { label: "Craft & Quality", href: "/about/craft" },
+  { label: "Về Game Piece Labs", href: "/about" },
+  { label: "Chất liệu", href: "/about/materials" },
+  { label: "Chơi xanh", href: "/about/sustainability" },
+  { label: "Chế tác & chất lượng", href: "/about/craft" },
 ];
 
 export const aboutPromoCards: HeaderPromoCard[] = [
   {
-    title: "About Game Piece Labs",
-    description: "Made for memorable game nights",
+    title: "Về Game Piece Labs",
+    description: "Được tạo ra cho những buổi chơi đáng nhớ",
     href: "/about",
     tone: "clay",
     icon: "story",
   },
   {
-    title: "Materials",
-    description: "Chosen for play and longevity",
+    title: "Chất liệu",
+    description: "Được chọn để chơi bền và dùng lâu",
     href: "/about/materials",
     tone: "sand",
     icon: "materials",
   },
   {
-    title: "Play Green",
-    description: "A lighter footprint at the table",
+    title: "Chơi xanh",
+    description: "Giảm tác động môi trường ngay trên bàn chơi",
     href: "/about/sustainability",
     tone: "forest",
     icon: "green",

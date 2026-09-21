@@ -27,14 +27,27 @@ type OrderInstructionProps = {};
 
 export function OrderInstruction({}: OrderInstructionProps): ReactElement {
   return (
-    <div className="relative isolate w-full overflow-hidden bg-white">
+    <div className="relative isolate w-full overflow-hidden">
       <div className="w-full">
-        <div className="mx-auto mb-10 max-w-4xl text-center sm:mb-14 lg:mb-16">
-          <h2 className="type-h2 text-balance text-neutral-900 dark:text-white">
+        <div
+          className="mx-auto mb-10 max-w-4xl text-center 
+                        sm:mb-14 
+                        lg:mb-16"
+        >
+          <h2
+            className="font-bold text-balance text-neutral-900 dark:text-white
+                       section-title-text
+                        "
+          >
             Từ ý tưởng đến sản phẩm hoàn thiện
           </h2>
 
-          <p className="type-prose mx-auto mt-4 max-3-xl text-base text-neutral-600 dark:text-neutral-400">
+          <p
+            className="type-prose mx-auto mt-4 text-neutral-600 dark:text-neutral-400
+                        text-lg max-3-xl
+                        sm:text-xl 
+                        "
+          >
             Quy trình đặt in 3D rõ ràng trong 5 bước, giúp bạn dễ dàng theo dõi
             từ lúc chọn mẫu đến khi nhận hàng.
           </p>
@@ -43,7 +56,6 @@ export function OrderInstruction({}: OrderInstructionProps): ReactElement {
         <ol className="relative grid gap-4 md:grid-cols-2 md:gap-5 xl:grid-cols-5 xl:gap-4 2xl:gap-6">
           {orderInstructions.map((instruction) => {
             const Icon = instructionIcons[instruction.icon];
-
             return (
               <li
                 key={instruction.id}

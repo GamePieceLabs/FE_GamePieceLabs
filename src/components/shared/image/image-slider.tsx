@@ -116,7 +116,10 @@ export function ImageSlider({
       plugins={plugins}
       aria-label={ariaLabel}
       className={cn(
-        "mx-auto shadow-[0_18px_60px_rgba(15,23,42,0.16)]",
+        "mx-auto isolate",
+        "[&_[data-slot=carousel-content]]:overflow-hidden",
+        "[&_[data-slot=carousel-content]]:rounded-xl",
+        "[&_[data-slot=carousel-content]]:shadow-[0_8px_28px_rgba(15,23,42,0.08)]",
         className,
       )}
     >
@@ -139,7 +142,7 @@ export function ImageSlider({
             inert={slide !== activeSlide}
           >
             <div
-              className="relative w-full h-full overflow-hidden rounded-xl border"
+              className="relative h-full w-full overflow-hidden"
               style={{
                 aspectRatio: `${slide.imageWidth} / ${slide.imageHeight}`,
               }}

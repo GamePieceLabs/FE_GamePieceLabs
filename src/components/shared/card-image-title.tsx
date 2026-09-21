@@ -17,11 +17,11 @@ export type CardImageTitleProps = {
   /** Tên collection/category hiển thị trên ảnh. Có thể bỏ trống với card chỉ có icon mũi tên. */
   title?: string;
   /** URL hoặc path ảnh card. */
-  imageSrc: string;
+  imageSrc?: string;
   /** Alt text mô tả ảnh card. */
-  imageAlt: string;
+  imageAlt?: string;
   /** Đường dẫn điều hướng khi `isClicked` là `true`. */
-  href: string;
+  href?: string;
   /** Prefix route, hữu ích khi `href` chỉ là slug con. */
   prefix?: string;
   /** Tỉ lệ khung ảnh định nghĩa sẵn. */

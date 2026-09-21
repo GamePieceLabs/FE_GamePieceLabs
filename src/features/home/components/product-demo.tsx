@@ -65,7 +65,7 @@ export function ProductDemo({ className }: ProductDemoProps) {
             <Tooltip>
               <TooltipTrigger asChild>
                 <HotspotButton
-                  aria-label={`Show product detail: ${hotspot.title}`}
+                  aria-label={`Xem chi tiết sản phẩm: ${hotspot.title}`}
                   className="hidden md:flex"
                 />
               </TooltipTrigger>
@@ -83,7 +83,7 @@ export function ProductDemo({ className }: ProductDemoProps) {
             <Sheet>
               <SheetTrigger asChild>
                 <HotspotButton
-                  aria-label={`Show product detail: ${hotspot.title}`}
+                  aria-label={`Xem chi tiết sản phẩm: ${hotspot.title}`}
                   className="flex md:hidden"
                 />
               </SheetTrigger>

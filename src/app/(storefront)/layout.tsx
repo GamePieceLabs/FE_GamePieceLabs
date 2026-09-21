@@ -17,7 +17,7 @@ export default function ClientLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="storefront-typography flex min-h-screen flex-col bg-white text-[#1A1A1A] antialiased selection:bg-blue-500/10">
+    <div className="storefront-typography flex min-h-screen flex-col bg-[var(--storefront-surface)] text-[#1A1A1A] antialiased selection:bg-blue-500/10">
       <SiteHeader />
       <div className="flex-1">{children}</div>
       <SiteFooter content={footerContent} />

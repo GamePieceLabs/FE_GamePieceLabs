@@ -213,3 +213,5 @@ Use `"h1"` only for the page's single primary title and use lower levels in docu
 ## Implementation Notes
 
 - Component chỉ render một `<section>`; toàn bộ layout nội dung thuộc về `children`.
+- Wrapper dùng `bg-[var(--storefront-surface)]` để các section storefront cùng nền với header/layout.
+- `ariaLabel="ImageSlider"` bỏ padding top để hero nằm sát header theo thiết kế; padding bottom vẫn giữ section spacing mặc định.

@@ -163,7 +163,7 @@ function DesktopHeader() {
             <NavigationMenuList className="-ml-4 gap-0">
               <NavigationMenuItem value="products">
                 <NavigationMenuTrigger className="h-11 rounded-md bg-transparent px-4 text-base font-bold hover:bg-transparent focus:bg-transparent data-open:bg-transparent data-popup-open:bg-transparent">
-                  Products
+                  Sản phẩm
                 </NavigationMenuTrigger>
                 <MegaMenuPanel
                   items={productMenuItems}
@@ -177,12 +177,12 @@ function DesktopHeader() {
 
               <NavigationMenuItem value="about">
                 <div className="rounded-md bg-transparent px-4 text-base font-bold hover:bg-transparent focus:bg-transparent data-open:bg-transparent data-popup-open:bg-transparent">
-                  <Link href={"/about"}>About us</Link> 
+                  <Link href={"/about"}>Về chúng tôi</Link> 
                 </div>
 
 
                 {/* <NavigationMenuTrigger className="h-11 rounded-md bg-transparent px-4 text-base font-bold hover:bg-transparent focus:bg-transparent data-open:bg-transparent data-popup-open:bg-transparent">
-                  <Link href={"/about"}>About us</Link>
+                  <Link href={"/about"}>Về chúng tôi</Link>
                 </NavigationMenuTrigger> */}
 
 
@@ -280,7 +280,7 @@ function MobileHeader() {
             <nav aria-label="Điều hướng mobile" className="space-y-8 px-5 py-7">
               <div>
                 <p className="mb-4 text-xs font-bold uppercase tracking-[0.18em] text-muted-foreground">
-                  Products
+                  Sản phẩm
                 </p>
                 <div className="grid gap-1">
                   {productMenuItems.map((item) => (
@@ -298,7 +298,7 @@ function MobileHeader() {
 
               <div className="border-t pt-5">
                 <p className="mb-4 text-xs font-bold uppercase tracking-[0.18em] text-muted-foreground">
-                  About us
+                  Về chúng tôi
                 </p>
                 <div className="grid gap-1">
                   {aboutMenuItems.map((item) => (
@@ -341,7 +341,7 @@ function MobileHeader() {
 
 export function SiteHeader() {
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border bg-background text-foreground">
+    <header className="sticky top-0 z-50 w-full border-b border-border bg-[var(--storefront-surface)] text-foreground">
       <DesktopHeader />
       <MobileHeader />
     </header>

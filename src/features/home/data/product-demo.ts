@@ -10,23 +10,23 @@ export const productDemoImage = {
 export const productHotspots = [
   {
     id: "sorted-components",
-    title: "Sorted components",
+    title: "Linh kiện luôn gọn gàng",
     position: { left: "50%", top: "11%" },
     side: "bottom",
-    text: "Keep every token and component sorted in a dedicated compartment.",
+    text: "Mỗi token, thẻ bài và phụ kiện đều có ngăn riêng để bạn tìm thấy ngay khi cần.",
   },
   {
     id: "more-play-time",
-    title: "More time to play",
+    title: "Thêm thời gian vào cuộc",
     position: { left: "31%", top: "47.5%" },
     side: "right",
-    text: "Better organization means more time strategizing, playing, and winning.",
+    text: "Sắp xếp tốt hơn giúp bạn bớt lo chuẩn bị, thêm thời gian tính chiến thuật và tận hưởng ván chơi.",
   },
   {
     id: "faster-pack-up",
-    title: "Faster pack-up",
+    title: "Thu dọn nhanh hơn",
     position: { left: "64.5%", top: "76%" },
     side: "top",
-    text: "Pack the game away faster and protect every piece between sessions.",
+    text: "Kết thúc ván chơi nhẹ nhàng hơn, đồng thời bảo vệ từng thành phần giữa các lần chơi.",
   },
 ] as const satisfies readonly ProductHotspot[];

@@ -62,37 +62,6 @@ export function PlayerReviewsSection({
 
   return (
     <div className="w-full">
-      {/* Title and Top Navigation */}
-      <div
-        className={cn("mb-8 flex items-center justify-between gap-3 sm:mb-12")}
-      >
-        <h3 className="type-h3 min-w-0 text-neutral-900">
-          What Our Players Said
-        </h3>
-
-        {/* Navigation Buttons */}
-        <div className="flex items-center gap-2">
-          <button
-            type="button"
-            onClick={() => api?.scrollPrev()}
-            disabled={!canScrollPrev}
-            aria-label="Previous reviews"
-            className="flex size-9 items-center justify-center rounded-full border border-neutral-300 bg-white text-neutral-800 shadow-sm transition hover:bg-neutral-100 disabled:cursor-not-allowed disabled:opacity-30 sm:size-10"
-          >
-            <ChevronLeft className="size-4 sm:size-5" />
-          </button>
-          <button
-            type="button"
-            onClick={() => api?.scrollNext()}
-            disabled={!canScrollNext}
-            aria-label="Next reviews"
-            className="flex size-9 items-center justify-center rounded-full border border-neutral-300 bg-white text-neutral-800 shadow-sm transition hover:bg-neutral-100 disabled:cursor-not-allowed disabled:opacity-30 sm:size-10"
-          >
-            <ChevronRight className="size-4 sm:size-5" />
-          </button>
-        </div>
-      </div>
-
       {/* Carousel */}
       <Carousel
         setApi={setApi}
@@ -108,17 +77,30 @@ export function PlayerReviewsSection({
             ? imageList.map((review) => (
                 <CarouselItem
                   key={review.id}
-                  className="basis-[88%] pl-4 sm:basis-[48%] lg:basis-[32%] sm:pl-6"
+                  className="pl-4
+                             basis-[88%] 
+                             lg:basis-[32%] 
+                             sm:basis-[48%]  sm:pl-6"
                 >
-                  <figure className="group relative min-h-[320px] overflow-hidden rounded-lg sm:min-h-[360px]">
+                  <figure
+                    className="group relative overflow-hidden rounded-lg  
+                                    min-h-[320px] 
+                                    sm:min-h-[360px]"
+                  >
                     <Image
                       src={review.imageSrc}
                       alt={review.imageAlt}
                       fill
-                      sizes="(min-width: 1024px) 32vw, (min-width: 640px) 48vw, 88vw"
+                      sizes="
+                            (min-width: 1024px) 32vw, 
+                            (min-width: 640px) 48vw, 
+                            88vw"
                       className="object-cover transition-transform duration-300"
                     />
-                    <figcaption className="absolute inset-x-0 bottom-0 bg-linear-to-t from-black/85 to-transparent px-6 pb-6 pt-16 text-white sm:px-8 sm:pb-8">
+                    <figcaption
+                      className="absolute inset-x-0 bottom-0 bg-linear-to-t from-black/85 to-transparent px-6 pb-6 pt-16 text-white 
+                                          sm:px-8 sm:pb-8"
+                    >
                       <div
                         className="mb-2 flex items-center gap-1 text-amber-400"
                         aria-label={`${review.rating} out of 5 stars`}
@@ -138,9 +120,17 @@ export function PlayerReviewsSection({
             : contentList.map((review) => (
                 <CarouselItem
                   key={review.id}
-                  className="basis-[88%] pl-4 sm:basis-[48%] lg:basis-[32%] sm:pl-6"
+                  className="pl-4 
+                             basis-[88%] 
+                             sm:basis-[48%] sm:pl-6
+                             lg:basis-[32%] "
                 >
-                  <div className="flex h-full min-h-[320px] flex-col rounded-lg p-6 text-neutral-900 sm:min-h-[360px] sm:p-8">
+                  <div
+                    className="flex h-full p-6 text-neutral-900 flex-col rounded-lg
+                                  min-h-[320px] 
+                                  sm:min-h-[360px] sm:p-8
+                                  "
+                  >
                     {/* Star Rating */}
                     <div
                       className="mb-4 flex items-center gap-1 text-amber-500"

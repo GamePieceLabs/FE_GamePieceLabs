@@ -2,7 +2,7 @@ import type { CardImageTitleProps } from "@/components/shared/card-image-title";
 
 export const gearCategories = [
   {
-    title: "Board Game Inserts",
+    title: "Organize/Insert Boardgame",
     imageSrc:
       "https://laserox.net/cdn/shop/files/MW08SportGR_Angle_Right_800x800_8a72d3f1-7771-4cb1-8ceb-3106713e47d6_800x800_2_jpg.png?v=1714732680&width=300",
     imageAlt: "Board game inserts, tokens, cards, and accessories on a table",
@@ -10,16 +10,16 @@ export const gearCategories = [
     imagePosition: "22% center",
   },
   {
-    title: "OXProduct Family",
+    title: "Bọc hộp Boardgame",
     imageSrc: "/images/legacy/banner3.jpg",
-    imageAlt: "Fantasy collection boxes suspended above a miniature city",
+    imageAlt: "Bọc hộp bảo vệ boardgame",
     href: "ox-product-family",
     imagePosition: "48% center",
   },
   {
-    title: "Tokens",
+    title: "Phụ kiện Boardgame",
     imageSrc: "/images/legacy/banner1.jpg",
-    imageAlt: "Neon tabletop artwork in purple and blue",
+    imageAlt: "Phụ kiện nâng cấp trải nghiệm chơi boardgame",
     href: "tokens",
     imagePosition: "58% center",
   },
