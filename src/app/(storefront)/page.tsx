@@ -26,6 +26,7 @@ import { Button } from "@/components/ui/button";
 import { ProductDemo } from "@/features/home/components/product-demo";
 import { SliderGallery } from "@/components/shared/slider-gallery";
 import { SectionTitle } from "@/components/shared/section-title/section-title";
+import { Carousel } from "@/components/ui/carousel";
 
 export default function StorefrontHomePage() {
   return (
@@ -111,13 +112,16 @@ export default function StorefrontHomePage() {
         </div>
       </SectionTitle>
 
-      <SectionTitle
+      <SectionTitle 
         ariaLabel="Brand"
         align="center"
         className="overflow-hidden"
       >
         <div className="flex flex-col items-center text-center">
-          <h2 className="bg-gradient-to-b from-neutral-300 to-white bg-clip-text mobile:text-[40px] sm:text-[clamp(40px,10vw,192px)] inline-block transform mobile:scale-y-[1.2] sm:scale-100 font-black tracking-[-0.065em] whitespace-nowrap text-transparent text-nowrap">
+          <h2 className="bg-gradient-to-b from-neutral-300 to-white bg-clip-text 
+                        max-mobile:text-[48px] sm:text-[clamp(48px,12.5000vw,240px)] 
+                        inline-block transform mobile:scale-y-[1.2] 
+                        sm:scale-100 font-black tracking-[-0.065em] whitespace-nowrap text-transparent text-nowrap">
             GAME PIECE LABS
           </h2>
 
@@ -146,7 +150,7 @@ export default function StorefrontHomePage() {
         </div>
       </SectionTitle>
 
-      <SectionTitle align="center">
+      <SectionTitle ariaLabel="ProductDemo" align="center">
         <ProductDemo />
       </SectionTitle>
 
@@ -164,11 +168,11 @@ export default function StorefrontHomePage() {
         }}
         align="left"
       >
-        <CardImageTitleGrid>
-          {gameCategories.map((game) => (
-            <CardImageTitle key={game.title} {...game} prefix="/collections" />
-          ))}
-        </CardImageTitleGrid>
+        <SliderGallery>
+            {gameCategories.map((game) => (
+              <CardImageTitle key={game.title} {...game} prefix="/collections" />
+            ))}
+        </SliderGallery>
       </SectionTitle>
 
       <SectionTitle align="left">

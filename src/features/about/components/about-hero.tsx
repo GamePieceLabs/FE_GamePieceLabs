@@ -7,7 +7,7 @@ type AboutHeroProps = {
 
 export function AboutHero({ content }: AboutHeroProps) {
   return (
-    <SectionTitle className="pt-0">
+    <SectionTitle ariaLabel="AboutHero" className="pt-0">
       <div className="relative w-full
                       overflow-hidden rounded-2xl border border-neutral-200/80 
                       bg-neutral-950 shadow-2xl 

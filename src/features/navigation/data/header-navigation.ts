@@ -10,7 +10,7 @@ export const contactNavigationItem: HeaderNavigationItem = {
 
 export const productMenuItems: HeaderNavigationItem[] = [
   { label: "All products", href: "/products" },
-  { label: "By Game", href: "/by-game-name" },
+  { label: "By Game", href: "/browsebygame" },
   { label: "Board Game Inserts", href: "/collections/board-game-inserts" },
   { label: "OX Product Family", href: "/collections/ox-product-family" },
   { label: "Tokens", href: "/collections/tokens" },
