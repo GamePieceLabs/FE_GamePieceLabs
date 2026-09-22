@@ -1,7 +1,7 @@
 import type { ProductHotspot } from "@/features/home/types/product-demo";
 
 export const productDemoImage = {
-  src: "https://laserox.net/cdn/shop/files/TRACKER-3-400x400_6.png?v=1714737373&width=800",
+  src: "/images/laserox/TRACKER-3-400x400_6.png",
   alt: "Wooden board game organizer filled with cards, tokens, and game pieces",
   width: 800,
   height: 732,

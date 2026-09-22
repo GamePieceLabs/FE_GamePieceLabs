@@ -2,63 +2,63 @@ import type { ContactPageContent } from "@/features/contact/types/contact-conten
 
 export const contactPageContent = {
   hero: {
-    title: "Contact Us",
+    title: "Liên hệ với chúng tôi",
     imageSrc: "/images/contact/contact-hero.png",
     imageAlt:
-      "A customer receiving help with board game accessories at a support desk",
+      "Khách hàng nhận hỗ trợ về phụ kiện board game tại quầy tư vấn",
   },
   introduction: {
-    eyebrow: "Your questions, our priority",
-    title: "Contact Us for Support",
+    eyebrow: "Câu hỏi của bạn là ưu tiên của chúng tôi",
+    title: "Liên hệ để được hỗ trợ",
     description:
-      "Need help with an order, product fit, or your next game-night setup? Send us a note and our support team will point you in the right direction.",
-    faqLabel: "Visit our FAQ page",
+      "Bạn cần hỗ trợ về đơn hàng, độ phù hợp của sản phẩm hoặc chuẩn bị cho buổi chơi tiếp theo? Hãy gửi lời nhắn để đội ngũ hỗ trợ tư vấn đúng nhu cầu.",
+    faqLabel: "Xem trang câu hỏi thường gặp",
     faqHref: "/faq",
   },
   details: [
     {
       label: "Facebook",
       value: "In 3D Và Phụ Kiện Boardgame",
-      supportingText: "For product, order, and shipping questions.",
+      supportingText: "Hỗ trợ các câu hỏi về sản phẩm, đơn hàng và giao nhận.",
       href: "mailto:support@gamepiecelabs.example",
     },
     {
       label: "Tiktok",
-      value: "Include your order number",
-      supportingText: "It helps us find your purchase and respond faster.",
+      value: "Vui lòng ghi kèm mã đơn hàng",
+      supportingText: "Thông tin này giúp chúng tôi tra cứu và phản hồi nhanh hơn.",
     },
     {
-      label: "Support hours",
-      value: "Monday - Friday, 08:00 - 16:30",
-      supportingText: "Messages received outside these hours are handled next business day.",
+      label: "Thời gian hỗ trợ",
+      value: "Thứ Hai - Thứ Sáu, 08:00 - 16:30",
+      supportingText: "Tin nhắn ngoài giờ sẽ được xử lý vào ngày làm việc kế tiếp.",
     },
   ],
   form: {
-    namePlaceholder: "Name",
-    emailPlaceholder: "E-mail",
-    subjectPlaceholder: "Subject",
-    messagePlaceholder: "Message",
-    submitLabel: "Send message",
+    namePlaceholder: "Họ và tên",
+    emailPlaceholder: "Email",
+    subjectPlaceholder: "Chủ đề",
+    messagePlaceholder: "Nội dung tin nhắn",
+    submitLabel: "Gửi tin nhắn",
   },
   benefits: [
     {
-      title: "Designed for game night",
-      description: "Thoughtful accessories made for smoother, more memorable play.",
+      title: "Thiết kế cho buổi chơi trọn vẹn",
+      description: "Phụ kiện chỉn chu giúp trải nghiệm chơi mượt mà và đáng nhớ hơn.",
       icon: "map-pin",
     },
     {
-      title: "International shipping",
-      description: "Flexible delivery options for tabletop fans around the world.",
+      title: "Giao hàng linh hoạt",
+      description: "Nhiều lựa chọn giao nhận phù hợp cho cộng đồng yêu board game.",
       icon: "globe",
     },
     {
-      title: "Collector-first support",
-      description: "Clear answers before and after every Game Piece Labs purchase.",
+      title: "Hỗ trợ tận tâm cho người sưu tầm",
+      description: "Tư vấn rõ ràng trước và sau mỗi lần mua tại Game Piece Labs.",
       icon: "messages",
     },
     {
-      title: "Secure payment",
-      description: "Payments are handled through protected checkout flows.",
+      title: "Thanh toán an toàn",
+      description: "Thanh toán được xử lý qua quy trình thanh toán bảo mật.",
       icon: "credit-card",
     },
   ],

@@ -14,21 +14,21 @@ export default function AdminTopbar() {
           <Search className="absolute left-3 top-1/2 size-4 -translate-y-1/2 text-slate-400" />
 
           <input
-            placeholder="Search products, orders..."
+            placeholder="Tìm kiếm sản phẩm, đơn hàng..."
             className="h-10 w-full rounded-full border border-slate-200 bg-slate-50 pl-9 pr-4 text-sm outline-none transition placeholder:text-slate-400 focus:border-indigo-400 focus:bg-white focus:ring-2 focus:ring-indigo-500/15"
           />
         </div>
 
         <div className="ml-auto flex items-center gap-2">
-          <button className="grid size-9 place-items-center rounded-full text-slate-500 transition hover:bg-slate-100 hover:text-slate-950">
+          <button aria-label="Thông báo" className="grid size-9 place-items-center rounded-full text-slate-500 transition hover:bg-slate-100 hover:text-slate-950">
             <Bell className="size-4" />
           </button>
 
-          <button className="grid size-9 place-items-center rounded-full text-slate-500 transition hover:bg-slate-100 hover:text-slate-950">
+          <button aria-label="Cài đặt" className="grid size-9 place-items-center rounded-full text-slate-500 transition hover:bg-slate-100 hover:text-slate-950">
             <Settings className="size-4" />
           </button>
 
-          <button className="grid size-9 place-items-center rounded-full text-slate-500 transition hover:bg-slate-100 hover:text-slate-950">
+          <button aria-label="Trợ giúp" className="grid size-9 place-items-center rounded-full text-slate-500 transition hover:bg-slate-100 hover:text-slate-950">
             <HelpCircle className="size-4" />
           </button>
 

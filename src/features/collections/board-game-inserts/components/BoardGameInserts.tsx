@@ -16,21 +16,21 @@ interface BoardGameInsertsProps {
 }
 
 const productTypeItems: FilterItem[] = [
-  { name: "Accessories", value: "accessories", count: 1 },
-  { name: "Divider", value: "divider", count: 4 },
+  { name: "Phụ kiện", value: "accessories", count: 1 },
+  { name: "Vách ngăn", value: "divider", count: 4 },
   { name: "Insert", value: "insert", count: 277 },
 ];
 
 const sortFilterItems: FilterItem[] = [
-  { name: "Featured", value: "featured" },
-  { name: "Most relevant", value: "relevant" },
-  { name: "Best selling", value: "best-selling" },
-  { name: "Alphabetically A-Z", value: "name-asc" },
-  { name: "Alphabetically Z-A", value: "name-desc" },
-  { name: "Price, low to high", value: "price-asc" },
-  { name: "Price, high to low", value: "price-desc" },
-  { name: "Date, old to new", value: "date-asc" },
-  { name: "Date, new to old", value: "date-desc" },
+  { name: "Nổi bật", value: "featured" },
+  { name: "Phù hợp nhất", value: "relevant" },
+  { name: "Bán chạy nhất", value: "best-selling" },
+  { name: "Tên: A đến Z", value: "name-asc" },
+  { name: "Tên: Z đến A", value: "name-desc" },
+  { name: "Giá: Thấp đến Cao", value: "price-asc" },
+  { name: "Giá: Cao đến Thấp", value: "price-desc" },
+  { name: "Cũ nhất", value: "date-asc" },
+  { name: "Mới nhất", value: "date-desc" },
 ];
 
 const MINPRICE = 0;
@@ -115,14 +115,14 @@ export function BoardGameInserts({ data }: BoardGameInsertsProps) {
       <div className="tablet:hidden sticky mt-10 top-20 flex justify-center left-1/2 z-20">
         <SheetFilter>
           <Filter
-            label="In stock only"
+            label="Còn hàng"
             variant="switch"
             checked={checked}
             onCheckedChange={setChecked}
           />
 
           <Filter
-            label="Product"
+            label="Sản phẩm"
             variant="type"
             items={productTypeItems}
             selectedValues={selectedValues}
@@ -131,7 +131,7 @@ export function BoardGameInserts({ data }: BoardGameInsertsProps) {
           />
 
           <Filter
-            label="Price"
+            label="Giá"
             variant="price"
             min={MINPRICE}
             max={MAXPRICE}
@@ -144,7 +144,7 @@ export function BoardGameInserts({ data }: BoardGameInsertsProps) {
 
           <Filter
             variant="sort"
-            label="Sort by"
+            label="Bộ lọc"
             items={sortFilterItems}
             selectedValue={selectedValue}
             handleSelectChange={handleSelectChange}
@@ -157,7 +157,7 @@ export function BoardGameInserts({ data }: BoardGameInsertsProps) {
           {/* Sát bên trái */}
           <div className="w-1/3">
             <Filter
-              label="In stock only"
+              label="Còn hàng"
               variant="switch"
               checked={checked}
               onCheckedChange={setChecked}
@@ -168,7 +168,7 @@ export function BoardGameInserts({ data }: BoardGameInsertsProps) {
           <div className="flex items-center gap-2 w-1/3">
             <Filter
               variant="type"
-              label="Product"
+              label="Sản phẩm"
               items={productTypeItems}
               selectedValues={selectedValues}
               onValueChange={setSelectedValues}
@@ -177,7 +177,7 @@ export function BoardGameInserts({ data }: BoardGameInsertsProps) {
 
             <Filter
               variant="price"
-              label="Price"
+              label="Giá"
               min={MINPRICE}
               max={MAXPRICE}
               step={50000}
@@ -192,7 +192,7 @@ export function BoardGameInserts({ data }: BoardGameInsertsProps) {
           <div className="w-1/3 text-end">
             <Filter
               variant="sort"
-              label="Sort by"
+              label="Bộ lọc"
               items={sortFilterItems}
               selectedValue={selectedValue}
               handleSelectChange={handleSelectChange}
@@ -205,7 +205,7 @@ export function BoardGameInserts({ data }: BoardGameInsertsProps) {
             Board game inserts
           </h2>
           <p className="text-sm text-neutral-600">
-            {products.pagination.totalItems} products
+            {products.pagination.totalItems} sản phẩm
           </p>
         </div>
         <ProductList
@@ -218,7 +218,7 @@ export function BoardGameInserts({ data }: BoardGameInsertsProps) {
       </SectionTitle>
 
       <MarqueeText
-        title="Mastery is a never-ending exploration"
+        title="Mỗi lần chơi là một lần khám phá"
         speed={50}
         fontSize="text-8xl"
       />
@@ -228,7 +228,7 @@ export function BoardGameInserts({ data }: BoardGameInsertsProps) {
           <ImageFrame
             src={editorial.imageSrc}
             alt={editorial.imageAlt}
-            aspectRatio="aspect-square"
+            aspectRatio="1/1"
             objectFit="contain"
             className="max-tablet:rounded-t-lg tablet:rounded-tl-lg tablet:rounded-bl-lg border-0 bg-transparent shadow-none"
           />
@@ -254,8 +254,8 @@ export function BoardGameInserts({ data }: BoardGameInsertsProps) {
       </SectionTitle>
 
       <SectionTitle
-        title="Explore Other Categories"
-        more={{ label: "view all categories", href: "#" }}
+        title="Một số danh mục khác"
+        more={{ label: "Xem tất cả danh mục", href: "#" }}
         className="pb-16 sm:pb-20"
       >
         <SliderGallery>

@@ -101,7 +101,7 @@ export function Pagination({
   const lastItem = Math.min(currentPage * pageSize, totalItems);
   const previousPage = Math.max(1, currentPage - 1);
   const nextPage = Math.min(totalPages, currentPage + 1);
-  const summary = `Showing ${firstItem}-${lastItem} of ${totalItems} products`;
+  const summary = `Hiển thị ${firstItem}-${lastItem} trên ${totalItems} sản phẩm`;
 
   if (!isShowed) return;
 
@@ -111,13 +111,15 @@ export function Pagination({
         aria-label="Product pagination"
         className={cn("flex-col gap-4", paginationAlignClassNames[align])}
       >
-        <p className="text-base leading-relaxed text-neutral-600 sm:text-sm">{summary}</p>
+        <p className="text-base leading-relaxed text-neutral-600 sm:text-sm">
+          {summary}
+        </p>
 
         <PaginationContent className="no-scrollbar max-w-full justify-start gap-2 overflow-x-auto pb-1 sm:justify-center sm:gap-4">
           <PaginationItem>
             <PaginationPrevious
               href={`?page=${previousPage}`}
-              text="Previous"
+              text="Trước"
               aria-disabled={!hasPrevious}
               tabIndex={hasPrevious ? undefined : -1}
               className={cn(
@@ -132,14 +134,14 @@ export function Pagination({
               className="flex h-9 min-w-24 items-center justify-center px-3 text-base font-medium leading-snug text-neutral-700 sm:text-sm"
               aria-current="page"
             >
-              Page {currentPage} of {totalPages}
+              Trang {currentPage} / {totalPages}
             </span>
           </PaginationItem>
 
           <PaginationItem>
             <PaginationNext
               href={`?page=${nextPage}`}
-              text="Next"
+              text="Sau"
               aria-disabled={!hasNext}
               tabIndex={hasNext ? undefined : -1}
               className={cn(
@@ -161,7 +163,9 @@ export function Pagination({
       aria-label="Product pagination"
       className={cn("flex-col gap-4", paginationAlignClassNames[align])}
     >
-      <p className="text-base leading-relaxed text-neutral-600 sm:text-sm">{summary}</p>
+      <p className="text-base leading-relaxed text-neutral-600 sm:text-sm">
+        {summary}
+      </p>
 
       <PaginationContent className="no-scrollbar max-w-full justify-start gap-1 overflow-x-auto pb-1 sm:justify-center">
         <PaginationItem>

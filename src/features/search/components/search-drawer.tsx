@@ -71,7 +71,7 @@ export function SearchDrawer({ iconSizeClassName = "size-6" }: SearchDrawerProps
             <Input
               autoFocus
               value={query}
-              placeholder="Search for..."
+              placeholder="Tìm kiếm sản phẩm..."
               onChange={(event) => setQuery(event.target.value)}
               onKeyDown={(event) => {
                 if (event.key === "Enter") {

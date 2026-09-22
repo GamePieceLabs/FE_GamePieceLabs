@@ -1,11 +1,11 @@
-import type { CollectionEditorial } from "@/features/collections/board-game-inserts/types/board-game-inserts";
+﻿import type { CollectionEditorial } from "@/features/collections/board-game-inserts/types/board-game-inserts";
 
 export const collectionEditorial = {
   imageSrc:
-    "https://laserox.net/cdn/shop/collections/boardgameinsert.webp?v=1718870186&width=1200",
+    "/images/laserox/boardgameinsert.webp",
   imageAlt: "Wooden board game organizer filled with cards and tokens",
   emblemSrc:
-    "https://laserox.net/cdn/shop/files/emblem_black.png?v=1730107069&width=271",
+    "/images/laserox/emblem_black.png",
   emblemAlt: "Laserox emblem",
   heading: "Clear Space, Clear Strategy",
   description:

@@ -35,7 +35,7 @@ export default function PriceFilter({
         <Popover open={open} onOpenChange={handleOpenChange}>
           <PopoverTrigger asChild>
             <Button className="text-lg font-bold" variant="ghost">
-              {label} type
+              Khoảng {label}
               <span className="inline-flex size-8 items-center justify-center rounded-full bg-zinc-200">
                 <ChevronDown
                   aria-hidden="true"

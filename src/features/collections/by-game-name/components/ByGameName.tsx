@@ -32,26 +32,26 @@ export function ByGameName({ data }: ByGameNameProps) {
         <h1 className="type-h1 pb-8 text-center text-neutral-950">{title}</h1>
 
         <div className="grid w-full grid-cols-2 items-start gap-x-2 gap-y-1 py-3 max-sm:hidden sm:flex sm:gap-0">
-          <div className="min-w-0 text-left sm:flex-1">fILTER SWITCH</div>
+          <div className="min-w-0 text-left sm:flex-1">CHỈ CÒN HÀNG</div>
 
           <div className="contents sm:flex sm:flex-1 sm:items-start sm:justify-center sm:gap-2 sm:text-center">
-            <span>FILTER TYPE</span>
-            <span>FILTER PRICE</span>
+            <span>LOẠI SẢN PHẨM</span>
+            <span>KHOẢNG GIÁ</span>
           </div>
 
           <div className="min-w-0 text-right sm:flex-1">
-            <span>FILTER SORT</span>
+            <span>SẮP XẾP</span>
           </div>
         </div>
 
         <section className="pt-10" aria-labelledby="by-game-products-heading">
-          MOBILE FILTER HERE
+          BỘ LỌC TRÊN DI ĐỘNG
           <div className="mb-7 flex items-center justify-between gap-4">
             <h2 id="by-game-products-heading" className="sr-only">
-              {title} products
+              Sản phẩm thuộc {title}
             </h2>
             <p className="text-sm text-neutral-600">
-              {products.pagination.totalItems} product
+              {products.pagination.totalItems} sản phẩm
             </p>
           </div>
           <ProductList
@@ -66,7 +66,7 @@ export function ByGameName({ data }: ByGameNameProps) {
       </Wrapper>
 
       <MarqueeText
-        title="Mastery is a never-ending exploration"
+        title="Khám phá và chinh phục không ngừng"
         speed={50}
         fontSize="text-8xl"
       />
@@ -95,8 +95,8 @@ export function ByGameName({ data }: ByGameNameProps) {
       </SectionTitle>
 
       <SectionTitle
-        title="Explore Other Categories"
-        more={{ label: "view all categories", href: "/collections" }}
+        title="Khám phá danh mục khác"
+        more={{ label: "Xem tất cả danh mục", href: "/collections" }}
         className="pb-16 sm:pb-20"
       >
         <SliderGallery>

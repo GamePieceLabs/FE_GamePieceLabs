@@ -30,7 +30,7 @@ export default function SwitchFilter({
               className="items-center gap-2 px-3 py-1 text-sm cursor-pointer"
               variant="outline"
             >
-              <span>In stock</span>
+              <span>Còn hàng</span>
               <XIcon size="1em" onClick={clearFilter} className="shrink-0" />
             </Badge>
           )}

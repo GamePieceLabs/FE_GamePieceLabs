@@ -25,15 +25,15 @@ const productTypeItems: FilterItem[] = [
 ];
 
 const sortFilterItems: FilterItem[] = [
-  { name: "Featured", value: "featured" },
-  { name: "Most relevant", value: "relevant" },
-  { name: "Best selling", value: "best-selling" },
-  { name: "Alphabetically A-Z", value: "name-asc" },
-  { name: "Alphabetically Z-A", value: "name-desc" },
-  { name: "Price, low to high", value: "price-asc" },
-  { name: "Price, high to low", value: "price-desc" },
-  { name: "Date, old to new", value: "date-asc" },
-  { name: "Date, new to old", value: "date-desc" },
+  { name: "Nổi bật", value: "featured" },
+  { name: "Phù hợp nhất", value: "relevant" },
+  { name: "Bán chạy nhất", value: "best-selling" },
+  { name: "Tên: A đến Z", value: "name-asc" },
+  { name: "Tên: Z đến A", value: "name-desc" },
+  { name: "Giá: Thấp đến Cao", value: "price-asc" },
+  { name: "Giá: Cao đến Thấp", value: "price-desc" },
+  { name: "Cũ nhất", value: "date-asc" },
+  { name: "Mới nhất", value: "date-desc" },
 ];
 
 const MINPRICE = 0;
@@ -128,7 +128,7 @@ export default function AllProducts({ data }: AllProductsProps) {
       </SectionTitle>
 
       <MarqueeText
-        title="Mastery is a never-ending exploration"
+        title="Mỗi lần chơi là một lần khám phá"
         speed={50}
         fontSize="text-8xl"
       />
@@ -136,14 +136,14 @@ export default function AllProducts({ data }: AllProductsProps) {
       <div className="tablet:hidden mt-5 sticky top-20 flex justify-center left-1/2 z-20">
         <SheetFilter>
           <Filter
-            label="In stock only"
+            label="Chỉ còn hàng"
             variant="switch"
             checked={checked}
             onCheckedChange={setChecked}
           />
 
           <Filter
-            label="Product"
+            label="Sản phẩm"
             variant="type"
             items={productTypeItems}
             selectedValues={selectedValues}
@@ -152,7 +152,7 @@ export default function AllProducts({ data }: AllProductsProps) {
           />
 
           <Filter
-            label="Price"
+            label="Giá"
             variant="price"
             min={MINPRICE}
             max={MAXPRICE}
@@ -165,7 +165,7 @@ export default function AllProducts({ data }: AllProductsProps) {
 
           <Filter
             variant="sort"
-            label="Sort by"
+            label="Sắp xếp theo"
             items={sortFilterItems}
             selectedValue={selectedValue}
             handleSelectChange={handleSelectChange}
@@ -179,7 +179,7 @@ export default function AllProducts({ data }: AllProductsProps) {
             {/* Sát bên trái */}
             <div className="w-1/3">
               <Filter
-                label="In stock only"
+                label="Chỉ còn hàng"
                 variant="switch"
                 checked={checked}
                 onCheckedChange={setChecked}
@@ -190,7 +190,7 @@ export default function AllProducts({ data }: AllProductsProps) {
             <div className="flex justify-center grow items-center gap-2 w-1/3">
               <Filter
                 variant="type"
-                label="Product"
+                label="Sản phẩm"
                 items={productTypeItems}
                 selectedValues={selectedValues}
                 onValueChange={setSelectedValues}
@@ -199,7 +199,7 @@ export default function AllProducts({ data }: AllProductsProps) {
 
               <Filter
                 variant="price"
-                label="Price"
+                label="Giá"
                 min={MINPRICE}
                 max={MAXPRICE}
                 step={50000}
@@ -214,7 +214,7 @@ export default function AllProducts({ data }: AllProductsProps) {
             <div className="w-1/3 text-end">
               <Filter
                 variant="sort"
-                label="Sort by"
+                label="Sắp xếp theo"
                 items={sortFilterItems}
                 selectedValue={selectedValue}
                 handleSelectChange={handleSelectChange}

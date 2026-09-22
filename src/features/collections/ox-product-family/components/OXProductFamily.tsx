@@ -17,21 +17,21 @@ interface OXProductFamilyProps {
 }
 
 const productTypeItems: FilterItem[] = [
-  { name: "Accessories", value: "accessories", count: 1 },
-  { name: "Divider", value: "divider", count: 4 },
+  { name: "Phụ kiện", value: "accessories", count: 1 },
+  { name: "Vách ngăn", value: "divider", count: 4 },
   { name: "Insert", value: "insert", count: 277 },
 ];
 
 const sortFilterItems: FilterItem[] = [
-  { name: "Featured", value: "featured" },
-  { name: "Most relevant", value: "relevant" },
-  { name: "Best selling", value: "best-selling" },
-  { name: "Alphabetically A-Z", value: "name-asc" },
-  { name: "Alphabetically Z-A", value: "name-desc" },
-  { name: "Price, low to high", value: "price-asc" },
-  { name: "Price, high to low", value: "price-desc" },
-  { name: "Date, old to new", value: "date-asc" },
-  { name: "Date, new to old", value: "date-desc" },
+  { name: "Nổi bật", value: "featured" },
+  { name: "Phù hợp nhất", value: "relevant" },
+  { name: "Bán chạy nhất", value: "best-selling" },
+  { name: "Tên: A đến Z", value: "name-asc" },
+  { name: "Tên: Z đến A", value: "name-desc" },
+  { name: "Giá: Thấp đến Cao", value: "price-asc" },
+  { name: "Giá: Cao đến Thấp", value: "price-desc" },
+  { name: "Cũ nhất", value: "date-asc" },
+  { name: "Mới nhất", value: "date-desc" },
 ];
 
 const MINPRICE = 0;
@@ -114,14 +114,14 @@ export function OXProductFamily({ data }: OXProductFamilyProps) {
       <div className="tablet:hidden sticky mt-10 top-20 flex justify-center left-1/2 z-20">
         <SheetFilter>
           <Filter
-            label="In stock only"
+            label="Còn hàng"
             variant="switch"
             checked={checked}
             onCheckedChange={setChecked}
           />
 
           <Filter
-            label="Product"
+            label="Sản phẩm"
             variant="type"
             items={productTypeItems}
             selectedValues={selectedValues}
@@ -130,7 +130,7 @@ export function OXProductFamily({ data }: OXProductFamilyProps) {
           />
 
           <Filter
-            label="Price"
+            label="Giá"
             variant="price"
             min={MINPRICE}
             max={MAXPRICE}
@@ -142,8 +142,8 @@ export function OXProductFamily({ data }: OXProductFamilyProps) {
           />
 
           <Filter
+            label="Bộ lọc"
             variant="sort"
-            label="Sort by"
             items={sortFilterItems}
             selectedValue={selectedValue}
             handleSelectChange={handleSelectChange}
@@ -156,7 +156,7 @@ export function OXProductFamily({ data }: OXProductFamilyProps) {
           {/* Sát bên trái */}
           <div className="w-1/3">
             <Filter
-              label="In stock only"
+              label="Còn hàng"
               variant="switch"
               checked={checked}
               onCheckedChange={setChecked}
@@ -166,8 +166,8 @@ export function OXProductFamily({ data }: OXProductFamilyProps) {
           {/* Chính giữa */}
           <div className="flex items-center gap-2 w-1/3">
             <Filter
+              label="Sản phẩm"
               variant="type"
-              label="Product"
               items={productTypeItems}
               selectedValues={selectedValues}
               onValueChange={setSelectedValues}
@@ -175,8 +175,8 @@ export function OXProductFamily({ data }: OXProductFamilyProps) {
             />
 
             <Filter
+              label="Giá"
               variant="price"
-              label="Price"
               min={MINPRICE}
               max={MAXPRICE}
               step={50000}
@@ -190,8 +190,8 @@ export function OXProductFamily({ data }: OXProductFamilyProps) {
           {/* Sát bên phải */}
           <div className="w-1/3 text-end">
             <Filter
+              label="Bộ lọc"
               variant="sort"
-              label="Sort by"
               items={sortFilterItems}
               selectedValue={selectedValue}
               handleSelectChange={handleSelectChange}
@@ -204,7 +204,7 @@ export function OXProductFamily({ data }: OXProductFamilyProps) {
             Board game inserts
           </h2>
           <p className="text-sm text-neutral-600">
-            {products.pagination.totalItems} products
+            {products.pagination.totalItems} Sản phẩm
           </p>
         </div>
 
@@ -229,7 +229,7 @@ export function OXProductFamily({ data }: OXProductFamilyProps) {
           <ImageFrame
             src={editorial.imageSrc}
             alt={editorial.imageAlt}
-            aspectRatio="aspect-square"
+            aspectRatio="1/1"
             objectFit="contain"
             className="max-tablet:rounded-t-lg tablet:rounded-tl-lg tablet:rounded-bl-lg border-0 bg-transparent shadow-none"
           />
@@ -241,7 +241,7 @@ export function OXProductFamily({ data }: OXProductFamilyProps) {
               aspectRatio="aspect-square"
               objectFit="contain"
               containerClassName="w-9 sm:w-12.5"
-              className="max-tablet:text-[clamp(34px,5.3125vw,34px)] max-laptop:laptop:w-[clamp(52px,2.7083vw,52px)] rounded-none border-0 bg-transparent shadow-none sm:rounded-none"
+              className="h-full max-tablet:text-[clamp(34px,5.3125vw,34px)] max-laptop:laptop:w-[clamp(52px,2.7083vw,52px)] rounded-none border-0 bg-transparent shadow-none sm:rounded-none"
             />
             <h2 className="max-mobile:text-[clamp(32px,2.0833vw,40px)] max-pc:text-[clamp(40px,2.5000vw,48px)] text-[48px] text-neutral-950 mt-2 max-mobile:px-10">
               {editorial.heading}
@@ -255,8 +255,8 @@ export function OXProductFamily({ data }: OXProductFamilyProps) {
       </SectionTitle>
 
       <SectionTitle
-        title="Explore Other Categories"
-        more={{ label: "view all categories", href: "#" }}
+        title="Một số danh mục khác"
+        more={{ label: "Xem tất cả danh mục", href: "#" }}
         className="pb-16 sm:pb-20"
       >
         <SliderGallery>

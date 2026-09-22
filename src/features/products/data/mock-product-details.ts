@@ -19,7 +19,7 @@ export const mockProductDetails = [
       {
         id: "gloomhaven-primary",
         publicUrl:
-          "https://laserox.net/cdn/shop/files/LGBB-hero-2.jpg?v=1727173067&width=800",
+          "/images/laserox/LGBB-hero-2.jpg",
         altText: "Gloomhaven Buttons & Bugs Organizer",
         isPrimary: true,
         displayOrder: 1,
@@ -27,7 +27,7 @@ export const mockProductDetails = [
       {
         id: "gloomhaven-secondary",
         publicUrl:
-          "https://laserox.net/cdn/shop/files/LGBB-5.jpg?v=1727173076&width=112",
+          "/images/laserox/LGBB-5.jpg",
         altText: "Các khay bên trong Gloomhaven Buttons & Bugs Organizer",
         isPrimary: false,
         displayOrder: 2,
@@ -35,7 +35,7 @@ export const mockProductDetails = [
       {
         id: "gloomhaven-secondary-1",
         publicUrl:
-          "https://laserox.net/cdn/shop/files/LGBB-3.jpg?v=1727173082&width=112",
+          "/images/laserox/LGBB-3.jpg",
         altText: "Các khay bên trong Gloomhaven Buttons & Bugs Organizer",
         isPrimary: false,
         displayOrder: 3,
@@ -43,7 +43,7 @@ export const mockProductDetails = [
       {
         id: "gloomhaven-secondary-2",
         publicUrl:
-          "https://laserox.net/cdn/shop/files/LGBB-1.jpg?v=1727173087&width=112",
+          "/images/laserox/LGBB-1.jpg",
         altText: "Các khay bên trong Gloomhaven Buttons & Bugs Organizer",
         isPrimary: false,
         displayOrder: 3,
@@ -76,7 +76,7 @@ export const mockProductDetails = [
       {
         id: "spirit-primary",
         publicUrl:
-          "https://laserox.net/cdn/shop/files/LSID_comp.jpg?v=1717751144&width=1200",
+          "/images/laserox/LSID_comp.jpg",
         altText: "Spirit Island Organizer với đầy đủ khay chứa",
         isPrimary: true,
         displayOrder: 1,
@@ -100,7 +100,7 @@ export const mockProductDetails = [
       {
         id: "seti-primary",
         publicUrl:
-          "https://laserox.net/cdn/shop/files/LSET-hero-2.png?v=1733236650&width=1200",
+          "/images/laserox/LSET-hero-2.png",
         altText: "SETI Organizer trên bàn chơi",
         isPrimary: true,
         displayOrder: 1,
@@ -124,7 +124,7 @@ export const mockProductDetails = [
       {
         id: "spirit-expansion-primary",
         publicUrl:
-          "https://laserox.net/cdn/shop/files/LSIDE3-4.jpg?v=1738682122&width=1200",
+          "/images/laserox/LSIDE3-4.jpg",
         altText: "Spirit Island Expansion Organizer V2",
         isPrimary: true,
         displayOrder: 1,
@@ -147,7 +147,7 @@ export const mockProductDetails = [
       {
         id: "wyrmspan-primary",
         publicUrl:
-          "https://laserox.net/cdn/shop/files/LWYM-hero-1_90b7e93a-cebd-44d8-84c5-1c1efe0d741d.jpg?v=1718819267&width=1200",
+          "/images/laserox/LWYM-hero-1_90b7e93a-cebd-44d8-84c5-1c1efe0d741d.jpg",
         altText: "Wyrmspan Organizer với thẻ và linh kiện",
         isPrimary: true,
         displayOrder: 1,
@@ -170,7 +170,7 @@ export const mockProductDetails = [
       {
         id: "quacks-primary",
         publicUrl:
-          "https://laserox.net/cdn/shop/files/LQOQ-24.jpg?v=1718818978&width=1200",
+          "/images/laserox/LQOQ-24.jpg",
         altText: "Quacks Organizer và các khay token",
         isPrimary: true,
         displayOrder: 1,

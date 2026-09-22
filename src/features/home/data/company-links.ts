@@ -5,30 +5,30 @@ import type {
 
 export const companyLinks = {
     about: {
-        title: 'About us',
+        title: 'Về chúng tôi',
         imageSrc: '/images/company-links/about-us.webp',
-        imageAlt: 'A craftsperson sanding a pale wooden game board',
+        imageAlt: 'Nghệ nhân chà nhám bàn chơi bằng gỗ sáng màu',
         href: '/about',
         imagePosition: 'center',
     },
     materials: {
-        title: 'Materials',
+        title: 'Chất liệu',
         imageSrc: '/images/company-links/materials.webp',
-        imageAlt: 'The layered edge and natural grain of a birch plywood sheet',
+        imageAlt: 'Cạnh nhiều lớp và vân gỗ tự nhiên của tấm gỗ ép bạch dương',
         href: '/about',
         imagePosition: 'center',
     },
     sustainability: {
-        title: 'We are green',
+        title: 'Chơi xanh',
         imageSrc: '/images/company-links/we-are-green.webp',
-        imageAlt: 'A recycling symbol formed by clearings in a green forest',
+        imageAlt: 'Biểu tượng tái chế tạo bởi khoảng trống trong khu rừng xanh',
         href: '/about',
         imagePosition: 'center',
     },
     contact: {
-        title: 'Contact us',
+        title: 'Liên hệ',
         imageSrc: '/images/company-links/contact-us.webp',
-        imageAlt: 'A customer using a smartphone to contact support',
+        imageAlt: 'Khách hàng dùng điện thoại để liên hệ bộ phận hỗ trợ',
         href: '/contact',
         imagePosition: 'center',
     },

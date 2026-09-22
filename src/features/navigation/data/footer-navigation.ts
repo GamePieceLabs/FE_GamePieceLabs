@@ -3,7 +3,7 @@ import type { FooterContent } from "@/features/navigation/types/footer-navigatio
 export const footerContent: FooterContent = {
   navigationGroups: [
     {
-      title: "Information",
+      title: "Thông tin",
       links: [
         // { label: "Privacy Policy", href: "/privacy" },
         // { label: "Terms & Conditions", href: "/terms" },
@@ -13,16 +13,16 @@ export const footerContent: FooterContent = {
       ],
     },
     {
-      title: "Useful links",
+      title: "Các thông tin hữu dụng",
       links: [
         // { label: "Distributors", href: "/distributors" },
         // { label: "FAQ", href: "/faq" },
-        { label: "Contact", href: "/contact" },
+        { label: "Liên hệ", href: "/contact" },
       ],
     },
   ],
   certifications: {
-    title: "Certifications",
+    title: "Chứng nhận",
     badges: [
       {
         label: "View DMCA.com protection status",

@@ -48,7 +48,7 @@ export default async function ProductDetailsPage({
         </section>
 
         <SectionTitle
-          title="More details"
+          title="Thông tin chi tiết"
           align="left"
           className="mt-10"
           content="text"
@@ -85,7 +85,7 @@ export default async function ProductDetailsPage({
         </SectionTitle>
 
         <SectionTitle
-          title="Features"
+          title="Đặc điểm nổi bật"
           align="left"
           className="mt-10"
           content="text"
@@ -159,7 +159,7 @@ export default async function ProductDetailsPage({
       {/* <PlayerReviewsSection /> */}
 
       <SectionTitle
-        title="You may also like"
+        title="Có thể bạn cũng thích"
         align="left"
         className=""
         content="imageList"

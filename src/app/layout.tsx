@@ -6,7 +6,7 @@ export const metadata: Metadata = {
     default: "Game Piece Labs",
     template: "%s | Game Piece Labs",
   },
-  description: "Board games and tabletop accessories for every game night.",
+  description: "Board game và phụ kiện bàn chơi cho mọi buổi chơi.",
 };
 
 export default function RootLayout({

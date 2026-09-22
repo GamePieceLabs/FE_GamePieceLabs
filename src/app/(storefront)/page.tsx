@@ -2,20 +2,11 @@
 
 import Link from "next/link";
 
-import {
-  CardImageTitle,
-  CardImageTitleGrid,
-} from "@/components/shared/card-image-title";
+import { CardImageTitle } from "@/components/shared/card-image-title";
 import { MarqueeText } from "@/components/shared/marquee-text";
 import { featuredProducts } from "@/features/home/data/featured-products";
 import { gameCategories } from "@/features/home/data/game-categories";
 import { gearCategories } from "@/features/home/data/gear-categories";
-import {
-  playerReviewContentList,
-  playerReviewImageList,
-} from "@/features/home/data/player-reviews";
-import { PlayerReviewsSection } from "@/components/shared/player-reviews-section";
-import { CompanyLinksSection } from "@/features/home/components/company-links-section";
 import { UpcomingProductsSection } from "@/features/home/components/upcoming-products-section";
 import { OrderInstruction } from "@/features/home/components/order-instruction";
 import { ImageSlider } from "@/components/shared/image/image-slider";
@@ -93,8 +84,8 @@ export default function StorefrontHomePage() {
         </div>
 
         <ImageComparison
-          imageOne="https://laserox.net/cdn/shop/files/Picture_201509_MH40S5_marbletableplant_2_jpg.png?v=1714735329&width=1000"
-          imageTwo="https://laserox.net/cdn/shop/files/2024-05-03T132444.466.png?v=1714735542&width=1000"
+          imageOne="/images/laserox/Picture_201509_MH40S5_marbletableplant_2_jpg.png"
+          imageTwo="/images/laserox/2024-05-03T132444.466.png"
         />
       </SectionTitle>
 
@@ -182,7 +173,7 @@ export default function StorefrontHomePage() {
         <OrderInstruction />
       </SectionTitle>
 
-      <SectionTitle title="Sản phẩm sắp ra mắt" align="center">
+      <SectionTitle title="Sản phẩm mới ra mắt" align="center">
         <UpcomingProductsSection />
       </SectionTitle>
     </main>

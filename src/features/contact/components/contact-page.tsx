@@ -14,7 +14,7 @@ export function ContactPage({ content }: ContactPageProps) {
     <main className="bg-white text-neutral-950">
       <ContactHero content={content.hero} />
 
-      <SectionTitle title="Your questions, our priority" headingLevel="h6">
+      <SectionTitle title="Câu hỏi của bạn là ưu tiên của chúng tôi" headingLevel="h6">
         <div className="max-w-2xl">
           <ContactIntroduction content={content.introduction} />
         </div>

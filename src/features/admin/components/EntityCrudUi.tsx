@@ -81,23 +81,23 @@ export function EntityCrudStats({
       <AdminStatCard
         theme={theme}
         icon={icon}
-        label={`Total ${entityLabel}`}
+        label={`Tổng số ${entityLabel}`}
         value={items.length}
-        hint="All records"
+        hint="Tất cả bản ghi"
       />
       <AdminStatCard
         theme={theme}
         icon="⌕"
-        label="Visible Result"
+        label="Kết quả hiển thị"
         value={filteredItems.length}
-        hint="Current search result"
+        hint="Kết quả tìm kiếm hiện tại"
       />
       <AdminStatCard
         theme={theme}
         icon="✓"
-        label="Status"
-        value={loading ? "Loading" : "Ready"}
-        hint="API state"
+        label="Trạng thái"
+        value={loading ? "Đang tải" : "Sẵn sàng"}
+        hint="Trạng thái API"
       />
     </div>
   );
@@ -148,7 +148,7 @@ export function EntityCrudListPanel({
               className="inline-flex h-10 items-center justify-center rounded-lg border border-slate-200 bg-white px-3 text-sm font-medium text-slate-700 transition hover:bg-slate-50 dark:border-white/10 dark:bg-white/5 dark:text-slate-200 dark:hover:bg-white/10"
             >
               <RefreshCw className="mr-2 size-4" />
-              Refresh
+              Làm mới
             </button>
 
             <Link
@@ -217,7 +217,7 @@ export function EntityCrudTable({
       <AdminEmptyState
         theme={theme}
         icon="•"
-        title={`No ${entityLabel.toLowerCase()} found`}
+        title={`Không tìm thấy ${entityLabel.toLowerCase()}`}
         description={emptyDescription}
       />
     );
@@ -228,9 +228,9 @@ export function EntityCrudTable({
       <table className="w-full border-collapse text-left text-sm">
         <thead className="bg-slate-50 text-xs uppercase tracking-wide text-slate-500 dark:bg-white/[0.04] dark:text-slate-400">
           <tr>
-            <th className="px-5 py-4">Name</th>
-            <th className="px-5 py-4">Note</th>
-            <th className="px-5 py-4 text-right">Action</th>
+            <th className="px-5 py-4">Tên</th>
+            <th className="px-5 py-4">Ghi chú</th>
+            <th className="px-5 py-4 text-right">Thao tác</th>
           </tr>
         </thead>
 
@@ -257,7 +257,7 @@ export function EntityCrudTable({
               </td>
 
               <td className="px-5 py-4 text-slate-500 dark:text-slate-400">
-                {item.note || "No note"}
+                {item.note || "Không có ghi chú"}
               </td>
 
               <td className="px-5 py-4">
@@ -353,7 +353,7 @@ export function EntityCrudForm({
             disabled={saving}
             className={`${primaryButtonClass(theme)} flex-1`}
           >
-            {saving ? "Saving..." : submitLabel}
+            {saving ? "Đang lưu..." : submitLabel}
           </button>
 
           <button
@@ -362,7 +362,7 @@ export function EntityCrudForm({
             disabled={saving}
             className={secondaryButtonClass}
           >
-            Cancel
+            Hủy
           </button>
         </div>
       </div>
@@ -394,10 +394,10 @@ export function EntityCrudDetailCard({
     return (
       <div className="rounded-2xl border border-dashed border-slate-300 bg-white p-10 text-center dark:border-white/10 dark:bg-[#0b1020]">
         <h3 className="text-base font-semibold text-slate-950 dark:text-white">
-          {entityLabel} not found
+          Không tìm thấy {entityLabel.toLowerCase()}
         </h3>
         <p className="mt-2 text-sm text-slate-500 dark:text-slate-400">
-          The requested record could not be loaded.
+          Không thể tải bản ghi được yêu cầu.
         </p>
       </div>
     );
@@ -415,8 +415,8 @@ export function EntityCrudDetailCard({
       </div>
 
       <div className="grid gap-6 p-6 md:grid-cols-2">
-        <InfoCard label="Name" value={item.name} />
-        <InfoCard label="Note" value={item.note || "No note"} />
+        <InfoCard label="Tên" value={item.name} />
+        <InfoCard label="Ghi chú" value={item.note || "Không có ghi chú"} />
       </div>
     </div>
   );

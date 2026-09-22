@@ -17,21 +17,21 @@ interface TokensProps {
 }
 
 const productTypeItems: FilterItem[] = [
-  { name: "Accessories", value: "accessories", count: 1 },
-  { name: "Divider", value: "divider", count: 4 },
+  { name: "Phụ kiện", value: "accessories", count: 1 },
+  { name: "Vách ngăn", value: "divider", count: 4 },
   { name: "Insert", value: "insert", count: 277 },
 ];
 
 const sortFilterItems: FilterItem[] = [
-  { name: "Featured", value: "featured" },
-  { name: "Most relevant", value: "relevant" },
-  { name: "Best selling", value: "best-selling" },
-  { name: "Alphabetically A-Z", value: "name-asc" },
-  { name: "Alphabetically Z-A", value: "name-desc" },
-  { name: "Price, low to high", value: "price-asc" },
-  { name: "Price, high to low", value: "price-desc" },
-  { name: "Date, old to new", value: "date-asc" },
-  { name: "Date, new to old", value: "date-desc" },
+  { name: "Nổi bật", value: "featured" },
+  { name: "Phù hợp nhất", value: "relevant" },
+  { name: "Bán chạy nhất", value: "best-selling" },
+  { name: "Tên: A đến Z", value: "name-asc" },
+  { name: "Tên: Z đến A", value: "name-desc" },
+  { name: "Giá: Thấp đến Cao", value: "price-asc" },
+  { name: "Giá: Cao đến Thấp", value: "price-desc" },
+  { name: "Cũ nhất", value: "date-asc" },
+  { name: "Mới nhất", value: "date-desc" },
 ];
 
 const MINPRICE = 0;
@@ -114,14 +114,14 @@ export function Tokens({ data }: TokensProps) {
       <div className="tablet:hidden sticky mt-10 top-20 flex justify-center left-1/2 z-20">
         <SheetFilter>
           <Filter
-            label="In stock only"
+            label="Chỉ còn hàng"
             variant="switch"
             checked={checked}
             onCheckedChange={setChecked}
           />
 
           <Filter
-            label="Product"
+            label="Sản phẩm"
             variant="type"
             items={productTypeItems}
             selectedValues={selectedValues}
@@ -130,7 +130,7 @@ export function Tokens({ data }: TokensProps) {
           />
 
           <Filter
-            label="Price"
+            label="Giá"
             variant="price"
             min={MINPRICE}
             max={MAXPRICE}
@@ -143,7 +143,7 @@ export function Tokens({ data }: TokensProps) {
 
           <Filter
             variant="sort"
-            label="Sort by"
+            label="Sắp xếp theo"
             items={sortFilterItems}
             selectedValue={selectedValue}
             handleSelectChange={handleSelectChange}
@@ -156,7 +156,7 @@ export function Tokens({ data }: TokensProps) {
           {/* Sát bên trái */}
           <div className="w-1/3">
             <Filter
-              label="In stock only"
+              label="Chỉ còn hàng"
               variant="switch"
               checked={checked}
               onCheckedChange={setChecked}
@@ -167,7 +167,7 @@ export function Tokens({ data }: TokensProps) {
           <div className="flex items-center gap-2 w-1/3">
             <Filter
               variant="type"
-              label="Product"
+              label="Sản phẩm"
               items={productTypeItems}
               selectedValues={selectedValues}
               onValueChange={setSelectedValues}
@@ -176,7 +176,7 @@ export function Tokens({ data }: TokensProps) {
 
             <Filter
               variant="price"
-              label="Price"
+              label="Giá"
               min={MINPRICE}
               max={MAXPRICE}
               step={50000}
@@ -191,7 +191,7 @@ export function Tokens({ data }: TokensProps) {
           <div className="w-1/3 text-end">
             <Filter
               variant="sort"
-              label="Sort by"
+              label="Sắp xếp theo"
               items={sortFilterItems}
               selectedValue={selectedValue}
               handleSelectChange={handleSelectChange}
@@ -201,10 +201,10 @@ export function Tokens({ data }: TokensProps) {
 
         <div className="mb-7 flex items-center justify-between gap-4">
           <h2 id="collection-products-heading" className="sr-only">
-            Board game inserts
+            Insert board game
           </h2>
           <p className="text-sm text-neutral-600">
-            {products.pagination.totalItems} products
+            {products.pagination.totalItems} sản phẩm
           </p>
         </div>
         <ProductList
@@ -217,7 +217,7 @@ export function Tokens({ data }: TokensProps) {
       </SectionTitle>
 
       <MarqueeText
-        title="Mastery is a never-ending exploration"
+        title="Khám phá và chinh phục không ngừng"
         speed={50}
         fontSize="text-8xl"
       />
@@ -227,7 +227,7 @@ export function Tokens({ data }: TokensProps) {
           <ImageFrame
             src={editorial.imageSrc}
             alt={editorial.imageAlt}
-            aspectRatio="aspect-square"
+            aspectRatio="1/1"
             objectFit="contain"
             className="max-tablet:rounded-t-lg tablet:rounded-tl-lg tablet:rounded-bl-lg border-0 bg-transparent shadow-none"
           />
@@ -236,7 +236,7 @@ export function Tokens({ data }: TokensProps) {
             <ImageFrame
               src={editorial.emblemSrc}
               alt={editorial.emblemAlt}
-              aspectRatio="aspect-square"
+              aspectRatio="1/1"
               objectFit="contain"
               containerClassName="w-9 sm:w-12.5"
               className="max-tablet:text-[clamp(34px,5.3125vw,34px)] max-laptop:laptop:w-[clamp(52px,2.7083vw,52px)] rounded-none border-0 bg-transparent shadow-none sm:rounded-none"
@@ -253,8 +253,8 @@ export function Tokens({ data }: TokensProps) {
       </SectionTitle>
 
       <SectionTitle
-        title="Explore Other Categories"
-        more={{ label: "view all categories", href: "#" }}
+        title="Khám phá danh mục khác"
+        more={{ label: "Xem tất cả danh mục", href: "#" }}
         className="pb-16 sm:pb-20"
       >
         <SliderGallery>

@@ -13,10 +13,10 @@ type FilterGroupProp = {
 };
 
 const mobileFiltersTitle = {
-  switch: "Availability",
-  type: "Product type",
-  price: "Price",
-  sort: "Sort by",
+  switch: "Tình trạng hàng",
+  type: "Loại sản phẩm",
+  price: "Giá",
+  sort: "Bộ lọc",
 };
 
 export default function FilterGroup({ children }: FilterGroupProp) {

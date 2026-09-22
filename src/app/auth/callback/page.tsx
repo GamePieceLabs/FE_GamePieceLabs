@@ -22,19 +22,19 @@ export default async function CallbackPage({ searchParams }: CallbackProps) {
   return (
     <main className="mx-auto flex w-full max-w-2xl flex-1 items-center justify-center px-6 py-12">
       <div className="w-full rounded-xl border border-neutral-300 bg-white p-6 shadow-sm">
-        <h1 className="text-xl font-semibold">Authentication Result</h1>
+        <h1 className="text-xl font-semibold">Kết quả xác thực</h1>
         <p className={`mt-3 text-sm ${ok ? "text-neutral-700" : "text-red-600"}`}>
-          {ok ? "Login success. Session cookie is set." : message ?? "Login failed."}
+          {ok ? "Đăng nhập thành công. Phiên làm việc đã được thiết lập." : message ?? "Đăng nhập thất bại."}
         </p>
         <div className="mt-5 flex gap-4">
           <Link className="text-sm font-medium text-blue-700 underline" href="/">
-            Go Home
+            Về trang chủ
           </Link>
           <Link
             className="text-sm font-medium text-blue-700 underline"
             href="/routes/auth_routes/session"
           >
-            Check Session API
+            Kiểm tra API phiên làm việc
           </Link>
         </div>
       </div>

@@ -20,24 +20,24 @@ import { useRouter } from "next/navigation";
 
 const navItems = [
   {
-    label: "Dashboard",
+    label: "Tổng quan",
     key: "/admin",
     icon: Home,
   },
 
   //Product
   {
-    label: "Products",
+    label: "Sản phẩm",
     key: "products",
     icon: Boxes,
     children: [
       {
-        label: "Product List",
+        label: "Danh sách sản phẩm",
         key: "/admin/products",
         icon: Boxes,
       },
       {
-        label: "Product Images",
+        label: "Ảnh sản phẩm",
         key: "/admin/product-images",
         icon: Image,
       },
@@ -47,22 +47,22 @@ const navItems = [
 
   //Category 
   {
-    label: "ProductInformation",
+    label: "Thông tin sản phẩm",
     key: "categories",
     icon: Tags,
     children: [
       {
-        label: "Categories",
+        label: "Danh mục",
         key: "/admin/categories",
         icon: Tags,
       },
       {
-        label: "Providers",
+        label: "Nhà cung cấp",
         key: "/admin/providers",
         icon: Truck,
       },
       {
-        label: "Sources",
+        label: "Nguồn hàng",
         key: "/admin/sources",
         icon: Grid2X2,
       },
@@ -70,12 +70,12 @@ const navItems = [
   },
 
   {
-    label: "Analytics",
+    label: "Phân tích",
     key: "/admin/analytics",
     icon: BarChart3,
   },
   {
-    label: "Settings",
+    label: "Cài đặt",
     key: "/admin/settings",
     icon: Settings,
   },
@@ -98,7 +98,7 @@ export default function AdminSidebar() {
             Inventory Pro
           </p>
           <p className="mt-1 text-xs text-slate-500 dark:text-slate-400">
-            Enterprise Edition
+            Phiên bản doanh nghiệp
           </p>
         </div>
       </Link>
@@ -130,7 +130,7 @@ export default function AdminSidebar() {
           className="flex h-11 items-center gap-3 rounded-xl px-3 text-sm font-medium text-slate-600 transition hover:bg-slate-100 hover:text-slate-950 dark:text-slate-300 dark:hover:bg-white/10 dark:hover:text-white"
         >
           <LogOut className="size-4" />
-          Back Store
+          Về cửa hàng
         </Link>
       </div>
     </aside>

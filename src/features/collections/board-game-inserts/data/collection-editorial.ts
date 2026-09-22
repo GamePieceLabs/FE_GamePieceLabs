@@ -1,13 +1,11 @@
-import type { CollectionEditorial } from "@/features/collections/board-game-inserts/types/board-game-inserts";
+﻿import type { CollectionEditorial } from "@/features/collections/board-game-inserts/types/board-game-inserts";
 
 export const collectionEditorial = {
-  imageSrc:
-    "https://laserox.net/cdn/shop/collections/boardgameinsert.webp?v=1718870186&width=1200",
+  imageSrc: "/images/laserox/boardgameinsert.webp",
   imageAlt: "Wooden board game organizer filled with cards and tokens",
-  emblemSrc:
-    "https://laserox.net/cdn/shop/files/emblem_black.png?v=1730107069&width=271",
+  emblemSrc: "/images/laserox/emblem_black.png",
   emblemAlt: "Laserox emblem",
-  heading: "Clear Space, Clear Strategy",
+  heading: "Gọn Không Gian, Vững Chiến Thuật",
   description:
-    "Discover our line of expertly crafted game organizers, designed with three core principles in mind: efficient storage, speedy setup and teardown, and in-game support. Each organizer is designed to perfectly follow the theme of your favorite board games. Made from sustainably sourced birch plywood and precision-cut by laser, our organizers are built to last a lifetime, enhancing every game night with seamless organization.",
+    "Hãy khám phá dòng sản phẩm khay tổ chức board game (organizer) được chúng tôi thiết kế chuyên nghiệp, xoay quanh ba giá trị cốt lõi: tối ưu không gian xếp đặt, chuẩn bị và thu dọn siêu tốc, cùng khả năng hỗ trợ tối đa ngay trong ván chơi. Mỗi bộ khay đều được thổi hồn để hòa hợp hoàn hảo với phong cách và chủ đề của tựa game bạn yêu thích. Được chế tác từ gỗ bạch dương bền vững và cắt laser độ chính xác cao, các sản phẩm của chúng tôi sở hữu độ bền thách thức thời gian, mang lại trải nghiệm ngăn nắp và trọn vẹn cho mọi đêm hội board game của bạn.",
 } as const satisfies CollectionEditorial;

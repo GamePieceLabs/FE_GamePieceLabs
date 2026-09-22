@@ -1,4 +1,4 @@
-import type { PaginatedByGameNameProducts } from "@/features/collections/by-game-name/types/by-game-name";
+﻿import type { PaginatedByGameNameProducts } from "@/features/collections/by-game-name/types/by-game-name";
 
 export const byGameNameProducts = {
   data: [
@@ -7,7 +7,7 @@ export const byGameNameProducts = {
       gui: "a3f1c2d4-7b8e-4a9d-9c0f-1e2d3c4b5a61",
       name: "Gloomhaven Buttons & Bugs Organizer",
       imageSrc:
-        "https://laserox.net/cdn/shop/files/LGBB-5.jpg?v=1727173076&width=1200",
+        "/images/laserox/LGBB-5.jpg",
       imageAlt: "Wooden organizer for Gloomhaven Buttons and Bugs",
       price: 283500,
       currency: "VND",

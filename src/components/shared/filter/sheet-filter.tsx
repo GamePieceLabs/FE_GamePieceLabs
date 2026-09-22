@@ -23,18 +23,16 @@ export function SheetFilter({ children }: SheetFilterProp) {
     <Sheet>
       <SheetTrigger asChild>
         <Button className="p-5 rounded-4xl bg-black hover:bg-black/80">
-          <SlidersHorizontal /> Filter and sort
+          <SlidersHorizontal /> Bộ lọc
         </Button>
       </SheetTrigger>
       <SheetContent side="bottom" className="h-[70dvh]">
-        <SheetHeader>
-          <SheetTitle>Filters</SheetTitle>
-        </SheetHeader>
+        <SheetHeader></SheetHeader>
         <div className="flex h-[50vh] overflow-auto gap-6 px-4">
           <FilterGroup>{children}</FilterGroup>
         </div>
         <SheetFooter>
-          <Button type="submit">Apply</Button>
+          <Button type="submit">Áp dụng</Button>
         </SheetFooter>
       </SheetContent>
     </Sheet>

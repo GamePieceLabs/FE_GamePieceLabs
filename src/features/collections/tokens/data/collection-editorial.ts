@@ -1,13 +1,11 @@
-import type { CollectionEditorial } from "@/features/collections/board-game-inserts/types/board-game-inserts";
+﻿import type { CollectionEditorial } from "@/features/collections/board-game-inserts/types/board-game-inserts";
 
 export const collectionEditorial = {
-  imageSrc:
-    "https://laserox.net/cdn/shop/collections/fa9d8366b6a8ef51a66a0107f9947bac.jpg?v=1720074356&width=800",
+  imageSrc: "/images/laserox/fa9d8366b6a8ef51a66a0107f9947bac.webp",
   imageAlt: "Wooden board game organizer filled with cards and tokens",
-  emblemSrc:
-    "https://laserox.net/cdn/shop/files/emblem_black.png?v=1730107069&width=271",
+  emblemSrc: "/images/laserox/emblem_black.png",
   emblemAlt: "Laserox emblem",
-  heading: "Durable Tokens for Every Game",
+  heading: "Bền Bỉ Thách Thức Mọi Trận Game",
   description:
-    "Elevate your gaming experience with our durable, uniquely crafted tokens. Each piece is meticulously laser-cut and engraved from high-quality acrylic, tailored to match specific games. Our tokens are durable, waterproof, fade-resistant, and designed to withstand the rigors of intense gaming sessions, ensuring that they remain a vital part of your gaming armory for many years to come.",
+    "Hãy nâng tầm trải nghiệm của bạn với dòng token (linh kiện game) độc bản và siêu bền bỉ từ chúng tôi. Mỗi quân cờ, thẻ bài đều được cắt khắc laser tỉ mỉ trên chất liệu mica (acrylic) cao cấp, thiết kế riêng để đồng điệu hoàn hảo với từng tựa game. Không chỉ chống nước, chống phai màu, các bộ token này còn sở hữu độ bền vượt trội, sẵn sàng cùng bạn chinh chiến qua những trận đấu nảy lửa nhất và là người bạn đồng hành không thể thiếu trong kho vũ khí của mọi game thủ theo năm tháng.",
 } as const satisfies CollectionEditorial;
