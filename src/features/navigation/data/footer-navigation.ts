@@ -5,19 +5,33 @@ export const footerContent: FooterContent = {
     {
       title: "Thông tin",
       links: [
-        // { label: "Privacy Policy", href: "/privacy" },
-        // { label: "Terms & Conditions", href: "/terms" },
-        // { label: "Payment & Shipping", href: "/shipping" },
-        // { label: "Returns", href: "/returns" },
         { label: "Về chúng tôi", href: "/about" },
+        { label: "Liên hệ", href: "/contact" },
+        // { label: "FAQ", href: "/faq" },
       ],
     },
     {
-      title: "Các thông tin hữu dụng",
+      title: "Chính Sách & Điều Khoản",
       links: [
-        // { label: "Distributors", href: "/distributors" },
-        // { label: "FAQ", href: "/faq" },
-        { label: "Liên hệ", href: "/contact" },
+        { label: "Điều khoản sử dụng", href: "/privacy/dieu-khoan-su-dung" },
+        {
+          label: "Chính sách thanh toán",
+          href: "/privacy/chinh-sach-thanh-toan",
+        },
+        {
+          label: "Chính sách đổi trả & Hoàn tiền",
+          href: "/privacy/chinh-sach-doi-tra-hoan-tien",
+        },
+        {
+          label: "Chính sách giao hàng",
+          href: "/privacy/chinh-sach-giao-hang",
+        },
+        {
+          label: "Chính sách kiểm hàng",
+          href: "/privacy/chinh-sach-kiem-hang",
+        },
+        { label: "Chính sách bảo hành", href: "/privacy/chinh-sach-bao-hanh" },
+        { label: "Chính sách bảo mật", href: "/privacy/chinh-sach-bao-mat" },
       ],
     },
   ],
