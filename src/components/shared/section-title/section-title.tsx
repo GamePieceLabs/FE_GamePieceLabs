@@ -32,7 +32,6 @@ export function SectionTitle(props: SectionTitleProps): ReactElement {
       props.ariaLabel === "ProductDemo" ||
       props.ariaLabel === "BrowseByGame");
 
-
   const shouldRemoveSectionHeadingMarginBottom =
     "ariaLabel" in props &&
     (props.ariaLabel === "ImageSlider" || props.ariaLabel === "AboutHero");

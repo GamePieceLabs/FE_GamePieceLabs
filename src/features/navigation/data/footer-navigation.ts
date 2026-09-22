@@ -5,17 +5,18 @@ export const footerContent: FooterContent = {
     {
       title: "Information",
       links: [
-        { label: "Privacy Policy", href: "/privacy" },
-        { label: "Terms & Conditions", href: "/terms" },
-        { label: "Payment & Shipping", href: "/shipping" },
-        { label: "Returns", href: "/returns" },
+        // { label: "Privacy Policy", href: "/privacy" },
+        // { label: "Terms & Conditions", href: "/terms" },
+        // { label: "Payment & Shipping", href: "/shipping" },
+        // { label: "Returns", href: "/returns" },
+        { label: "Về chúng tôi", href: "/about" },
       ],
     },
     {
       title: "Useful links",
       links: [
-        { label: "Distributors", href: "/distributors" },
-        { label: "FAQ", href: "/faq" },
+        // { label: "Distributors", href: "/distributors" },
+        // { label: "FAQ", href: "/faq" },
         { label: "Contact", href: "/contact" },
       ],
     },
@@ -33,7 +34,7 @@ export const footerContent: FooterContent = {
       },
       {
         label: "View Ministry of Industry and Trade registration",
-        href: "http://online.gov.vn/nen-tang/6b21bf2e-2bcb-4523-82c2-5acbf9404ec6",
+        href: "#",
         imageSrc: "/images/footer/bo-cong-thuong.png",
         imageAlt: "Registered with the Ministry of Industry and Trade",
         width: 230,

@@ -17,13 +17,13 @@ export const contactPageContent = {
   },
   details: [
     {
-      label: "General support",
-      value: "support@gamepiecelabs.example",
+      label: "Facebook",
+      value: "In 3D Và Phụ Kiện Boardgame",
       supportingText: "For product, order, and shipping questions.",
       href: "mailto:support@gamepiecelabs.example",
     },
     {
-      label: "Order support",
+      label: "Tiktok",
       value: "Include your order number",
       supportingText: "It helps us find your purchase and respond faster.",
     },

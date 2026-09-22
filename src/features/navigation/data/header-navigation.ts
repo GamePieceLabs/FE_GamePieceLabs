@@ -11,9 +11,12 @@ export const contactNavigationItem: HeaderNavigationItem = {
 export const productMenuItems: HeaderNavigationItem[] = [
   { label: "Tất cả sản phẩm", href: "/products" },
   { label: "Theo trò chơi", href: "/browsebygame" },
-  { label: "Khay đựng board game", href: "/collections/board-game-inserts" },
-  { label: "Dòng sản phẩm OX", href: "/collections/ox-product-family" },
-  { label: "Token", href: "/collections/tokens" },
+  {
+    label: "Organizer/Insert Boardgame",
+    href: "/collections/board-game-inserts",
+  },
+  { label: "Bọc hộp Boardgame", href: "/collections/ox-product-family" },
+  { label: "Phụ kiện Boargame", href: "/collections/tokens" },
 ];
 
 export const promoCards: HeaderPromoCard[] = [

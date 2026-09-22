@@ -25,7 +25,7 @@ export function ContactHero({ content }: ContactHeroProps) {
       />
       <div className="absolute inset-0 bg-black/55" aria-hidden="true" />
       <div className="relative">
-        <h1 id="contact-page-title" className="type-h1 text-white drop-shadow-sm">
+        <h1 id="contact-page-title" className="section-title-text text-white drop-shadow-sm">
           {content.title}
         </h1>
       </div>

@@ -34,12 +34,12 @@ const verticalAlignmentClasses: Record<SectionTitleAlign, string> = {
 };
 
 const headingSizeClasses: Record<SectionTitleHeadingLevel, string> = {
-  h1: "text-5xl",
-  h2: "text-4xl",
-  h3: "text-3xl",
-  h4: "text-2xl",
-  h5: "text-xl",
-  h6: "text-lg",
+  h1: "!text-5xl",
+  h2: "!text-4xl",
+  h3: "!text-3xl",
+  h4: "!text-2xl",
+  h5: "!text-xl",
+  h6: "!text-lg",
 };
 
 export function createSectionTitleId(title?: string): string {
@@ -74,7 +74,7 @@ export function SectionHeading({
         id={titleId}
         className={cn(
           "m-0 min-w-0 flex-1 font-bold text-neutral-950",
-          "section-title-text",
+          "section-title-text ",
           headingSizeClasses[headingLevel],
           titleAlignmentClasses[align],
         )}

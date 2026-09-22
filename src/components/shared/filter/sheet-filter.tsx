@@ -22,7 +22,7 @@ export function SheetFilter({ children }: SheetFilterProp) {
   return (
     <Sheet>
       <SheetTrigger asChild>
-        <Button className="p-5 rounded-4xl bg-black hover:bg-black/70">
+        <Button className="p-5 rounded-4xl bg-black hover:bg-black/80">
           <SlidersHorizontal /> Filter and sort
         </Button>
       </SheetTrigger>

@@ -160,7 +160,7 @@ export function BoardGameInserts({ data }: BoardGameInsertsProps) {
         </div>
 
         <section aria-labelledby="collection-products-heading">
-          <div className="block tablet:hidden sticky top-20 flex justify-center left-1/2 z-20">
+          <div className="tablet:hidden sticky top-20 flex justify-center left-1/2 z-20">
             <SheetFilter>
               <Filter
                 label="In stock only"

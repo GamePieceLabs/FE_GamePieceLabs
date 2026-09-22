@@ -14,14 +14,14 @@ export function ContactPage({ content }: ContactPageProps) {
     <main className="bg-white text-neutral-950">
       <ContactHero content={content.hero} />
 
-      <SectionTitle>
-        <section className="grid gap-10 min-[1400px]:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] min-[1400px]:gap-20">
-          <div className="max-w-2xl">
-            <ContactIntroduction content={content.introduction} />
-            <ContactDetails content={content.details} />
-          </div>
-          <ContactForm content={content.form} />
-        </section>
+      <SectionTitle title="Your questions, our priority" headingLevel="h6">
+        <div className="max-w-2xl">
+          <ContactIntroduction content={content.introduction} />
+        </div>
+        {/* <ContactForm content={content.form} /> */}
+        <div className="mt-10">
+          <ContactDetails content={content.details} />
+        </div>
       </SectionTitle>
     </main>
   );

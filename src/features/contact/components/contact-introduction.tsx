@@ -9,9 +9,7 @@ type ContactIntroductionProps = {
 export function ContactIntroduction({ content }: ContactIntroductionProps) {
   return (
     <>
-      <p className="uppercase font-bold leading-[1.4] tracking-normal text-neutral-600 text-[16px]
-                    max-mobile:text-[14px]">{content.eyebrow}</p>
-      <h2 className="type-h2 mt-5">{content.title}</h2>
+      <h2 className="section-title-text">{content.title}</h2>
       <p className="type-prose mt-6 max-w-xl text-base text-neutral-600">
         {content.description}{" "}
         <Link

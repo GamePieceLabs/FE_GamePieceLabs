@@ -6,11 +6,13 @@ type ContactDetailsProps = {
 
 export function ContactDetails({ content }: ContactDetailsProps) {
   return (
-    <dl className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-1 min-[1400px]:grid-cols-2">
+    <div className="flex justify-between items-center">
       {content.map((detail) => (
         <div key={detail.label} className="border-l-2 border-red-600 pl-4">
-          <dt className="text-base font-bold text-neutral-950">{detail.label}</dt>
-          <dd className="mt-1 text-base leading-relaxed text-neutral-700">
+          <div className="text-base font-bold text-neutral-950">
+            {detail.label}
+          </div>
+          <div className="mt-1 text-base leading-relaxed text-neutral-700">
             {detail.href ? (
               <a
                 href={detail.href}
@@ -26,9 +28,9 @@ export function ContactDetails({ content }: ContactDetailsProps) {
                 {detail.supportingText}
               </span>
             ) : null}
-          </dd>
+          </div>
         </div>
       ))}
-    </dl>
+    </div>
   );
 }
