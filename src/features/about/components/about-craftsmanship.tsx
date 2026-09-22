@@ -8,35 +8,25 @@ type AboutCraftsmanshipProps = {
 
 export function AboutCraftsmanship({ content }: AboutCraftsmanshipProps) {
   return (
-    <SectionTitle>
-      <div>
-        <div className="overflow-hidden rounded-xl border border-neutral-200/80 bg-white">
-          <div className="grid items-stretch lg:grid-cols-[minmax(0,1.03fr)_minmax(520px,0.97fr)]">
-            <div className="h-full">
-              <VideoFrame
-                type={content.showcaseVideo.type}
-                src={content.showcaseVideo.src}
-                title={content.showcaseVideo.title}
-              />
-            </div>
+    <>
+      <SectionTitle>
+        <div className="grid grid-cols-[minmax(0,1fr)_minmax(0,1fr)] overflow-hidden rounded-lg bg-white max-tablet:grid-cols-1 max-mobile:grid-cols-1">
+          <VideoFrame
+            type={content.showcaseVideo.type}
+            src={content.showcaseVideo.src}
+            title={content.showcaseVideo.title}
+            className="w-full h-full rounded-bl-lg rounded-tl-lg max-tablet:rounded-bl-none max-tablet:rounded-tr-lg"
+          />
 
-            <div className="flex items-center justify-center border-t border-neutral-200/70 px-6 py-10 sm:px-10 lg:border-t-0 lg:border-l lg:px-10 xl:px-12">
-              <div className="mx-auto w-full max-w-[660px] text-center">
-                <h2
-                  className="mx-auto max-w-[573px] text-[40px] font-bold leading-[1.1] tracking-normal text-neutral-950 max-mobile:text-[32px]"
-                  style={{ textWrap: "wrap" }}
-                >
-                  {content.title}
-                </h2>
-
-                <p className="mx-auto mt-8 max-w-[640px] text-center text-[24px] font-medium leading-[1.6] text-neutral-800 max-mobile:text-[14px] max-mobile:leading-[1.7]">
-                  {content.description}
-                </p>
-              </div>
-            </div>
+          <div className="flex flex-col items-center justify-center mobile:p-15 text-center max-mobile:px-5">
+            <h2 className="mt-2 w-4/5 leading-tight font-bold text-[48px] max-pc:text-[clamp(40px,1.6667vw,48px)] max-laptop:text-[clamp(20px,4.63vw,40px)] max-tablet:text-[clamp(32x,4.81vw,40px)] max-mobile:text-[clamp(18px,4.79vw,18px)]">
+              {content.title}
+            </h2>
+            {/* Thẻ p đã được chỉnh sửa */}
+            <p className="mt-2 w-full">{content.description}</p>
           </div>
         </div>
-      </div>
-    </SectionTitle>
+      </SectionTitle>
+    </>
   );
 }

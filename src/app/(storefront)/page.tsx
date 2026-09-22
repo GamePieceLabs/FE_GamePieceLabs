@@ -26,7 +26,6 @@ import { Button } from "@/components/ui/button";
 import { ProductDemo } from "@/features/home/components/product-demo";
 import { SliderGallery } from "@/components/shared/slider-gallery";
 import { SectionTitle } from "@/components/shared/section-title/section-title";
-import { Carousel } from "@/components/ui/carousel";
 
 export default function StorefrontHomePage() {
   return (
@@ -39,7 +38,7 @@ export default function StorefrontHomePage() {
         title="Chọn phụ kiện của bạn"
         more={{
           label: "Xem tất cả danh mục",
-          href: "/products",
+          href: "/collections/all-products",
         }}
       >
         <SliderGallery>
@@ -87,9 +86,9 @@ export default function StorefrontHomePage() {
                         max-pc:mt-[1.6667vw] max-pc:mb-[2.5000vw]
                       `}
           >
-            Không ai muốn mất hàng giờ chỉ để sắp xếp và thu dọn bàn chơi.
-            Với Game Piece Labs, mọi thứ vào đúng vị trí nhanh hơn, gọn hơn,
-            để bạn tập trung vào chiến thuật và tận hưởng trọn vẹn từng ván.
+            Không ai muốn mất hàng giờ chỉ để sắp xếp và thu dọn bàn chơi. Với
+            Game Piece Labs, mọi thứ vào đúng vị trí nhanh hơn, gọn hơn, để bạn
+            tập trung vào chiến thuật và tận hưởng trọn vẹn từng ván.
           </p>
         </div>
 
@@ -102,7 +101,7 @@ export default function StorefrontHomePage() {
       <SectionTitle
         ariaLabel="FeaturedProducts"
         title="Sản phẩm nổi bật"
-        more={{ label: "View all", href: "/products" }}
+        more={{ label: "Xem tất cả sản phẩm", href: "/products" }}
       >
         <div className="col-span-full">
           <ProductGallery type="featured" images={featuredProducts} />
@@ -145,8 +144,8 @@ export default function StorefrontHomePage() {
               Chúng tôi tin rằng một ván chơi hay bắt đầu từ cách sắp xếp gọn
               gàng và chuẩn bị thật nhẹ nhàng. Game Piece Labs tạo ra organizer
               và phụ kiện với sự tỉ mỉ, đam mê cùng những chất liệu cao cấp,
-              thân thiện hơn với môi trường. Hãy sẵn sàng nâng tầm cách bạn
-              chơi boardgame.
+              thân thiện hơn với môi trường. Hãy sẵn sàng nâng tầm cách bạn chơi
+              boardgame.
             </p>
 
             <Button

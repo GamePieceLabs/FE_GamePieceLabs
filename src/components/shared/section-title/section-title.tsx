@@ -11,7 +11,6 @@ export type {
   SectionTitleHeadingLevel,
   SectionTitleMore,
   SectionTitleMoreProps,
-  SectionTitleOrientation,
   SectionTitleProps,
   SectionTitleSplitContentPosition,
 } from "./types";

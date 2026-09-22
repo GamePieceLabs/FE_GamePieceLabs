@@ -8,6 +8,8 @@ import { getTokens } from "@/features/collections/tokens/services/tokens-api";
 import { Tokens } from "@/features/collections/tokens/components/Tokens";
 import { ByGameName } from "@/features/collections/by-game-name/components/ByGameName";
 import { getByGameName } from "@/features/collections/by-game-name/services/by-game-name-api";
+import { getAllProductAsync } from "@/features/collections/all-products/services/all-products-api";
+import AllProducts from "@/features/collections/all-products/components/AllProduct";
 
 interface CollectionPageProps {
   params: Promise<{ slug: string }>;
@@ -28,6 +30,10 @@ export default async function CollectionPage({ params }: CollectionPageProps) {
     case "tokens": {
       const tokens = await getTokens();
       return <Tokens data={tokens} />;
+    }
+    case "all-products": {
+      const allProducts = await getAllProductAsync();
+      return <AllProducts data={allProducts} />;
     }
     default:
       const byGameName = await getByGameName();

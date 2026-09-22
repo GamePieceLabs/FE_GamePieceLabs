@@ -14,7 +14,7 @@ export default function SwitchFilter({
   return (
     <>
       {/* DESKTOP UI and State */}
-      <div className="flex items-center gap-3 mb-2">
+      <div className="mb-2">
         {/* Label + Switch */}
         <div className="flex items-center gap-2">
           <span className="font-bold text-lg">{label}</span>
@@ -23,18 +23,18 @@ export default function SwitchFilter({
             checked={checked}
             onCheckedChange={(v) => onCheckedChange?.(v)}
           />
-        </div>
 
-        {/* Badge hiển thị kế bên trên cùng 1 hàng */}
-        {checked && (
-          <Badge
-            className="inline-flex items-center gap-2 px-3 py-1 text-sm cursor-pointer"
-            variant="outline"
-          >
-            <span>In stock</span>
-            <XIcon size="1em" onClick={clearFilter} className="shrink-0" />
-          </Badge>
-        )}
+          {/* Badge hiển thị kế bên trên cùng 1 hàng */}
+          {checked && (
+            <Badge
+              className="items-center gap-2 px-3 py-1 text-sm cursor-pointer"
+              variant="outline"
+            >
+              <span>In stock</span>
+              <XIcon size="1em" onClick={clearFilter} className="shrink-0" />
+            </Badge>
+          )}
+        </div>
       </div>
     </>
   );

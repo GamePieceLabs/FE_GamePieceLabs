@@ -4,7 +4,6 @@ import type { ReactNode } from "react";
 export type SectionTitleAlign = "left" | "center" | "right";
 export type SectionTitleHeadingLevel = "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
 /** Hướng xếp heading và content. */
-export type SectionTitleOrientation = "vertical" | "horizon";
 /** Vị trí text content so với ảnh trong horizontal split. */
 export type SectionTitleSplitContentPosition = "left" | "right";
 
@@ -26,7 +25,6 @@ export interface SectionTitleMoreProps {
   /** Canh heading và CTA. */
   align?: SectionTitleAlign;
   /** Hướng đặt heading và nội dung. */
-  orientation?: SectionTitleOrientation;
   /** Nội dung section nằm dưới heading. */
   children: ReactNode;
   /** Class cho section wrapper. */

@@ -32,6 +32,7 @@ const sortFilterItems: FilterItem[] = [
   { name: "Date, old to new", value: "date-asc" },
   { name: "Date, new to old", value: "date-desc" },
 ];
+
 const MINPRICE = 0;
 const MAXPRICE = 5000000;
 
@@ -111,10 +112,50 @@ export function BoardGameInserts({ data }: BoardGameInsertsProps) {
         imageClassName="object-center"
       />
 
-      <Wrapper>
+      <div className="tablet:hidden sticky mt-10 top-20 flex justify-center left-1/2 z-20">
+        <SheetFilter>
+          <Filter
+            label="In stock only"
+            variant="switch"
+            checked={checked}
+            onCheckedChange={setChecked}
+          />
+
+          <Filter
+            label="Product"
+            variant="type"
+            items={productTypeItems}
+            selectedValues={selectedValues}
+            onValueChange={setSelectedValues}
+            handleCheckboxChange={handleCheckboxChange}
+          />
+
+          <Filter
+            label="Price"
+            variant="price"
+            min={MINPRICE}
+            max={MAXPRICE}
+            step={50000}
+            sliderPrice={sliderPrice}
+            handleMinInput={handleMinInput}
+            handleMaxInput={handleMaxInput}
+            handleSliderChange={handlerSliderChange}
+          />
+
+          <Filter
+            variant="sort"
+            label="Sort by"
+            items={sortFilterItems}
+            selectedValue={selectedValue}
+            handleSelectChange={handleSelectChange}
+          />
+        </SheetFilter>
+      </div>
+
+      <SectionTitle>
         <div className="w-full hidden tablet:flex items-center justify-between py-3">
           {/* Sát bên trái */}
-          <div>
+          <div className="w-1/3">
             <Filter
               label="In stock only"
               variant="switch"
@@ -124,7 +165,7 @@ export function BoardGameInserts({ data }: BoardGameInsertsProps) {
           </div>
 
           {/* Chính giữa */}
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 w-1/3">
             <Filter
               variant="type"
               label="Product"
@@ -148,7 +189,7 @@ export function BoardGameInserts({ data }: BoardGameInsertsProps) {
           </div>
 
           {/* Sát bên phải */}
-          <div>
+          <div className="w-1/3 text-end">
             <Filter
               variant="sort"
               label="Sort by"
@@ -159,64 +200,22 @@ export function BoardGameInserts({ data }: BoardGameInsertsProps) {
           </div>
         </div>
 
-        <section aria-labelledby="collection-products-heading">
-          <div className="tablet:hidden sticky top-20 flex justify-center left-1/2 z-20">
-            <SheetFilter>
-              <Filter
-                label="In stock only"
-                variant="switch"
-                checked={checked}
-                onCheckedChange={setChecked}
-              />
-
-              <Filter
-                label="Product"
-                variant="type"
-                items={productTypeItems}
-                selectedValues={selectedValues}
-                onValueChange={setSelectedValues}
-                handleCheckboxChange={handleCheckboxChange}
-              />
-
-              <Filter
-                label="Price"
-                variant="price"
-                min={MINPRICE}
-                max={MAXPRICE}
-                step={50000}
-                sliderPrice={sliderPrice}
-                handleMinInput={handleMinInput}
-                handleMaxInput={handleMaxInput}
-                handleSliderChange={handlerSliderChange}
-              />
-
-              <Filter
-                variant="sort"
-                label="Sort by"
-                items={sortFilterItems}
-                selectedValue={selectedValue}
-                handleSelectChange={handleSelectChange}
-              />
-            </SheetFilter>
-          </div>
-
-          <div className="mb-7 flex items-center justify-between gap-4">
-            <h2 id="collection-products-heading" className="sr-only">
-              Board game inserts
-            </h2>
-            <p className="text-sm text-neutral-600">
-              {products.pagination.totalItems} products
-            </p>
-          </div>
-          <ProductList
-            products={products.data}
-            columns={4}
-            alignPagination="center"
-            pagination={products.pagination}
-            variantPagination="simple"
-          />
-        </section>
-      </Wrapper>
+        <div className="mb-7 flex items-center justify-between gap-4">
+          <h2 id="collection-products-heading" className="sr-only">
+            Board game inserts
+          </h2>
+          <p className="text-sm text-neutral-600">
+            {products.pagination.totalItems} products
+          </p>
+        </div>
+        <ProductList
+          products={products.data}
+          columns={4}
+          alignPagination="center"
+          pagination={products.pagination}
+          variantPagination="simple"
+        />
+      </SectionTitle>
 
       <MarqueeText
         title="Mastery is a never-ending exploration"

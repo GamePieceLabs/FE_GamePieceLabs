@@ -6,7 +6,7 @@ import Wrapper from "../wrapper";
 /** Tỉ lệ banner dựng sẵn. */
 export type ImageFrameAspectRatio = "16/9" | "21/9" | "4/3" | "3/2" | "auto";
 /** Semantic heading level cho banner header. */
-export type ImageHeaderElementSize = "h1" | "h2" | "h3";
+export type ImageHeaderElementSize = "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
 /** Canh nội dung text overlay. */
 export type TextAlignType = "left" | "center" | "right";
 
@@ -57,9 +57,12 @@ const aspectRatioMap: Record<ImageFrameAspectRatio, string> = {
 };
 
 const headingSizeMap: Record<ImageHeaderElementSize, string> = {
-  h1: "type-h1",
-  h2: "type-h2",
-  h3: "type-h3",
+  h1: "text-4xl",
+  h2: "text-3xl",
+  h3: "text-2xl",
+  h4: "text-xl",
+  h5: "text-lg",
+  h6: "text-base",
 };
 
 const textAlignMap: Record<TextAlignType, string> = {

@@ -8,7 +8,6 @@ import type {
   SectionTitleAlign,
   SectionTitleHeadingLevel,
   SectionTitleMore,
-  SectionTitleOrientation,
 } from "./types";
 
 interface SectionHeadingProps {
@@ -17,7 +16,6 @@ interface SectionHeadingProps {
   headingLevel?: SectionTitleHeadingLevel;
   more?: SectionTitleMore;
   align?: SectionTitleAlign;
-  orientation?: SectionTitleOrientation;
   className?: string;
 }
 
@@ -25,12 +23,6 @@ const titleAlignmentClasses: Record<SectionTitleAlign, string> = {
   left: "text-left",
   center: "text-center",
   right: "text-right",
-};
-
-const verticalAlignmentClasses: Record<SectionTitleAlign, string> = {
-  left: "items-start",
-  center: "items-center",
-  right: "items-end",
 };
 
 const headingSizeClasses: Record<SectionTitleHeadingLevel, string> = {
@@ -54,7 +46,6 @@ export function SectionHeading({
   headingLevel = "h2",
   more,
   align = "left",
-  orientation = "horizon",
   className,
 }: SectionHeadingProps): ReactElement {
   const HeadingTag = headingLevel;
@@ -63,10 +54,10 @@ export function SectionHeading({
     <div
       className={cn(
         "flex w-full",
-        "max-tablet:flex-col max-tablet:gap-3 max-tablet:items-start",
-        orientation === "horizon"
-          ? "flex-row items-center justify-between gap-5"
-          : verticalAlignmentClasses[align],
+        "max-tablet:flex-col max-tablet:gap-3 ",
+        `${align === "center" && "max-tablet:items-center"}`,
+        `${align === "left" && "max-tablet:items-start"}`,
+        `${align === "right" && "max-tablet:items-end"}`,
         className,
       )}
     >
@@ -74,7 +65,7 @@ export function SectionHeading({
         id={titleId}
         className={cn(
           "m-0 min-w-0 flex-1 font-bold text-neutral-950",
-          "section-title-text ",
+          "section-title-text",
           headingSizeClasses[headingLevel],
           titleAlignmentClasses[align],
         )}

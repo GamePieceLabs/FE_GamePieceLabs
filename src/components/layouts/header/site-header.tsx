@@ -151,7 +151,7 @@ function DesktopHeader() {
   const isMenuOpen = openMenu === "products" || openMenu === "about";
 
   return (
-    <>
+    <div className="bg-white">
       <div className="mx-auto hidden h-[90px] w-[calc(100%-100px)] max-w-[1580px] grid-cols-[1fr_auto_1fr] items-center gap-8 xl:grid">
         <nav aria-label="Điều hướng chính" className="justify-self-start">
           <NavigationMenu
@@ -173,18 +173,14 @@ function DesktopHeader() {
                 />
               </NavigationMenuItem>
 
-
-
               <NavigationMenuItem value="about">
                 <div className="rounded-md bg-transparent px-4 text-base font-bold hover:bg-transparent focus:bg-transparent data-open:bg-transparent data-popup-open:bg-transparent">
-                  <Link href={"/about"}>Về chúng tôi</Link> 
+                  <Link href={"/about"}>Về chúng tôi</Link>
                 </div>
-
 
                 {/* <NavigationMenuTrigger className="h-11 rounded-md bg-transparent px-4 text-base font-bold hover:bg-transparent focus:bg-transparent data-open:bg-transparent data-popup-open:bg-transparent">
                   <Link href={"/about"}>Về chúng tôi</Link>
                 </NavigationMenuTrigger> */}
-
 
                 {/* <MegaMenuPanel
                   items={aboutMenuItems}
@@ -192,8 +188,6 @@ function DesktopHeader() {
                   heightClassName="!h-[min(388px,calc(100vh-88px))]"
                   onNavigate={() => setOpenMenu("")}
                 /> */}
-
-                
               </NavigationMenuItem>
 
               <NavigationMenuItem>
@@ -245,7 +239,7 @@ function DesktopHeader() {
           onClick={() => setOpenMenu("")}
         />
       ) : null}
-    </>
+    </div>
   );
 }
 

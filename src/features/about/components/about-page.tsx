@@ -10,11 +10,11 @@ type AboutPageProps = {
 
 export function AboutPage({ content }: AboutPageProps) {
   return (
-    <main className="bg-white text-neutral-950">
+    <>
       <AboutHero content={content.hero} />
       <AboutStory content={content.story} />
       <AboutCraftsmanship content={content.craftsmanship} />
       <AboutValues content={content.values} />
-    </main>
+    </>
   );
 }

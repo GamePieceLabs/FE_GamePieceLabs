@@ -103,8 +103,8 @@ export function CardImageTitle({
       )}
     >
       <Image
-        src={imageSrc}
-        alt={imageAlt}
+        src={String(imageSrc)}
+        alt={String(imageAlt)}
         fill
         sizes={sizes}
         style={{ objectPosition: imagePosition }}
@@ -153,7 +153,7 @@ export function CardImageTitle({
       "group outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-4",
     className,
   );
-  const resolvedHref = getPrefixedHref(href, prefix);
+  const resolvedHref = getPrefixedHref(String(href), prefix);
 
   if (!isClicked) {
     return <div className={containerClassName}>{card}</div>;
