@@ -88,11 +88,16 @@ export function ImageFrame({
       <div
         className={cn(
           "group relative w-full overflow-hidden border border-neutral-200/80 bg-neutral-950 shadow-[0_20px_50px_rgba(0,0,0,0.06)] dark:border-neutral-800",
+          "aspect-[var(--card-aspect)] max-mobile:aspect-4/3",
           className,
         )}
-        style={{
-          aspectRatio: `${aspectRatio}`,
-        }}
+        // bên ngoài truyền prop aspectRatio,
+        // --card-aspect css tùy biến để className nhận giá trị từ prop bên ngoài
+        style={
+          {
+            "--card-aspect": aspectRatio,
+          } as React.CSSProperties
+        }
       >
         <Image
           src={src}
