@@ -48,12 +48,11 @@ export function SectionHeading({
   align = "left",
   className,
 }: SectionHeadingProps): ReactElement {
-  const HeadingTag = headingLevel;
-
   return (
     <div
       className={cn(
         "flex w-full",
+        `${title && "mb-6 sm:mb-10"}`,
         "max-tablet:flex-col max-tablet:gap-3 ",
         `${align === "center" && "max-tablet:items-center"}`,
         `${align === "left" && "max-tablet:items-start"}`,
@@ -61,7 +60,7 @@ export function SectionHeading({
         className,
       )}
     >
-      <HeadingTag
+      <h1
         id={titleId}
         className={cn(
           "m-0 min-w-0 flex-1 font-bold text-neutral-950",
@@ -71,7 +70,7 @@ export function SectionHeading({
         )}
       >
         {title}
-      </HeadingTag>
+      </h1>
 
       {more ? (
         <Link

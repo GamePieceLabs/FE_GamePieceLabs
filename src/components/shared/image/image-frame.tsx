@@ -3,8 +3,6 @@ import Image from "next/image";
 import { cn } from "@/utils/cn";
 import Wrapper from "../wrapper";
 
-/** Tỉ lệ banner dựng sẵn. */
-export type ImageFrameAspectRatio = "16/9" | "21/9" | "4/3" | "3/2" | "auto";
 /** Semantic heading level cho banner header. */
 export type ImageHeaderElementSize = "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
 /** Canh nội dung text overlay. */
@@ -31,7 +29,7 @@ export type ImageFrameProps = {
   /** Canh cụm chữ trong banner. Mặc định `left`. */
   textAlign?: TextAlignType;
   /** Tỉ lệ khung dựng sẵn hoặc Tailwind aspect class tùy chỉnh. */
-  aspectRatio?: ImageFrameAspectRatio | string;
+  aspectRatio: string;
   /** Tải ảnh ưu tiên; chỉ bật cho ảnh nằm trong màn hình đầu tiên. */
   priority?: boolean;
   /** Quy tắc responsive image size truyền cho `next/image`. */
@@ -46,14 +44,6 @@ export type ImageFrameProps = {
   imageClassName?: string;
   /** Cách ảnh lấp đầy khung. Mặc định `cover`. */
   objectFit?: "cover" | "contain";
-};
-
-const aspectRatioMap: Record<ImageFrameAspectRatio, string> = {
-  "16/9": "aspect-video",
-  "21/9": "aspect-[4/3] sm:aspect-video lg:aspect-[21/9]",
-  "4/3": "aspect-[4/3]",
-  "3/2": "aspect-[3/2]",
-  auto: "aspect-auto",
 };
 
 const headingSizeMap: Record<ImageHeaderElementSize, string> = {
@@ -92,20 +82,17 @@ export function ImageFrame({
 }: ImageFrameProps) {
   const HeaderElement = headerSize;
   const hasTextContent = Boolean(eyebrow || header || title || description);
-  const aspectClass =
-    aspectRatio in aspectRatioMap
-      ? aspectRatioMap[aspectRatio as ImageFrameAspectRatio]
-      : aspectRatio;
 
   return (
     <figure className={cn("w-full", containerClassName)}>
       <div
         className={cn(
           "group relative w-full overflow-hidden border border-neutral-200/80 bg-neutral-950 shadow-[0_20px_50px_rgba(0,0,0,0.06)] dark:border-neutral-800",
-          hasTextContent && "min-h-[360px] sm:min-h-[420px] lg:min-h-[500px]",
-          aspectClass,
           className,
         )}
+        style={{
+          aspectRatio: `${aspectRatio}`,
+        }}
       >
         <Image
           src={src}
@@ -149,7 +136,10 @@ export function ImageFrame({
               {header ? (
                 <HeaderElement
                   className={cn(
-                    "max-w-4xl text-balance drop-shadow-sm max-sm:w-full max-sm:self-center max-sm:text-center",
+                    "max-w-4xl text-balance font-bold drop-shadow-sm max-sm:w-full max-sm:self-center max-sm:text-center",
+                    "text-[60px]",
+                    "max-laptop:text-[clamp(48px,48px,60px)]",
+                    "max-mobile:text-[40px]",
                     headingSizeMap[headerSize],
                   )}
                 >

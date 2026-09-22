@@ -31,10 +31,6 @@ export function SectionTitle(props: SectionTitleProps): ReactElement {
       props.ariaLabel === "ProductDemo" ||
       props.ariaLabel === "BrowseByGame");
 
-  const shouldRemoveSectionHeadingMarginBottom =
-    "ariaLabel" in props &&
-    (props.ariaLabel === "ImageSlider" || props.ariaLabel === "AboutHero");
-
   return (
     <div
       aria-labelledby={titleId}
@@ -49,18 +45,16 @@ export function SectionTitle(props: SectionTitleProps): ReactElement {
       )}
     >
       <section className="mx-auto w-full xl:max-w-[1600px]">
-        {props.ariaLabel !== "ImageSlider" && (
-          <SectionHeading
-            title={title}
-            titleId={titleId}
-            more={more}
-            headingLevel={headingLevel}
-            align={align}
-            className={cn(
-              "mb-6 sm:mb-10",
-              shouldRemoveSectionHeadingMarginBottom && "!mb-0",
-            )}
-          />
+        {title && (
+          <>
+            <SectionHeading
+              title={title}
+              titleId={titleId}
+              more={more}
+              headingLevel={headingLevel}
+              align={align}
+            />
+          </>
         )}
         {props.children}
       </section>

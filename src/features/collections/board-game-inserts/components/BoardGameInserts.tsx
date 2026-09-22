@@ -105,7 +105,7 @@ export function BoardGameInserts({ data }: BoardGameInsertsProps) {
         headerSize="h1"
         textAlign="left"
         priority
-        aspectRatio="aspect-[4/3] sm:aspect-[16/7] lg:aspect-[22/5]"
+        aspectRatio="1800/525"
         sizes="100vw"
         containerClassName="w-full max-w-none sm:w-full xl:w-full"
         className="rounded-none border-0 shadow-none sm:rounded-none"
