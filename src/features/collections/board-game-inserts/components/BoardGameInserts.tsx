@@ -92,10 +92,16 @@ export function BoardGameInserts({ data }: BoardGameInsertsProps) {
   };
 
   // state for sort filter
-  const [selectedValue, setSelectedValue] = useState<string>();
+  const [selectedValue, setSelectedValue] = useState<string | null>();
 
   const handleSelectChange = (item: string) => {
-    setSelectedValue(item);
+    setSelectedValue((prevItem) => {
+      // kiểm tra lần chọn thứ 2 của người dùng nếu giống thì gỡ ra khỏi state
+      if (prevItem === item) {
+        return null;
+      }
+      return item;
+    });
   };
 
   return (
