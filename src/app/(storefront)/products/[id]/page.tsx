@@ -31,10 +31,13 @@ export default async function ProductDetailsPage({
   const youMayAlsoLikeProducts = getMockYouMayAlsoLikeProducts();
 
   return (
-    <main className="min-h-screen bg-white px-4 py-5 text-neutral-950">
+    <main className="min-h-screen bg-[#f7f7f7] px-4 py-5 text-neutral-950
+                     max-mobile:px-0 
+                     max-mobile:py-0 ">
+
       <div className="mx-auto md:w-[calc(100%-100px)]  max-w-[1580px] grid-cols-[1fr_auto_1fr]">
         <BreadCrumbs />
-
+        
         <section className="grid gap-10 rounded-3xl bg-white p-4 shadow-[0_18px_60px_rgba(0,0,0,0.06)] sm:p-7 lg:grid-cols-[1.1fr_0.9fr] lg:gap-12 lg:p-10 xl:gap-16">
           <ProductImageGallery
             images={product.images}
@@ -46,14 +49,14 @@ export default async function ProductDetailsPage({
             {/* <ProductPurchasePanel /> */}
           </div>
         </section>
+      </div>
 
-        <SectionTitle
+      <SectionTitle
           title="Thông tin chi tiết"
           align="left"
-          className="mt-10"
           content="text"
         >
-          <p className="w-fit">
+          <p className="w-fit section-sub-text">
             In Gloomhaven: Buttons & Bugs, you’re shrunk to the size of a mouse
             after a botched attempt to visit the powerful mage Hail, thrust into
             a miniaturized world of danger and chaos. Armed with a handful of
@@ -82,23 +85,25 @@ export default async function ProductDetailsPage({
             associated or affiliated with Laserox. This kit requires assembly.
             We advise the use of wood glue, which is sold separately.
           </p>
-        </SectionTitle>
+      </SectionTitle>
 
-        <SectionTitle
+      <SectionTitle
           title="Đặc điểm nổi bật"
           align="left"
-          className="mt-10"
+          className="pt-0"
           content="text"
         >
           <FeatureList features={product.features} />
-        </SectionTitle>
+      </SectionTitle>
 
-        <section
-          aria-labelledby="supported-games-heading"
-          className="mt-20 grid items-center gap-12 pb-8 lg:grid-cols-[1.2fr_1fr] lg:gap-20"
-        >
+      <section className="grid items-center gap-12 lg:grid-cols-[1.2fr_1fr] 
+                          pt-0
+                          px-[max(48px,calc((100vw-1600px)/2))] py-20
+                          max-tablet:px-8 max-tablet:py-14
+                          max-mobile:px-5 max-mobile:py-10
+                          lg:gap-20">
           <div>
-            <h2 id="supported-games-heading" className="type-h1">
+            <h2 id="supported-games-heading" className="section-title-text !text-4xl text-left font-bold">
               Supports the following
             </h2>
 
@@ -113,43 +118,57 @@ export default async function ProductDetailsPage({
             </ul>
           </div>
 
-          <dl className="overflow-hidden rounded-2xl border border-neutral-200 bg-white px-6 sm:px-10 lg:px-12">
-            <div className="grid gap-2 border-b border-neutral-300 py-7 sm:grid-cols-[minmax(10rem,0.75fr)_1.5fr] sm:gap-8">
-              <dt className="font-bold">Licensing partner</dt>
-              <dd className="text-neutral-700">Cephalofair Games</dd>
-            </div>
-            <div className="grid gap-2 border-b border-neutral-300 py-7 sm:grid-cols-[minmax(10rem,0.75fr)_1.5fr] sm:gap-8">
-              <dt className="font-bold">Weight</dt>
-              <dd className="text-neutral-700">800 g</dd>
-            </div>
-            <div className="grid gap-2 border-b border-neutral-300 py-7 sm:grid-cols-[minmax(10rem,0.75fr)_1.5fr] sm:gap-8">
-              <dt className="font-bold">Fitting box size (cm)</dt>
-              <dd className="text-neutral-700">10.6x7.7x7.3</dd>
-            </div>
-            <div className="grid gap-2 border-b border-neutral-300 py-7 sm:grid-cols-[minmax(10rem,0.75fr)_1.5fr] sm:gap-8">
-              <dt className="font-bold">Materials</dt>
-              <dd className="text-neutral-700">Plywood</dd>
-            </div>
-            <div className="grid gap-2 py-7 sm:grid-cols-[minmax(10rem,0.75fr)_1.5fr] sm:gap-8">
-              <dt className="font-bold">
-                Gloomhaven Buttons &amp; Bugs Organizer guide
-              </dt>
-              <dd>
-                <a
-                  href="https://cdn.shopify.com/s/files/1/0690/0413/2594/files/LGBB_guide_WEB.pdf?v=1727332384"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="text-neutral-700 underline decoration-neutral-500 underline-offset-4 transition-colors hover:text-red-700 focus-visible:rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-700 focus-visible:ring-offset-2"
-                >
-                  Download
-                </a>
-              </dd>
-            </div>
-          </dl>
-        </section>
+          <div className="overflow-hidden rounded-2xl border border-neutral-200 bg-[#ECECEC] px-12 
+                          max-mobile:rounded-none 
+                          max-mobile:border-x-0 
+                          max-mobile:px-5">
+            <table className="w-full table-fixed text-left max-mobile:block">
+              <tbody className="max-mobile:block">
+                <tr className="border-b border-neutral-300 max-mobile:block">
+                  <th scope="row" className="w-1/3 py-7 pr-8 align-top font-bold max-mobile:block max-mobile:w-full max-mobile:pb-1 max-mobile:pr-0">
+                    Licensing partner
+                  </th>
+                  <td className="py-7 text-neutral-700 max-mobile:block max-mobile:pt-0">Cephalofair Games</td>
+                </tr>
+                <tr className="border-b border-neutral-300 max-mobile:block">
+                  <th scope="row" className="py-7 pr-8 align-top font-bold max-mobile:block max-mobile:w-full max-mobile:pb-1 max-mobile:pr-0">
+                    Weight
+                  </th>
+                  <td className="py-7 text-neutral-700 max-mobile:block max-mobile:pt-0">800 g</td>
+                </tr>
+                <tr className="border-b border-neutral-300 max-mobile:block">
+                  <th scope="row" className="py-7 pr-8 align-top font-bold max-mobile:block max-mobile:w-full max-mobile:pb-1 max-mobile:pr-0">
+                    Fitting box size (cm)
+                  </th>
+                  <td className="py-7 text-neutral-700 max-mobile:block max-mobile:pt-0">10.6x7.7x7.3</td>
+                </tr>
+                <tr className="border-b border-neutral-300 max-mobile:block">
+                  <th scope="row" className="py-7 pr-8 align-top font-bold max-mobile:block max-mobile:w-full max-mobile:pb-1 max-mobile:pr-0">
+                    Materials
+                  </th>
+                  <td className="py-7 text-neutral-700 max-mobile:block max-mobile:pt-0">Plywood</td>
+                </tr>
+                <tr className="max-mobile:block">
+                  <th scope="row" className="py-7 pr-8 align-top font-bold max-mobile:block max-mobile:w-full max-mobile:pb-1 max-mobile:pr-0">
+                    Gloomhaven Buttons &amp; Bugs Organizer guide
+                  </th>
+                  <td className="py-7 max-mobile:block max-mobile:pt-0">
+                    <a
+                      href="https://cdn.shopify.com/s/files/1/0690/0413/2594/files/LGBB_guide_WEB.pdf?v=1727332384"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="text-neutral-700 underline decoration-neutral-500 underline-offset-4 transition-colors hover:text-red-700 focus-visible:rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-700 focus-visible:ring-offset-2"
+                    >
+                      Download
+                    </a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+      </section>
 
         {/* {reviews && <CustomerReviewsSection reviews={reviews} />} */}
-      </div>
 
       {/* <VideoFrame
         src="https://www.youtube.com/embed/EEH1XhnkODo?si=EXio06y4u52nBs8r"
@@ -169,6 +188,7 @@ export default async function ProductDetailsPage({
             isShowed={false}
             products={youMayAlsoLikeProducts}
             columns={3}
+            className="max-mobile:grid-cols-1"
             alignPagination="center"
             pagination={{
               currentPage: 1,
