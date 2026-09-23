@@ -137,7 +137,7 @@ export function ImageSlider({
         {slides.map((slide, index) => (
           <CarouselItem
             key={slide.id}
-            className="h-full pl-0"
+            className="h-full pl-0!"
             aria-hidden={slide !== activeSlide}
             inert={slide !== activeSlide}
           >
@@ -176,7 +176,7 @@ export function ImageSlider({
                     "text-[60px] !leading-[70px]",
                     "max-laptop:text-[clamp(48px,48px,60px)]",
                     "max-tablet:!leading-[50px]",
-                    "max-mobile:text-[40px] max-mobile:!leading-[1.08]",
+                    "max-mobile:text-[24px] max-mobile:!leading-[1.08]",
                     slide === activeSlide && styles.revealTitle,
                   )}
                 >
@@ -191,7 +191,7 @@ export function ImageSlider({
                     "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black/50",
                     "h-max px-[40px] py-[17.2px] text-[20px] font-bold ",
                     "max-laptop:text-[clamp(16px,1.0417vw,20px)]",
-                    "max-mobile:px-[32px] max-mobile:py-[16px] max-mobile:text-[14px]",
+                    "max-mobile:px-[16px] max-mobile:text-[12px]",
                     slide === activeSlide && styles.revealCta,
                   )}
                 >

@@ -14,16 +14,20 @@ export interface SliderGalleryProps {
   className?: string;
 }
 
-export function SliderGallery({ children, className }: SliderGalleryProps): ReactNode {
+export function SliderGallery({
+  children,
+  className,
+}: SliderGalleryProps): ReactNode {
   return (
     <Carousel
       opts={{ align: "start", containScroll: "trimSnaps", dragFree: true }}
       aria-label="Danh sách thẻ hình ảnh"
       className={cn("w-full", className)}
     >
-      <CarouselContent className="w-full h-full">
+      <CarouselContent className="w-full h-full ml-0!">
         {Children.map(children, (child, index) => (
-          <CarouselItem key={index}
+          <CarouselItem
+            key={index}
             className="
               basis-1/5
               max-laptop:basis-1/4

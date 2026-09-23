@@ -229,11 +229,11 @@ export function BoardGameInserts({ data }: BoardGameInsertsProps) {
             src={editorial.imageSrc}
             alt={editorial.imageAlt}
             aspectRatio="1/1"
-            objectFit="contain"
-            className="max-tablet:rounded-t-lg tablet:rounded-tl-lg tablet:rounded-bl-lg border-0 bg-transparent shadow-none"
+            objectFit="cover"
+            className="h-full max-tablet:rounded-t-lg tablet:rounded-tl-lg tablet:rounded-bl-lg border-0 bg-transparent shadow-none"
           />
 
-          <div className="flex flex-col justify-center items-center text-center max-tablet:my-15 max-mobile:my-10">
+          <div className="flex flex-col justify-center items-center text-center py-10">
             <ImageFrame
               src={editorial.emblemSrc}
               alt={editorial.emblemAlt}
@@ -242,11 +242,11 @@ export function BoardGameInserts({ data }: BoardGameInsertsProps) {
               containerClassName="w-9 sm:w-12.5"
               className="max-tablet:text-[clamp(34px,5.3125vw,34px)] max-laptop:laptop:w-[clamp(52px,2.7083vw,52px)] rounded-none border-0 bg-transparent shadow-none sm:rounded-none"
             />
-            <h2 className="max-mobile:text-[clamp(32px,2.0833vw,40px)] max-pc:text-[clamp(40px,2.5000vw,48px)] text-[48px] text-neutral-950 mt-2 max-mobile:px-10">
+            <h2 className="font-bold max-pc:text-[clamp(32px,2.5000vw,48px)] text-[48px] max-laptop:w-[clamp(400px,48.08vw-92.31px,600px)] max-tablet:w-[clamp(350px,104.17vw-266.67px,800px)] text-neutral-950 mt-2">
               {editorial.heading}
             </h2>
             {/* Thẻ p đã được chỉnh sửa */}
-            <p className="max-mobile:text-[14px] text-[16px] max-mobile:w-[clamp(271px,83.7500vw,536px)] max-tablet:w-[clamp(700px,35.9375vw,368px)] max-laptop:w-[clamp(368px,35.5556vw,512px)] max-pc:w-[clamp(512px,33.3333vw,640px)] text-center mt-2 text-neutral-700">
+            <p className="max-mobile:px-5 max-mobile:text-[14px] text-[16px] max-mobile:w-[clamp(200px,78.1250vw,500px)] max-tablet:w-[clamp(500px,63.4766vw,650px)] max-laptop:w-[clamp(368px,35.5556vw,512px)] max-pc:w-[clamp(512px,33.3333vw,640px)] w-[clamp(512px,33.3333vw,640px)] text-center mt-2 text-neutral-700">
               {editorial.description}
             </p>
           </div>

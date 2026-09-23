@@ -72,7 +72,7 @@ export function CardImageTitleGrid({
   return (
     <div
       className={cn(
-        "grid grid-cols-6 max-sm:grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 sm:gap-5",
+        "grid grid-cols-6 max-sm:grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5",
         className,
       )}
     >
