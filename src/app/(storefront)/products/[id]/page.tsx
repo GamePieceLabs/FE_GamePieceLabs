@@ -126,31 +126,31 @@ export default async function ProductDetailsPage({
               <tbody className="max-mobile:block">
                 <tr className="border-b border-neutral-300 max-mobile:block">
                   <th scope="row" className="w-1/3 py-7 pr-8 align-top font-bold max-mobile:block max-mobile:w-full max-mobile:pb-1 max-mobile:pr-0">
-                    Licensing partner
+                    Nhà tài trợ
                   </th>
                   <td className="py-7 text-neutral-700 max-mobile:block max-mobile:pt-0">Cephalofair Games</td>
                 </tr>
                 <tr className="border-b border-neutral-300 max-mobile:block">
                   <th scope="row" className="py-7 pr-8 align-top font-bold max-mobile:block max-mobile:w-full max-mobile:pb-1 max-mobile:pr-0">
-                    Weight
+                    Cân nặng
                   </th>
                   <td className="py-7 text-neutral-700 max-mobile:block max-mobile:pt-0">800 g</td>
                 </tr>
                 <tr className="border-b border-neutral-300 max-mobile:block">
                   <th scope="row" className="py-7 pr-8 align-top font-bold max-mobile:block max-mobile:w-full max-mobile:pb-1 max-mobile:pr-0">
-                    Fitting box size (cm)
+                    Kích cỡ (cm)
                   </th>
                   <td className="py-7 text-neutral-700 max-mobile:block max-mobile:pt-0">10.6x7.7x7.3</td>
                 </tr>
                 <tr className="border-b border-neutral-300 max-mobile:block">
                   <th scope="row" className="py-7 pr-8 align-top font-bold max-mobile:block max-mobile:w-full max-mobile:pb-1 max-mobile:pr-0">
-                    Materials
+                    Nguyên vật liệu
                   </th>
                   <td className="py-7 text-neutral-700 max-mobile:block max-mobile:pt-0">Plywood</td>
                 </tr>
                 <tr className="max-mobile:block">
                   <th scope="row" className="py-7 pr-8 align-top font-bold max-mobile:block max-mobile:w-full max-mobile:pb-1 max-mobile:pr-0">
-                    Gloomhaven Buttons &amp; Bugs Organizer guide
+                   Sách hướng dẫn về cách setup cho boardgame Gloomhaven Buttons &amp; Bugs Organizer 
                   </th>
                   <td className="py-7 max-mobile:block max-mobile:pt-0">
                     <a
@@ -159,7 +159,7 @@ export default async function ProductDetailsPage({
                       rel="noreferrer"
                       className="text-neutral-700 underline decoration-neutral-500 underline-offset-4 transition-colors hover:text-red-700 focus-visible:rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-700 focus-visible:ring-offset-2"
                     >
-                      Download
+                      Tải
                     </a>
                   </td>
                 </tr>
