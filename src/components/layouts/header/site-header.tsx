@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import {
   BookOpen,
@@ -83,11 +84,21 @@ function PromoCard({
           promoStyles[promo.tone],
         )}
       >
-        <Icon
-          className="absolute left-1/2 top-1/2 size-32 -translate-x-1/2 -translate-y-1/2 text-white/20 transition-transform duration-300 group-hover:scale-105"
-          strokeWidth={1.1}
-          aria-hidden="true"
-        />
+        {promo.imageSrc ? (
+          <Image
+            src={promo.imageSrc}
+            alt={promo.imageAlt ?? promo.title}
+            fill
+            sizes="(max-width: 1279px) 0px, 300px"
+            className="object-cover transition-transform duration-300 group-hover:scale-105"
+          />
+        ) : (
+          <Icon
+            className="absolute left-1/2 top-1/2 size-32 -translate-x-1/2 -translate-y-1/2 text-white/20 transition-transform duration-300 group-hover:scale-105"
+            strokeWidth={1.1}
+            aria-hidden="true"
+          />
+        )}
         <CardContent className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent p-5 pt-16">
           <p className="type-h6">{promo.title}</p>
           <p className="mt-1 text-sm text-white/70">{promo.description}</p>
@@ -123,7 +134,7 @@ function MegaMenuPanel({
             <Link
               key={item.label}
               href={item.href}
-              className="type-h5 w-fit rounded-sm text-foreground outline-none transition-colors hover:text-red-600 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-4"
+              className="type-h5 relative w-fit rounded-sm pb-1 font-bold text-neutral-950 outline-none after:absolute after:inset-x-0 after:bottom-0 after:h-px after:origin-left after:scale-x-0 after:bg-neutral-950 after:transition-transform after:duration-300 after:ease-out hover:after:scale-x-100 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-4 focus-visible:after:scale-x-100"
               onClick={onNavigate}
             >
               {item.label}
@@ -243,10 +254,12 @@ function DesktopHeader() {
 }
 
 function MobileHeader() {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <div className="mx-auto grid h-16 w-[calc(100%-2rem)] grid-cols-[1fr_auto_1fr] items-center sm:w-[calc(100%-3rem)] sm:max-w-[620px] lg:max-w-[940px] xl:hidden">
       <div className="justify-self-start">
-        <Sheet>
+        <Sheet open={isOpen} onOpenChange={setIsOpen}>
           <SheetTrigger asChild>
             <Button
               variant="ghost"
@@ -281,7 +294,12 @@ function MobileHeader() {
                       variant="ghost"
                       className="h-auto justify-start px-0 py-2 text-base font-normal hover:bg-transparent hover:text-red-600"
                     >
-                      <Link href={item.href}>{item.label}</Link>
+                      <Link
+                        href={item.href}
+                        onClick={() => setIsOpen(false)}
+                      >
+                        {item.label}
+                      </Link>
                     </Button>
                   ))}
                 </div>
@@ -297,7 +315,12 @@ function MobileHeader() {
                       variant="ghost"
                       className="h-auto justify-start px-0 py-2 text-base hover:bg-transparent hover:text-red-600"
                     >
-                      <Link href={item.href}>{item.label}</Link>
+                      <Link
+                        href={item.href}
+                        onClick={() => setIsOpen(false)}
+                      >
+                        {item.label}
+                      </Link>
                     </Button>
                   ))}
                 </div>

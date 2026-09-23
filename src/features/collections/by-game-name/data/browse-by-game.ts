@@ -1,10 +1,10 @@
 export const browseByGameContent = {
   heroImageSrc: "/images/browse-by-game/Banner.webp",
-  heroImageAlt: "Board game organizers and accessories on a workshop table",
-  eyebrow: "Browse by game",
-  title: "Game-Specific Products",
+  heroImageAlt: "Khay lưu trữ và phụ kiện board game trên bàn chơi",
+  eyebrow: "Tìm theo trò chơi",
+  title: "Sản phẩm theo từng tựa game",
   description:
-    "Explore our range of game-specific, laser-cut organizers, designed to enhance your board gaming experience based on the unique needs of each title. Pick the perfect gear for your next campaign from our ever-expanding inventory!",
+    "Khám phá các khay lưu trữ cắt laser được thiết kế riêng cho từng tựa game, giúp trải nghiệm chơi board game gọn gàng và mượt mà hơn theo nhu cầu riêng của mỗi trò. Hãy chọn phụ kiện phù hợp cho buổi chơi tiếp theo từ danh mục sản phẩm ngày càng mở rộng của chúng tôi!",
   browseTitle: "Tìm kiếm theo trò chơi",
   searchPlaceholder: "Tìm kiếm...",
   games: [

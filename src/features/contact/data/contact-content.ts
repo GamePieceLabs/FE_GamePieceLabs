@@ -4,8 +4,7 @@ export const contactPageContent = {
   hero: {
     title: "Liên hệ với chúng tôi",
     imageSrc: "/images/contact/contact-hero.png",
-    imageAlt:
-      "Khách hàng nhận hỗ trợ về phụ kiện board game tại quầy tư vấn",
+    imageAlt: "Khách hàng nhận hỗ trợ về phụ kiện board game tại quầy tư vấn",
   },
   introduction: {
     eyebrow: "Câu hỏi của bạn là ưu tiên của chúng tôi",
@@ -20,17 +19,20 @@ export const contactPageContent = {
       label: "Facebook",
       value: "In 3D Và Phụ Kiện Boardgame",
       supportingText: "Hỗ trợ các câu hỏi về sản phẩm, đơn hàng và giao nhận.",
-      href: "mailto:support@gamepiecelabs.example",
+      href: "https://www.facebook.com/In3DPhuKienBoardgame",
     },
     {
       label: "Tiktok",
-      value: "Vui lòng ghi kèm mã đơn hàng",
-      supportingText: "Thông tin này giúp chúng tôi tra cứu và phản hồi nhanh hơn.",
+      value: "@gamepiece_labs",
+      supportingText:
+        "Kênh cập nhật video về sản phẩm thuộc GamePiece Labs và về Boardgame.",
+      href: "https://www.tiktok.com/@gamepiece_labs",
     },
     {
       label: "Thời gian hỗ trợ",
-      value: "Thứ Hai - Thứ Sáu, 08:00 - 16:30",
-      supportingText: "Tin nhắn ngoài giờ sẽ được xử lý vào ngày làm việc kế tiếp.",
+      value: "Thứ Hai - Thứ Bảy, 08:00 - 17:30",
+      supportingText:
+        "Tin nhắn ngoài giờ sẽ được xử lý vào ngày làm việc kế tiếp.",
     },
   ],
   form: {
@@ -43,17 +45,20 @@ export const contactPageContent = {
   benefits: [
     {
       title: "Thiết kế cho buổi chơi trọn vẹn",
-      description: "Phụ kiện chỉn chu giúp trải nghiệm chơi mượt mà và đáng nhớ hơn.",
+      description:
+        "Phụ kiện chỉn chu giúp trải nghiệm chơi mượt mà và đáng nhớ hơn.",
       icon: "map-pin",
     },
     {
       title: "Giao hàng linh hoạt",
-      description: "Nhiều lựa chọn giao nhận phù hợp cho cộng đồng yêu board game.",
+      description:
+        "Nhiều lựa chọn giao nhận phù hợp cho cộng đồng yêu board game.",
       icon: "globe",
     },
     {
       title: "Hỗ trợ tận tâm cho người sưu tầm",
-      description: "Tư vấn rõ ràng trước và sau mỗi lần mua tại Game Piece Labs.",
+      description:
+        "Tư vấn rõ ràng trước và sau mỗi lần mua tại Game Piece Labs.",
       icon: "messages",
     },
     {

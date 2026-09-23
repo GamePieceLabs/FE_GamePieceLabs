@@ -13,6 +13,7 @@ import { useState } from "react";
 import { CollectionsPageData } from "../types/all-product";
 import { FilterItem } from "@/components/shared/filter/type";
 import { SheetFilter } from "@/components/shared/filter/sheet-filter";
+import SectionBanner from "@/components/shared/section-banner";
 
 interface AllProductsProps {
   data: CollectionsPageData;
@@ -98,45 +99,12 @@ export default function AllProducts({ data }: AllProductsProps) {
 
   return (
     <div className="bg-neutral-100 relative">
-      <div
-        className="relative w-full h-auto aspect-1800/525"
-        style={{
-          backgroundImage: `url(${hero.imageSrc})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-        }}
-      >
-        <div aria-hidden="true" className="absolute inset-0 bg-black/60" />
-
-        <div
-          className="
-          max-mobile:text-center 
-          max-tablet:min-h-[400px]
-          max-mobile:items-center
-          px-[max(48px,calc((100vw-1600px)/2))] py-20 
-          max-tablet:px-8 max-tablet:py-14
-          max-mobile:px-5 max-mobile:py-10
-          relative h-full inset-0 z-10 flex flex-col gap-y-5 justify-center text-white"
-        >
-          <h1
-            className="text-nowrap text-[60px] font-extrabold leading-[1.08] tracking-normal drop-shadow-sm 
-                     max-mobile:text-[40px]"
-          >
-            {hero.header}
-          </h1>
-          <p
-            className="w-[800px] 
-
-          max-pc:w-[clamp(600px,41.6667vw,800px)] 
-          max-mobile:w-auto!
-          section-sub-text
-          "
-          >
-            {hero.description}
-          </p>
-        </div>
-      </div>
+      <SectionBanner
+        aspectRatio="1800/525"
+        imgSrc={hero.imageSrc}
+        title={hero.header}
+        description={hero.description}
+      />
 
       <SectionTitle title="Chọn phụ kiện của bạn">
         <CardImageTitleGrid className="grid! grid-cols-5! gap-5 max-laptop:grid-cols-3! max-tablet:grid-cols-2! max-mobile:grid-cols-1!">

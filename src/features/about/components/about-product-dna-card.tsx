@@ -8,13 +8,11 @@ type AboutProductDnaCardProps = {
 export function AboutProductDnaCard({ value }: AboutProductDnaCardProps) {
   return (
     <article className="w-full text-center max-mobile:shrink-0">
-      <div className="relative overflow-hidden rounded-lg bg-neutral-100">
+      <div className="relative aspect-400/461 overflow-hidden rounded-lg bg-neutral-100">
         <Image
           src={value.imageSrc}
           alt={value.title}
-          width={400}
-          height={400}
-          sizes="(max-width: 767px) calc(100vw - 2rem), (max-width: 1279px) 30vw, 414px"
+          fill
           className="object-cover"
         />
       </div>

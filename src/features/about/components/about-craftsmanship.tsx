@@ -19,7 +19,13 @@ export function AboutCraftsmanship({ content }: AboutCraftsmanshipProps) {
           />
 
           <div className="flex flex-col items-center justify-center mobile:p-15 text-center max-mobile:px-5">
-            <h2 className="mt-2 w-4/5 leading-tight font-bold text-[48px] max-pc:text-[clamp(40px,1.6667vw,48px)] max-laptop:text-[clamp(20px,4.63vw,40px)] max-tablet:text-[clamp(32x,4.81vw,40px)] max-mobile:text-[clamp(18px,4.79vw,18px)]">
+            <h2
+              className="mt-2 w-4/5 leading-tight font-bold text-[48px] 
+                         max-pc:text-[clamp(40px,1.6667vw,48px)] 
+                         max-laptop:text-[clamp(20px,4.63vw,40px)] 
+                         max-tablet:text-[clamp(32x,4.81vw,40px)]
+                         max-mobile:text-[clamp(18px,4.79vw,18px)]"
+            >
               {content.title}
             </h2>
             {/* Thẻ p đã được chỉnh sửa */}

@@ -31,7 +31,6 @@ export default function StorefrontHomePage() {
           label: "Xem tất cả danh mục",
           href: "/collections/all-products",
         }}
-        
       >
         <SliderGallery>
           {gearCategories.map((category) => (
@@ -112,7 +111,7 @@ export default function StorefrontHomePage() {
                         inline-block transform mobile:scale-y-[1.2] 
                         sm:scale-100 font-black tracking-[-0.065em] whitespace-nowrap text-transparent text-nowrap"
           >
-            GAME PIECE LABS
+            GamePiece Labs
           </h2>
 
           <div className="mt-5 flex max-w-3xl flex-col items-center">

@@ -1,13 +1,11 @@
 import type { AboutValuesSection } from "@/features/about/types/about-content";
 import { AboutProductDnaCard } from "@/features/about/components/about-product-dna-card";
 import { SectionTitle } from "@/components/shared/section-title/section-title";
-import { SliderGallery } from "@/components/shared/slider-gallery";
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
 } from "@/components/ui/carousel";
-import { cn } from "@/utils/cn";
 
 type AboutValuesProps = {
   content: AboutValuesSection;
@@ -27,21 +25,21 @@ export function AboutValues({ content }: AboutValuesProps) {
           dragFree: true,
           watchDrag: false,
           breakpoints: {
-            "(max-width: 639px": {
+            "(max-width: 639px)": {
               watchDrag: true,
             },
           },
         }}
         aria-label="Danh sách thẻ hình ảnh"
-        className={cn("w-full mt-10")}
+        className="mt-10 w-full"
       >
-        <CarouselContent className="w-full h-full ml-0! max-mobile:gap-5">
+        <CarouselContent className="h-full">
           {content.values.map((value) => (
             <CarouselItem
-              className="basis-1/3 max-mobile:basis-4/5"
+              className="basis-full sm:basis-1/2 lg:basis-1/3"
               key={value.title}
             >
-              <AboutProductDnaCard key={value.title} value={value} />
+              <AboutProductDnaCard value={value} />
             </CarouselItem>
           ))}
         </CarouselContent>

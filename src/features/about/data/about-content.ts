@@ -3,7 +3,7 @@ import type { AboutPageContent } from "@/features/about/types/about-content";
 export const aboutPageContent: AboutPageContent = {
   hero: {
     eyebrow: "Câu chuyện của chúng tôi, ván chơi của bạn",
-    title: "Tâm huyết và nghệ thuật chế tác tại Game Piece Labs",
+    title: "Tâm huyết và nghệ thuật chế tác tại GamePiece Labs",
     subtitle:
       "Chúng tôi kết hợp nghệ thuật thủ công tinh xảo, công nghệ cắt laser chính xác và vật liệu gỗ tuyển chọn để biến mỗi buổi chơi game thành một kỷ niệm đáng nhớ.",
     heroImageSrc: "/images/about/about-hero.jpg",
@@ -131,5 +131,3 @@ export const aboutPageContent: AboutPageContent = {
     },
   },
 };
-
-

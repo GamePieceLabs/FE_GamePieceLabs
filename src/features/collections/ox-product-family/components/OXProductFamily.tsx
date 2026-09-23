@@ -14,6 +14,7 @@ import { FilterItem } from "@/components/shared/filter/type";
 import { SheetFilter } from "@/components/shared/filter/sheet-filter";
 import Filter from "@/components/shared/filter/filter";
 import { useState } from "react";
+import SectionBanner from "@/components/shared/section-banner";
 
 interface OXProductFamilyProps {
   data: CollectionsPageData;
@@ -99,45 +100,12 @@ export function OXProductFamily({ data }: OXProductFamilyProps) {
 
   return (
     <div className="bg-neutral-100">
-      <div
-        className="relative w-full h-auto aspect-2000/492"
-        style={{
-          backgroundImage: `url(${hero.imageSrc})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-        }}
-      >
-        <div aria-hidden="true" className="absolute inset-0 bg-black/60" />
-
-        <div
-          className="
-          max-mobile:text-center 
-          max-tablet:min-h-[400px]
-          max-mobile:items-center
-          px-[max(48px,calc((100vw-1600px)/2))] py-20 
-          max-tablet:px-8 max-tablet:py-14
-          max-mobile:px-5 max-mobile:py-10
-          relative h-full inset-0 z-10 flex flex-col gap-y-5 justify-center text-white"
-        >
-          <h1
-            className="text-nowrap text-[60px] font-extrabold leading-[1.08] tracking-normal drop-shadow-sm 
-                     max-mobile:text-[40px]"
-          >
-            {hero.header}
-          </h1>
-          <p
-            className="w-[800px] 
-
-          max-pc:w-[clamp(600px,41.6667vw,800px)] 
-          max-mobile:w-auto!
-          section-sub-text
-          "
-          >
-            {hero.description}
-          </p>
-        </div>
-      </div>
+      <SectionBanner
+        aspectRatio="2000/492"
+        imgSrc={hero.imageSrc}
+        title={hero.header}
+        description={hero.description}
+      />
 
       <div className="tablet:hidden sticky mt-10 top-20 flex justify-center left-1/2 z-20">
         <SheetFilter>
