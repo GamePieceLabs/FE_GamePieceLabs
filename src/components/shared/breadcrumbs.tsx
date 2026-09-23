@@ -5,7 +5,9 @@ export default function BreadCrumbs() {
   return (
     <nav
       aria-label="Breadcrumb"
-      className="no-scrollbar mb-5 overflow-x-auto text-sm font-medium leading-6 text-neutral-500"
+      className="no-scrollbar mb-5 overflow-x-auto text-sm font-medium leading-6 text-neutral-500
+                 max-mobile:pt-[18px]
+                 max-mobile:pl-[18px]"
     >
       <ol className="flex w-max min-w-full items-center gap-2 whitespace-nowrap">
         <li>
@@ -17,7 +19,7 @@ export default function BreadCrumbs() {
           <span>/</span>
         </li>
         <li>
-          <Link href="/" className="transition-colors hover:text-neutral-900">
+          <Link href="/collections/all-products" className="transition-colors hover:text-neutral-900">
             Danh mục
           </Link>
         </li>

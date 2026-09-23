@@ -245,7 +245,7 @@
   }
 
   @media (width <= theme(--breakpoint-mobile)) {
-    .section-sub-text {
+    .section-sub-text{
       font-size: 14px;
     }
 
