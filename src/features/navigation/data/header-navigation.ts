@@ -9,8 +9,8 @@ export const contactNavigationItem: HeaderNavigationItem = {
 };
 
 export const productMenuItems: HeaderNavigationItem[] = [
-  { label: "Tất cả sản phẩm", href: "/products" },
-  { label: "Theo trò chơi", href: "/browsebygame" },
+  { label: "Tất cả sản phẩm", href: "/collections/all-products" },
+  { label: "Theo trò chơi", href: "/browse-by-game" },
   {
     label: "Organizer/Insert Boardgame",
     href: "/collections/board-game-inserts",
@@ -44,10 +44,11 @@ export const promoCards: HeaderPromoCard[] = [
 ];
 
 export const aboutMenuItems: HeaderNavigationItem[] = [
-  { label: "Về Game Piece Labs", href: "/about" },
-  { label: "Chất liệu", href: "/about/materials" },
-  { label: "Chơi xanh", href: "/about/sustainability" },
-  { label: "Chế tác & chất lượng", href: "/about/craft" },
+  { label: "Về GamePiece Labs", href: "/about" },
+  { label: "Liên hệ", href: "/contact" },
+  // { label: "Chất liệu", href: "/about/materials" },
+  // { label: "Chơi xanh", href: "/about/sustainability" },
+  // { label: "Chế tác & chất lượng", href: "/about/craft" },
 ];
 
 export const aboutPromoCards: HeaderPromoCard[] = [

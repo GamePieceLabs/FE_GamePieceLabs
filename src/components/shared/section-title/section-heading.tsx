@@ -43,7 +43,7 @@ export function createSectionTitleId(title?: string): string {
 export function SectionHeading({
   title,
   titleId,
-  headingLevel = "h2",
+  headingLevel = "h3",
   more,
   align = "left",
   className,
@@ -64,8 +64,8 @@ export function SectionHeading({
         id={titleId}
         className={cn(
           "m-0 min-w-0 flex-1 font-bold text-neutral-950",
-          "section-title-text",
           headingSizeClasses[headingLevel],
+          "section-title-text",
           titleAlignmentClasses[align],
         )}
       >

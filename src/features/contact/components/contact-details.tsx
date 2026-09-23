@@ -6,7 +6,7 @@ type ContactDetailsProps = {
 
 export function ContactDetails({ content }: ContactDetailsProps) {
   return (
-    <div className="flex justify-between items-center">
+    <div className="flex max-mobile:flex-col gap-y-5 justify-between items-center">
       {content.map((detail) => (
         <div key={detail.label} className="border-l-2 border-red-600 pl-4">
           <div className="text-base font-bold text-neutral-950">

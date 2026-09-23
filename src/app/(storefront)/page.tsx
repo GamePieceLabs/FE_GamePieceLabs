@@ -31,6 +31,7 @@ export default function StorefrontHomePage() {
           label: "Xem tất cả danh mục",
           href: "/collections/all-products",
         }}
+        
       >
         <SliderGallery>
           {gearCategories.map((category) => (

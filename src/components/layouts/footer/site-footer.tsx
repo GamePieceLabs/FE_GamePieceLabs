@@ -11,7 +11,7 @@ export function SiteFooter({ content }: SiteFooterProps) {
   return (
     <footer className="border-t border-border bg-background text-foreground">
       <div className="mx-auto w-[calc(100%-2rem)] py-12 sm:w-[calc(100%-3rem)] sm:max-w-[620px] lg:max-w-[940px] lg:py-14 xl:w-[calc(100%-100px)] xl:max-w-[1580px]">
-        <div className="grid grid-cols-2 items-start gap-x-6 gap-y-12 text-center sm:gap-8 sm:text-left lg:grid-cols-4 lg:gap-10 xl:gap-16">
+        <div className="grid grid-cols-2 items-start gap-x-6 gap-y-12 sm:gap-8 text-left lg:grid-cols-4 lg:gap-10 xl:gap-16">
           {content.navigationGroups.map((group) => {
             const headingId = `footer-${group.title
               .toLowerCase()
@@ -23,7 +23,7 @@ export function SiteFooter({ content }: SiteFooterProps) {
                 aria-labelledby={headingId}
                 className="min-w-0"
               >
-                <h2 id={headingId} className="type-h6 mb-5">
+                <h2 id={headingId} className="type-h6 font-bold mb-5">
                   {group.title}
                 </h2>
                 <ul className="space-y-2">
@@ -31,7 +31,7 @@ export function SiteFooter({ content }: SiteFooterProps) {
                     <li key={link.label}>
                       <Link
                         href={link.href}
-                        className="inline-flex rounded-sm py-1 text-base font-medium text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-4 focus-visible:ring-offset-background"
+                        className="inline-flex rounded-sm py-1 text-base font-normal text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-4 focus-visible:ring-offset-background"
                       >
                         {link.label}
                       </Link>
@@ -46,10 +46,7 @@ export function SiteFooter({ content }: SiteFooterProps) {
             aria-labelledby="footer-certifications"
             className="col-span-2 min-w-0 lg:col-span-1"
           >
-            <h2
-              id="footer-certifications"
-              className="type-h6 mb-5"
-            >
+            <h2 id="footer-certifications" className="type-h6 mb-5 font-bold">
               {content.certifications.title}
             </h2>
             <div className="flex flex-col items-center gap-4 sm:items-start">
@@ -78,7 +75,7 @@ export function SiteFooter({ content }: SiteFooterProps) {
             aria-labelledby="footer-fanpage"
             className="col-span-2 min-w-0 lg:col-span-1"
           >
-            <h2 id="footer-fanpage" className="type-h6 mb-5">
+            <h2 id="footer-fanpage" className="type-h6 mb-5 font-bold">
               {content.fanpage.title}
             </h2>
             <iframe

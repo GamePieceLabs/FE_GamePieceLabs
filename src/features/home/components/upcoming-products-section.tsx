@@ -15,7 +15,7 @@ export function UpcomingProductsSection() {
             {...product}
             aspectRatio="square"
             sizes={upcomingProductSizes}
-            isClicked
+            isClicked={false}
           />
         ))}
       </SliderGallery>

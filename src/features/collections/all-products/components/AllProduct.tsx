@@ -98,23 +98,48 @@ export default function AllProducts({ data }: AllProductsProps) {
 
   return (
     <div className="bg-neutral-100 relative">
-      <ImageFrame
-        src={hero.imageSrc}
-        alt={hero.imageAlt}
-        header={hero.header}
-        description={hero.description}
-        headerSize="h1"
-        textAlign="left"
-        priority
-        aspectRatio="aspect-[4/3] sm:aspect-[16/7] lg:aspect-[22/5]"
-        sizes="100vw"
-        containerClassName="w-full max-w-none sm:w-full xl:w-full"
-        className="rounded-none border-0 shadow-none sm:rounded-none"
-        imageClassName="object-center"
-      />
+      <div
+        className="relative w-full h-auto aspect-1800/525"
+        style={{
+          backgroundImage: `url(${hero.imageSrc})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+        }}
+      >
+        <div aria-hidden="true" className="absolute inset-0 bg-black/60" />
+
+        <div
+          className="
+          max-mobile:text-center 
+          max-tablet:min-h-[400px]
+          max-mobile:items-center
+          px-[max(48px,calc((100vw-1600px)/2))] py-20 
+          max-tablet:px-8 max-tablet:py-14
+          max-mobile:px-5 max-mobile:py-10
+          relative h-full inset-0 z-10 flex flex-col gap-y-5 justify-center text-white"
+        >
+          <h1
+            className="text-nowrap text-[60px] font-extrabold leading-[1.08] tracking-normal drop-shadow-sm 
+                     max-mobile:text-[40px]"
+          >
+            {hero.header}
+          </h1>
+          <p
+            className="w-[800px] 
+
+          max-pc:w-[clamp(600px,41.6667vw,800px)] 
+          max-mobile:w-auto!
+          section-sub-text
+          "
+          >
+            {hero.description}
+          </p>
+        </div>
+      </div>
 
       <SectionTitle title="Chọn phụ kiện của bạn">
-        <CardImageTitleGrid className="grid! grid-cols-5! max-laptop:grid-cols-3! max-tablet:grid-cols-2! max-mobile:grid-cols-1!">
+        <CardImageTitleGrid className="grid! grid-cols-5! gap-5 max-laptop:grid-cols-3! max-tablet:grid-cols-2! max-mobile:grid-cols-1!">
           {gearCategories.map((category) => (
             <CardImageTitle
               key={category.title}

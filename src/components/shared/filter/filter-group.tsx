@@ -21,7 +21,7 @@ const mobileFiltersTitle = {
 
 export default function FilterGroup({ children }: FilterGroupProp) {
   return (
-    <Accordion type="multiple">
+    <Accordion type="multiple" className="mt-5">
       {React.Children.map(children, (child) => {
         // Dùng thằng này để tiếp tục lấy props từ FilterGroup
         if (!isValidElement<FilterProp>(child)) {
@@ -33,7 +33,7 @@ export default function FilterGroup({ children }: FilterGroupProp) {
             <AccordionTrigger className="font-bold text-xl">
               {mobileFiltersTitle[variant]}
             </AccordionTrigger>
-            <AccordionContent className="mt-2">{child}</AccordionContent>
+            <AccordionContent className="h-auto">{child}</AccordionContent>
           </AccordionItem>
         );
       })}

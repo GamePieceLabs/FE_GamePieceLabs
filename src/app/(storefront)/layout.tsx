@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { SiteFooter } from "@/components/layouts/footer/site-footer";
 import { SiteHeader } from "@/components/layouts/header/site-header";
+import { ScrollToTop } from "@/components/shared/scroll-to-top";
 import { SocialMediaRail } from "@/components/shared/social-media";
 import { footerContent } from "@/features/navigation/data/footer-navigation";
 import { socialMediaItems } from "@/features/navigation/data/social-media";
@@ -22,6 +23,7 @@ export default function ClientLayout({
       <div className="flex-1">{children}</div>
       <SiteFooter content={footerContent} />
       <SocialMediaRail items={socialMediaItems} />
+      <ScrollToTop />
     </div>
   );
 }

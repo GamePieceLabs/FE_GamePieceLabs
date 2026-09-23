@@ -1,6 +1,13 @@
 import type { AboutValuesSection } from "@/features/about/types/about-content";
 import { AboutProductDnaCard } from "@/features/about/components/about-product-dna-card";
 import { SectionTitle } from "@/components/shared/section-title/section-title";
+import { SliderGallery } from "@/components/shared/slider-gallery";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from "@/components/ui/carousel";
+import { cn } from "@/utils/cn";
 
 type AboutValuesProps = {
   content: AboutValuesSection;
@@ -13,13 +20,32 @@ export function AboutValues({ content }: AboutValuesProps) {
         {content.description}
       </p>
 
-      <div
-        className="mt-10 grid grid-cols-3 max-mobile:grid-cols-1 mobile:gap-5 space-y-8"
+      <Carousel
+        opts={{
+          align: "start",
+          containScroll: "trimSnaps",
+          dragFree: true,
+          watchDrag: false,
+          breakpoints: {
+            "(max-width: 639px": {
+              watchDrag: true,
+            },
+          },
+        }}
+        aria-label="Danh sách thẻ hình ảnh"
+        className={cn("w-full mt-10")}
       >
-        {content.values.map((value) => (
-          <AboutProductDnaCard key={value.title} value={value} />
-        ))}
-      </div>
+        <CarouselContent className="w-full h-full ml-0! max-mobile:gap-5">
+          {content.values.map((value) => (
+            <CarouselItem
+              className="basis-1/3 max-mobile:basis-4/5"
+              key={value.title}
+            >
+              <AboutProductDnaCard key={value.title} value={value} />
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+      </Carousel>
     </SectionTitle>
   );
 }

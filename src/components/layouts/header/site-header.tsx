@@ -31,7 +31,6 @@ import {
 } from "@/components/ui/sheet";
 import {
   aboutMenuItems,
-  aboutPromoCards,
   contactNavigationItem,
   productMenuItems,
   promoCards,
@@ -175,7 +174,7 @@ function DesktopHeader() {
 
               <NavigationMenuItem value="about">
                 <div className="rounded-md bg-transparent px-4 text-base font-bold hover:bg-transparent focus:bg-transparent data-open:bg-transparent data-popup-open:bg-transparent">
-                  <Link href={"/about"}>Về chúng tôi</Link>
+                  <Link href={"/about"}>Về GamePiece Labs</Link>
                 </div>
 
                 {/* <NavigationMenuTrigger className="h-11 rounded-md bg-transparent px-4 text-base font-bold hover:bg-transparent focus:bg-transparent data-open:bg-transparent data-popup-open:bg-transparent">
@@ -271,18 +270,16 @@ function MobileHeader() {
               </SheetDescription>
             </SheetHeader>
 
-            <nav aria-label="Điều hướng mobile" className="space-y-8 px-5 py-7">
+            <nav aria-label="Điều hướng mobile" className="space-y-8 px-5">
               <div>
-                <p className="mb-4 text-xs font-bold uppercase tracking-[0.18em] text-muted-foreground">
-                  Sản phẩm
-                </p>
+                <p className="mb-4 text-lg font-bold uppercase">Sản phẩm</p>
                 <div className="grid gap-1">
                   {productMenuItems.map((item) => (
                     <Button
                       key={item.label}
                       asChild
                       variant="ghost"
-                      className="h-auto justify-start px-0 py-2.5 text-base font-bold hover:bg-transparent hover:text-red-600"
+                      className="h-auto justify-start px-0 py-2 text-base font-normal hover:bg-transparent hover:text-red-600"
                     >
                       <Link href={item.href}>{item.label}</Link>
                     </Button>
@@ -291,33 +288,19 @@ function MobileHeader() {
               </div>
 
               <div className="border-t pt-5">
-                <p className="mb-4 text-xs font-bold uppercase tracking-[0.18em] text-muted-foreground">
-                  Về chúng tôi
-                </p>
+                <p className="mb-4 text-lg font-bold uppercase">Về chúng tôi</p>
                 <div className="grid gap-1">
                   {aboutMenuItems.map((item) => (
                     <Button
                       key={item.label}
                       asChild
                       variant="ghost"
-                      className="h-auto justify-start px-0 py-2.5 text-base font-bold hover:bg-transparent hover:text-red-600"
+                      className="h-auto justify-start px-0 py-2 text-base hover:bg-transparent hover:text-red-600"
                     >
                       <Link href={item.href}>{item.label}</Link>
                     </Button>
                   ))}
                 </div>
-              </div>
-
-              <div className="grid gap-1 border-t pt-5">
-                <Button
-                  asChild
-                  variant="ghost"
-                  className="justify-start px-0 text-base font-bold hover:bg-transparent hover:text-red-600"
-                >
-                  <Link href={contactNavigationItem.href}>
-                    {contactNavigationItem.label}
-                  </Link>
-                </Button>
               </div>
             </nav>
           </SheetContent>

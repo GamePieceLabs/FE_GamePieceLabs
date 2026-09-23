@@ -1,5 +1,8 @@
 "use client";
-import { CardImageTitle } from "@/components/shared/card-image-title";
+import {
+  CardImageTitle,
+  CardImageTitleGrid,
+} from "@/components/shared/card-image-title";
 import Wrapper from "@/components/shared/wrapper";
 import { CollectionsPageData } from "../types/board-game-inserts";
 import { MarqueeText } from "@/components/shared/marquee-text";
@@ -97,20 +100,45 @@ export function BoardGameInserts({ data }: BoardGameInsertsProps) {
 
   return (
     <div className="bg-neutral-100">
-      <ImageFrame
-        src={hero.imageSrc}
-        alt={hero.imageAlt}
-        header={hero.header}
-        description={hero.description}
-        headerSize="h1"
-        textAlign="left"
-        priority
-        aspectRatio="1800/525"
-        sizes="100vw"
-        containerClassName="w-full max-w-none sm:w-full xl:w-full"
-        className="rounded-none border-0 shadow-none sm:rounded-none"
-        imageClassName="object-center"
-      />
+      <div
+        className="relative w-full h-auto aspect-1800/525"
+        style={{
+          backgroundImage: `url(${hero.imageSrc})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+        }}
+      >
+        <div aria-hidden="true" className="absolute inset-0 bg-black/60" />
+
+        <div
+          className="
+          max-mobile:text-center 
+          max-tablet:min-h-[400px]
+          max-mobile:items-center
+          px-[max(48px,calc((100vw-1600px)/2))] py-20 
+          max-tablet:px-8 max-tablet:py-14
+          max-mobile:px-5 max-mobile:py-10
+          relative h-full inset-0 z-10 flex flex-col gap-y-5 justify-center text-white"
+        >
+          <h1
+            className="text-nowrap text-[60px] font-extrabold leading-[1.08] tracking-normal drop-shadow-sm 
+                     max-mobile:text-[40px]"
+          >
+            {hero.header}
+          </h1>
+          <p
+            className="w-[800px] 
+
+          max-pc:w-[clamp(600px,41.6667vw,800px)] 
+          max-mobile:w-auto!
+          section-sub-text
+          "
+          >
+            {hero.description}
+          </p>
+        </div>
+      </div>
 
       <div className="tablet:hidden sticky mt-10 top-20 flex justify-center left-1/2 z-20">
         <SheetFilter>
@@ -258,7 +286,7 @@ export function BoardGameInserts({ data }: BoardGameInsertsProps) {
         more={{ label: "Xem tất cả danh mục", href: "#" }}
         className="pb-16 sm:pb-20"
       >
-        <SliderGallery>
+        <CardImageTitleGrid>
           {otherCategories.map((category) => (
             <CardImageTitle
               key={category.href}
@@ -267,7 +295,7 @@ export function BoardGameInserts({ data }: BoardGameInsertsProps) {
               isClicked={true}
             />
           ))}
-        </SliderGallery>
+        </CardImageTitleGrid>
       </SectionTitle>
     </div>
   );
