@@ -5,27 +5,13 @@
 
 @font-face {
   font-family: "Barlow";
-  src: url("../font/Barlow/Barlow-Regular.ttf") format("truetype");
-  font-display: fallback;
-  font-style: normal;
-  font-weight: 500;
-}
-
-@font-face {
-  font-family: "Barlow";
-  src: url("../font/Barlow/Barlow-Bold.ttf") format("truetype");
+  src: url("../font/barlow/Barlow-Bold.ttf") format("truetype");
   font-display: fallback;
   font-style: normal;
   font-weight: 700;
 }
 
-@font-face {
-  font-family: "Barlow Condensed";
-  src: url("../font/barlow/BarlowCondensed-Bold.ttf") format("truetype");
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-}
+
 
 /* Inclusive desktop-first breakpoints, ordered widest to narrowest. */
 @custom-variant max-pc (@media (width <= theme(--breakpoint-pc)));

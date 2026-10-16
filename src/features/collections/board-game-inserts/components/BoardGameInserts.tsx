@@ -194,7 +194,7 @@ export function BoardGameInserts({ data }: BoardGameInsertsProps) {
           </div>
         </div>
 
-        <div className="mb-7 flex items-center justify-between gap-5">
+        <div className="mb-7 flex items-center justify-between gap-4">
           <h2 id="collection-products-heading" className="sr-only">
             Board game inserts
           </h2>
