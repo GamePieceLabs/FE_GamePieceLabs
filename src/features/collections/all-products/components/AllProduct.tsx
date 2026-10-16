@@ -4,7 +4,6 @@ import {
   CardImageTitleGrid,
 } from "@/components/shared/card-image-title";
 import Filter from "@/components/shared/filter/filter";
-import { ImageFrame } from "@/components/shared/image/image-frame";
 import { MarqueeText } from "@/components/shared/marquee-text";
 import { ProductList } from "@/components/shared/product/product-list";
 import { SectionTitle } from "@/components/shared/section-title/section-title";

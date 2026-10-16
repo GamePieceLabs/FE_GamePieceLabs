@@ -3,13 +3,11 @@ import {
   CardImageTitle,
   CardImageTitleGrid,
 } from "@/components/shared/card-image-title";
-import Wrapper from "@/components/shared/wrapper";
 import { CollectionsPageData } from "../types/board-game-inserts";
 import { MarqueeText } from "@/components/shared/marquee-text";
 import { ImageFrame } from "@/components/shared/image/image-frame";
 import { ProductList } from "@/components/shared/product/product-list";
 import { SectionTitle } from "@/components/shared/section-title/section-title";
-import { SliderGallery } from "@/components/shared/slider-gallery";
 import Filter from "@/components/shared/filter/filter";
 import { useState } from "react";
 import { SheetFilter } from "@/components/shared/filter/sheet-filter";
@@ -93,16 +91,10 @@ export function BoardGameInserts({ data }: BoardGameInsertsProps) {
   };
 
   // state for sort filter
-  const [selectedValue, setSelectedValue] = useState<string | null>();
+  const [selectedValue, setSelectedValue] = useState<string>();
 
   const handleSelectChange = (item: string) => {
-    setSelectedValue((prevItem) => {
-      // kiểm tra lần chọn thứ 2 của người dùng nếu giống thì gỡ ra khỏi state
-      if (prevItem === item) {
-        return null;
-      }
-      return item;
-    });
+    setSelectedValue(item);
   };
 
   return (
