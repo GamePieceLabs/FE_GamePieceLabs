@@ -257,7 +257,12 @@ function MobileHeader() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="mx-auto grid h-16 w-[calc(100%-2rem)] grid-cols-[1fr_auto_1fr] items-center sm:w-[calc(100%-3rem)] sm:max-w-[620px] lg:max-w-[940px] xl:hidden">
+    <div
+      className="mx-auto grid h-[88px] w-[calc(100%-2rem)] grid-cols-[1fr_auto_1fr] items-center
+                 sm:w-[calc(100%-3rem)] sm:max-w-[620px]
+                 lg:max-w-[940px]
+                 xl:hidden"
+    >
       <div className="justify-self-start">
         <Sheet open={isOpen} onOpenChange={setIsOpen}>
           <SheetTrigger asChild>
@@ -337,10 +342,10 @@ function MobileHeader() {
 
       <div className="justify-self-center">
         <Logo
-          imageClassName="h-[56px]
-                          max-pc:h-[56px]
-                          max-tablet:h-[56px]
-                          max-mobile:h-[56px]"
+          imageClassName="h-[80px]
+                          max-pc:h-[80px]
+                          max-tablet:h-[80px]
+                          max-mobile:h-[80px]"
         />
       </div>
 
