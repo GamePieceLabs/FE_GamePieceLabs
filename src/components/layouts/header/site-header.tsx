@@ -162,7 +162,7 @@ function DesktopHeader() {
 
   return (
     <div className="bg-white">
-      <div className="mx-auto hidden h-[90px] w-[calc(100%-100px)] max-w-[1580px] grid-cols-[1fr_auto_1fr] items-center gap-8 xl:grid">
+      <div className="mx-auto hidden h-28 w-[calc(100%-100px)] max-w-[1580px] grid-cols-[1fr_auto_1fr] items-center gap-8 xl:grid">
         <nav aria-label="Điều hướng chính" className="justify-self-start">
           <NavigationMenu
             value={openMenu}
@@ -216,7 +216,7 @@ function DesktopHeader() {
         </nav>
 
         <div className="justify-self-center">
-          <Logo imageClassName="size-16" />
+          <Logo />
         </div>
 
         {/* <div className="flex items-center justify-self-end gap-1 xl:gap-2">
@@ -276,7 +276,12 @@ function MobileHeader() {
           >
             <SheetHeader className="border-b px-5 py-6 text-left">
               <SheetTitle>
-                <Logo imageClassName="size-16" />
+                <Logo
+                  imageClassName="h-[96px]
+                                  max-pc:h-[96px]
+                                  max-tablet:h-[96px]
+                                  max-mobile:h-[80px]"
+                />
               </SheetTitle>
               <SheetDescription className="sr-only">
                 Điều hướng cửa hàng Game Piece Labs
@@ -331,7 +336,12 @@ function MobileHeader() {
       </div>
 
       <div className="justify-self-center">
-        <Logo imageClassName="size-12" />
+        <Logo
+          imageClassName="h-[56px]
+                          max-pc:h-[56px]
+                          max-tablet:h-[56px]
+                          max-mobile:h-[56px]"
+        />
       </div>
 
       <div aria-hidden="true" />

@@ -17,27 +17,25 @@ export function Logo({ className, imageClassName }: LogoProps) {
       href="/"
       aria-label="Game Piece Labs - Trang chủ"
       className={cn(
-        "inline-flex items-center gap-2 rounded-md outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-4 sm:gap-3",
+        "inline-flex items-center rounded-md outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-4",
         className,
       )}
     >
       <Image
-        src="/brand/game-piece-labs-mark.png"
+        src="/brand/game-piece-labs-logo-horizontal.png"
         alt="Game Piece Labs - Phụ kiện boardgame"
-        width={512}
-        height={512}
+        width={2030}
+        height={775}
+        sizes="(width <= 1024px) 147px, (width <= 1920px) 252px, 273px"
         loading="eager"
         className={cn(
-          "size-12 object-contain bg-transparent sm:size-14",
+          "block h-[104px] w-auto object-contain bg-transparent",
+          "max-pc:h-[96px]",
+          "max-tablet:h-[56px]",
+          "max-mobile:h-[56px]",
           imageClassName,
         )}
       />
-      <span className="whitespace-nowrap text-base font-bold leading-none tracking-[0.06em] text-foreground sm:text-lg xl:text-xl">
-        GAME PIECE LABS
-        <span className="mt-1 block text-center text-[0.6875rem] font-medium leading-tight tracking-[0.08em] text-muted-foreground sm:text-xs">
-          Phụ kiện &amp; Boardgame
-        </span>
-      </span>
     </Link>
   );
 }

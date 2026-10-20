@@ -1,6 +1,6 @@
 # Logo
 
-`Logo` là component hiển thị biểu trưng nhận diện thương hiệu của Game Piece Labs kết hợp giữa hình ảnh nhãn hiệu và chữ định danh, đóng vai trò là liên kết điều hướng về Trang chủ.
+`Logo` là component hiển thị biểu trưng nhận diện thương hiệu của Game Piece Labs bằng ảnh PNG đầy đủ, đã chứa tên thương hiệu và phụ đề, đóng vai trò là liên kết điều hướng về Trang chủ.
 
 ## Purpose
 
@@ -18,7 +18,7 @@ Cung cấp logo chuẩn hóa cho toàn bộ website (Header, Footer, các trang 
 
 ## When NOT to Use
 
-- Chỉ cần icon biểu tượng riêng lẻ không kèm text và không có liên kết (hãy dùng thẻ `<Image>` trực tiếp với asset `/brand/game-piece-labs-mark.png`).
+- Chỉ cần ảnh thương hiệu không có liên kết (hãy dùng `<Image>` trực tiếp với asset `/brand/game-piece-labs-logo-horizontal.png`).
 
 ## Import
 
@@ -35,16 +35,16 @@ import { Logo } from "@/components/shared/logo";
 
 ## Responsive Behavior
 
-- **Mobile (`< 640px`)**:
-  - Icon kích thước `size-12` (48x48px).
-  - Khoảng cách `gap-2`.
-  - Tiêu đề text `text-base`.
-  - Phụ đề `text-[0.6875rem]`.
-- **Tablet / Desktop (`>= 640px` / `xl:` )**:
-  - Icon kích thước `sm:size-14` (56x56px).
-  - Khoảng cách `sm:gap-3`.
-  - Tiêu đề text `sm:text-lg xl:text-xl`.
-  - Phụ đề `sm:text-xs`.
+- Dùng **Desktop First** như các trang About/Contact: class mặc định cho desktop, `max-*` ghi đè cho màn hình nhỏ.
+- **Màn hình lớn (`> 1920px`)**: ảnh ngang `/brand/game-piece-labs-logo-horizontal.png` (2030 × 775px), cao cố định `104px`, rộng khoảng `273px`.
+- **PC (`<= 1920px`)**: ảnh ngang, `max-pc:h-[96px]`, rộng khoảng `252px`.
+- **Tablet (`<= 1024px`)**: ảnh ngang, `max-tablet:h-[56px]`, rộng khoảng `147px`.
+- **Mobile (`<= 640px`)**: tiếp tục dùng ảnh ngang, cao cố định `56px`, rộng khoảng `147px`.
+- Chỉ dùng custom variant trong `src/app/globals.css` theo Desktop First: `max-pc` → `max-tablet` → `max-mobile`. Không dùng breakpoint mặc định `sm/md/lg/xl/2xl`, `clamp()` hoặc đơn vị `vw` cho kích thước logo.
+- Mỗi nhóm class có breakpoint khác nhau được truyền thành một đối số riêng trong `cn()` và đặt trên dòng riêng để dễ đọc.
+- Component chỉ render một ảnh ngang cho tất cả breakpoint, tránh tải hai asset logo song song.
+- Header desktop cao 112px; header mobile/tablet cao 64px.
+- Khi tùy biến, dùng kích thước pixel cố định theo Desktop First và giữ `w-auto`. `imageClassName` áp dụng cho cả hai ảnh; các class chọn biến thể được giữ nội bộ.
 
 ## Basic Usage
 
@@ -72,7 +72,12 @@ export function FooterBranding() {
     <div className="py-8">
       <Logo
         className="opacity-90 hover:opacity-100"
-        imageClassName="sm:size-16"
+        imageClassName="
+          h-[120px]
+          max-pc:h-[112px]
+          max-tablet:h-[96px]
+          max-mobile:h-[80px]
+        "
       />
     </div>
   );
@@ -98,10 +103,11 @@ export function FooterBranding() {
 
 ## Styling
 
-- Font chữ in hoa có khoảng cách dãn chữ sang trọng (`tracking-[0.06em]`).
-- Phụ đề canh giữa nhỏ gọn (`tracking-[0.08em]`).
+- Tên thương hiệu và phụ đề nằm trong ảnh; không render thêm text trùng lặp.
+- `object-contain`, `w-auto` và kích thước gốc giữ đúng tỷ lệ ảnh. `sizes` của ảnh ngang lần lượt là 147px, 252px và 273px theo breakpoint.
 - Tải ảnh ưu tiên (`loading="eager"`) để tối ưu chỉ số LCP (Largest Contentful Paint) trên header.
 
 ## Implementation Notes
 
-- Ảnh thương hiệu được lưu tại `/brand/game-piece-labs-mark.png`.
+- Ảnh ngang: `/brand/game-piece-labs-logo-horizontal.png`.
+- Favicon được tạo từ `/brand/game-piece-labs.ico` và lưu tại `src/app/favicon.ico` theo convention Next.js, gồm các cỡ 16, 32, 48, 64 và 256px.

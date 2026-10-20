@@ -79,3 +79,10 @@
 - Typed mock data cho Header/Footer đặt tại `src/features/navigation/data` và type đặt tại `src/features/navigation/types`.
 - Footer presentation nhận `FooterContent` qua props; không hard-code API URL hoặc gọi backend trong component.
 - Currency/language selector chỉ là UI mock local cho đến khi user yêu cầu nối persistence/API thật.
+
+## Reponsive Rules
+
+- Không dùng breakpoint prefix tailwind sm, md, lg, xl, 2xl, ...
+- Dựa vào file `src/app/global.css`
+- Thiết kế theo Responsive Desktop First đã định nghĩa max-pc -> max-laptop -> max-tablet -> max-mobile
+- Khi dùng Breakpoint thì khi đặt tiền tố khác nhau để reponsive cho component đó thì phải xuống hàng để dễ đọc, còn breakpoint tiền tố giống nhau thì viết chung 1 hàng
