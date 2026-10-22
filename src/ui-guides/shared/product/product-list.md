@@ -8,7 +8,7 @@ Tạo ra bố cục hiển thị danh sách sản phẩm chuẩn mực cho toàn
 
 ## Use Cases
 
-- Trang danh mục các bộ sưu tập (`board-game-inserts`, `by-game-name`, `ox-product-family`, `tokens`).
+- Trang danh mục các bộ sưu tập (`board-game-inserts`, `by-game-name`, `box-protection`, `tokens`).
 - Danh sách sản phẩm gợi ý hoặc sản phẩm bán chạy trong trang Chi tiết sản phẩm.
 
 ## When to Use

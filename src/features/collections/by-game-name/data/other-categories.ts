@@ -14,7 +14,7 @@ export const otherCategories = [
     imageSrc:
       "/images/laserox/41c391c6446a49347a89f4af9aa8fc15_acae2f06-84a4-48aa-8a57-5f5ae9fa1be8.jpg",
     imageAlt: "Wooden trays from the OX product family",
-    href: "ox-product-family",
+    href: "box-protection",
     isArrow: false,
   },
   {

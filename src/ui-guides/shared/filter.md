@@ -8,7 +8,7 @@ Cung cấp điểm truy cập thống nhất (single point of entry) cho 4 loạ
 
 ## Use Cases
 
-- Trang danh mục sản phẩm (`board-game-inserts`, `by-game-name`, `ox-product-family`, `tokens`).
+- Trang danh mục sản phẩm (`board-game-inserts`, `by-game-name`, `box-protection`, `tokens`).
 - Thanh công cụ lọc và sắp xếp sản phẩm trên desktop và mobile.
 
 ## When to Use

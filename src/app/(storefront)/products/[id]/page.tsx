@@ -1,3 +1,5 @@
+import type { Metadata } from "next";
+
 import BreadCrumbs from "@/components/shared/breadcrumbs";
 import { PlayerReviewsSection } from "@/components/shared/player-reviews-section";
 import { ProductList } from "@/components/shared/product/product-list";
@@ -15,6 +17,27 @@ import { getProductReviews } from "@/features/reviews/services/reviews-api";
 
 interface ProductDetailsPageProps {
   params: Promise<{ id: string }>;
+}
+
+export async function generateMetadata({
+  params,
+}: ProductDetailsPageProps): Promise<Metadata> {
+  const { id: productId } = await params;
+  const product = getMockProductById(productId);
+
+  if (!product) {
+    return {
+      title: "Không tìm thấy sản phẩm",
+      description: "Sản phẩm bạn đang tìm hiện không tồn tại tại GamePiece Labs.",
+    };
+  }
+
+  return {
+    title: product.name,
+    description:
+      product.description ??
+      `Khám phá ${product.name} và các phụ kiện board game tại GamePiece Labs.`,
+  };
 }
 
 export default async function ProductDetailsPage({

@@ -11,7 +11,7 @@ Tạo điểm nhấn thị giác cho danh mục sản phẩm, bộ sưu tập ho
 - Lưới danh mục game nổi bật trên Trang chủ (`game-categories`, `gear-categories`).
 - Khối sản phẩm sắp ra mắt (`upcoming-products-section`).
 - Khối liên kết thương hiệu/công ty (`company-links-section`).
-- Các trang bộ sưu tập (`board-game-inserts`, `by-game-name`, `ox-product-family`, `tokens`).
+- Các trang bộ sưu tập (`board-game-inserts`, `by-game-name`, `box-protection`, `tokens`).
 
 ## When to Use
 

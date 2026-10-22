@@ -8,7 +8,7 @@ Giúp người dùng nhanh chóng thu hẹp phạm vi tìm kiếm theo chủng l
 
 ## Use Cases
 
-- Lọc danh mục loại sản phẩm trên các trang bộ sưu tập (`board-game-inserts`, `by-game-name`, `ox-product-family`, `tokens`).
+- Lọc danh mục loại sản phẩm trên các trang bộ sưu tập (`board-game-inserts`, `by-game-name`, `box-protection`, `tokens`).
 - Lọc phân loại trong `Filter` facade hoặc `FilterMobileGroup`.
 
 ## When to Use

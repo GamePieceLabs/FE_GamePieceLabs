@@ -9,7 +9,7 @@ Tạo khung hình banner lớn cho phần mở đầu trang (Hero section), hìn
 ## Use Cases
 
 - Banner mở đầu trang Giới thiệu (`about-hero.tsx`).
-- Banner mở đầu các trang bộ sưu tập (`board-game-inserts`, `by-game-name`, `ox-product-family`, `tokens`).
+- Banner mở đầu các trang bộ sưu tập (`board-game-inserts`, `by-game-name`, `box-protection`, `tokens`).
 - Khung ảnh bên trong component chia đôi nội dung `SplitContentSection`.
 
 ## When to Use

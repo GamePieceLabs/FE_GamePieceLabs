@@ -27,7 +27,7 @@ Các layout dạng lưới (`content` mặc định hoặc `imageList`) đặt `
 ## Use Cases
 
 - Các khối phân đoạn trên Trang chủ (`upcoming-products-section`, `company-links-section`).
-- Khối danh mục hoặc giới thiệu trên các trang bộ sưu tập (`board-game-inserts`, `by-game-name`, `ox-product-family`, `tokens`).
+- Khối danh mục hoặc giới thiệu trên các trang bộ sưu tập (`board-game-inserts`, `by-game-name`, `box-protection`, `tokens`).
 - Khối sản phẩm liên quan hoặc thông tin bổ sung trên trang Chi tiết sản phẩm.
 
 ## When to Use

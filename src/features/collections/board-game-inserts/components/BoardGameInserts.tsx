@@ -211,13 +211,13 @@ export function BoardGameInserts({ data }: BoardGameInsertsProps) {
         />
       </SectionTitle>
 
-      <MarqueeText
+      {/* <MarqueeText
         title="Mỗi lần chơi là một lần khám phá"
         speed={50}
         fontSize="text-8xl"
-      />
+      /> */}
 
-      <SectionTitle>
+      {/* <SectionTitle>
         <div className="grid max-mobile:grid-cols-1 max-tablet:grid-cols-1 grid-cols-2 bg-white rounded-lg">
           <ImageFrame
             src={editorial.imageSrc}
@@ -239,15 +239,14 @@ export function BoardGameInserts({ data }: BoardGameInsertsProps) {
             <h2 className="font-bold max-pc:text-[clamp(32px,2.5000vw,48px)] text-[48px] max-laptop:w-[clamp(400px,48.08vw-92.31px,600px)] max-tablet:w-[clamp(350px,104.17vw-266.67px,800px)] text-neutral-950 mt-2">
               {editorial.heading}
             </h2>
-            {/* Thẻ p đã được chỉnh sửa */}
             <p className="max-mobile:px-5 max-mobile:text-[14px] text-[16px] max-mobile:w-[clamp(200px,78.1250vw,500px)] max-tablet:w-[clamp(500px,63.4766vw,650px)] max-laptop:w-[clamp(368px,35.5556vw,512px)] max-pc:w-[clamp(512px,33.3333vw,640px)] w-[clamp(512px,33.3333vw,640px)] text-center mt-2 text-neutral-700">
               {editorial.description}
             </p>
           </div>
         </div>
-      </SectionTitle>
+      </SectionTitle> */}
 
-      <SectionTitle
+      {/* <SectionTitle
         title="Một số danh mục khác"
         more={{ label: "Xem tất cả danh mục", href: "#" }}
         className="pb-16 sm:pb-20"
@@ -262,7 +261,7 @@ export function BoardGameInserts({ data }: BoardGameInsertsProps) {
             />
           ))}
         </CardImageTitleGrid>
-      </SectionTitle>
+      </SectionTitle> */}
     </div>
   );
 }

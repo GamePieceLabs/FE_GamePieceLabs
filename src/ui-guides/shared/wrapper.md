@@ -8,7 +8,7 @@ Tạo ra một khung nội dung thống nhất cho toàn bộ các trang bộ s�
 
 ## Use Cases
 
-- Bao bọc toàn bộ nội dung của các trang bộ sưu tập (`board-game-inserts`, `by-game-name`, `ox-product-family`, `tokens`).
+- Bao bọc toàn bộ nội dung của các trang bộ sưu tập (`board-game-inserts`, `by-game-name`, `box-protection`, `tokens`).
 - Khung giới hạn nội dung chữ bên trong component `ImageFrame`.
 
 ## When to Use

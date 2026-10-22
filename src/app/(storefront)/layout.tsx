@@ -7,9 +7,8 @@ import { footerContent } from "@/features/navigation/data/footer-navigation";
 import { socialMediaItems } from "@/features/navigation/data/social-media";
 
 export const metadata: Metadata = {
-  title: "Board Game Store",
   description:
-    "Discover board games and tabletop accessories at Game Piece Labs.",
+    "Chuyên cung cấp các phụ kiện boardgame chất lượng cao, từ token, meeple, đến các vật dụng hỗ trợ chơi game. Tận hưởng trải nghiệm chơi game tốt nhất với GamePiece Labs.",
 };
 
 export default function ClientLayout({

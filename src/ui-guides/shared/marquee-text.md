@@ -9,7 +9,7 @@ Tạo điểm nhấn thị giác năng động, hiện đại và phân tách c�
 ## Use Cases
 
 - Ngăn cách giữa các block sản phẩm trên Trang chủ (`page.tsx`).
-- Đầu hoặc chân trang bộ sưu tập (`board-game-inserts`, `by-game-name`, `ox-product-family`, `tokens`).
+- Đầu hoặc chân trang bộ sưu tập (`board-game-inserts`, `by-game-name`, `box-protection`, `tokens`).
 - Banner thông báo sự kiện hoặc khẩu hiệu thương hiệu lớn.
 
 ## When to Use

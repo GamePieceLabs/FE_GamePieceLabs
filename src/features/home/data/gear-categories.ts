@@ -13,7 +13,7 @@ export const gearCategories = [
     title: "Bọc hộp Boardgame",
     imageSrc: "/images/legacy/banner3.jpg",
     imageAlt: "Bọc hộp bảo vệ boardgame",
-    href: "ox-product-family",
+    href: "box-protection",
     imagePosition: "48% center",
   },
   {

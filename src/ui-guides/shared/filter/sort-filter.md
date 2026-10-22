@@ -8,7 +8,7 @@ Cho phép người dùng thay đổi thứ tự hiển thị danh sách sản ph
 
 ## Use Cases
 
-- Thanh công cụ lọc trên các trang bộ sưu tập (`board-game-inserts`, `by-game-name`, `ox-product-family`, `tokens`).
+- Thanh công cụ lọc trên các trang bộ sưu tập (`board-game-inserts`, `by-game-name`, `box-protection`, `tokens`).
 - Tùy chọn sắp xếp trong `Filter` facade hoặc `FilterMobileGroup`.
 
 ## When to Use

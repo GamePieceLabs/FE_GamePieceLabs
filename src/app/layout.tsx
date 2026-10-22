@@ -3,8 +3,8 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: {
-    default: "Game Piece Labs",
-    template: "%s | Game Piece Labs",
+    default: "GamePiece Labs | Phụ kiện Boardgame",
+    template: "GamePiece Labs | %s",
   },
   description: "Board game và phụ kiện bàn chơi cho mọi buổi chơi.",
 };

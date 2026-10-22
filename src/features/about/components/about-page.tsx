@@ -13,8 +13,8 @@ export function AboutPage({ content }: AboutPageProps) {
     <>
       <AboutHero content={content.hero} />
       <AboutStory content={content.story} />
-      <AboutCraftsmanship content={content.craftsmanship} />
-      <AboutValues content={content.values} />
+      {/* <AboutCraftsmanship content={content.craftsmanship} />
+      <AboutValues content={content.values} /> */}
     </>
   );
 }

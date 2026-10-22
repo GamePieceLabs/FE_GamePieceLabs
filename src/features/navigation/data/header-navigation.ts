@@ -15,7 +15,7 @@ export const productMenuItems: HeaderNavigationItem[] = [
     label: "Organizer/Insert Boardgame",
     href: "/collections/board-game-inserts",
   },
-  { label: "Bọc hộp Boardgame", href: "/collections/ox-product-family" },
+  { label: "Bọc hộp Boardgame", href: "/collections/box-protection" },
   { label: "Phụ kiện Boargame", href: "/collections/tokens" },
 ];
 
